@@ -1,0 +1,21 @@
+[
+	{
+		"modid": "RiftCraft",
+		"name": "RiftCraft",
+		"description": "Create rifts to other places.",
+		"version": "0.0.1-RAW",
+		"mcversion": "1.7.10",
+		"url": "",
+		"updateUrl": "",
+		"authorList": [
+			"Scribblon"
+		],
+		"credits": "Scribblon",
+		"logoFile": "",
+		"screenshots": [
+		],
+		"parent":"",
+		"dependencies": [
+		]
+	}
+]
