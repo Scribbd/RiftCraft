@@ -1,2 +1,8 @@
+#Items
 item.riftcraft:enderShard.name=Enderpearl Shard
+
+#Blocks
 tile.riftcraft:clearQuartz.name= Clear Quartz
+
+#Tabs
+itemGroup.riftcraft=RiftCraft

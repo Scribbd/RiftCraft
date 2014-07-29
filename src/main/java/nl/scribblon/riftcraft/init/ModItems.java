@@ -5,11 +5,13 @@ import nl.scribblon.riftcraft.item.EnderShard;
 import nl.scribblon.riftcraft.item.RCItem;
 import nl.scribblon.riftcraft.item.RiftShard;
 import nl.scribblon.riftcraft.reference.Names;
+import nl.scribblon.riftcraft.reference.Reference;
 
 /**
  * Created by Scribblon for RiftCraft.
  * Date Creation: 29-7-2014
  */
+@GameRegistry.ObjectHolder(Reference.MOD_ID)
 public class ModItems {
 
     public static final RCItem enderShard = new EnderShard();

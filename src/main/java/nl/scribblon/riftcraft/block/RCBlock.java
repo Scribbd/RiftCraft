@@ -5,6 +5,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import nl.scribblon.riftcraft.creativetab.RCCreativeTab;
 import nl.scribblon.riftcraft.reference.Textures;
 
 /**
@@ -15,10 +16,11 @@ public class RCBlock extends Block {
 
     public RCBlock(Material material) {
         super(material);
+        this.setCreativeTab(RCCreativeTab.RC_TAB);
     }
 
     public RCBlock(){
-        super(Material.rock);
+        this(Material.rock);
     }
 
     @Override

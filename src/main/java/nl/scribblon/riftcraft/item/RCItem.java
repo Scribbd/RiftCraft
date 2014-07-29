@@ -5,6 +5,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import nl.scribblon.riftcraft.creativetab.RCCreativeTab;
 import nl.scribblon.riftcraft.reference.Settings;
 import nl.scribblon.riftcraft.reference.Textures;
 import nl.scribblon.riftcraft.util.LogHelper;
@@ -17,6 +18,7 @@ public class RCItem extends Item{
 
     public RCItem(){
         super();
+        this.setCreativeTab(RCCreativeTab.RC_TAB);
     }
 
     @Override
