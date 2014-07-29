@@ -3,8 +3,7 @@ package nl.scribblon.riftcraft.handler;
 import cpw.mods.fml.client.event.ConfigChangedEvent;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.common.config.Configuration;
-import nl.scribblon.riftcraft.reference.DefaultConfigurationProperties;
-import nl.scribblon.riftcraft.reference.DefaultConfigurationValues;
+import nl.scribblon.riftcraft.reference.DefaultConfigurations;
 import nl.scribblon.riftcraft.reference.Reference;
 import nl.scribblon.riftcraft.reference.Settings;
 import nl.scribblon.riftcraft.util.LogHelper;
@@ -52,31 +51,30 @@ public class ConfigurationHandler {
     private static void loadConfiguration() {
 
         //Main settings
-        configuration.addCustomCategoryComment(DefaultConfigurationValues.GENERAL_CATEGORY_NAME, DefaultConfigurationValues.GENERAL_CATEGORY_COMMENT);
+        configuration.addCustomCategoryComment(DefaultConfigurations.Values.GENERAL_CATEGORY_NAME, DefaultConfigurations.Values.GENERAL_CATEGORY_COMMENT);
 
-        Settings.General.language = configuration.get(DefaultConfigurationValues.GENERAL_CATEGORY_NAME, DefaultConfigurationValues.LANGUAGE_NAME, DefaultConfigurationValues.LANGUAGE_VALUE, DefaultConfigurationValues.LANGUAGE_COMMENT).getString();
-        Settings.General.isHTExternalPowerRequired = configuration.get(DefaultConfigurationValues.GENERAL_CATEGORY_NAME, DefaultConfigurationValues.HIGH_TECH_POWER_NAME, DefaultConfigurationValues.HIGH_TECH_POWER_VALUE, DefaultConfigurationValues.HIGH_TECH_POWER_COMMENT).getBoolean(DefaultConfigurationValues.HIGH_TECH_POWER_VALUE);
-        Settings.General.isDeathProtected = configuration.get(DefaultConfigurationValues.GENERAL_CATEGORY_NAME, DefaultConfigurationValues.DEATH_PROTECTION_NAME, DefaultConfigurationValues.DEATH_PROTECTION_VALUE, DefaultConfigurationValues.DEATH_PROTECTION_COMMENT).getBoolean(DefaultConfigurationValues.DEATH_PROTECTION_VALUE);
-        Settings.General.isAbuseProtected = configuration.get(DefaultConfigurationValues.GENERAL_CATEGORY_NAME, DefaultConfigurationValues.ABUSE_PROTECTION_NAME, DefaultConfigurationValues.ABUSE_PROTECTION_VALUE, DefaultConfigurationValues.ABUSE_PROTECTION_COMMENT).getBoolean(DefaultConfigurationValues.ABUSE_PROTECTION_VALUE);
-        Settings.General.isWorldProtected = configuration.get(DefaultConfigurationValues.GENERAL_CATEGORY_NAME, DefaultConfigurationValues.VOID_PROTECTION_NAME, DefaultConfigurationValues.VOID_PROTECTION_VALUE, DefaultConfigurationValues.VOID_PROTECTION_COMMENT).getBoolean(DefaultConfigurationValues.VOID_PROTECTION_VALUE);
+        Settings.General.isHTExternalPowerRequired = configuration.get(DefaultConfigurations.Values.GENERAL_CATEGORY_NAME, DefaultConfigurations.Values.HIGH_TECH_POWER_NAME, DefaultConfigurations.Values.HIGH_TECH_POWER_VALUE, DefaultConfigurations.Values.HIGH_TECH_POWER_COMMENT).getBoolean(DefaultConfigurations.Values.HIGH_TECH_POWER_VALUE);
+        Settings.General.isDeathProtected = configuration.get(DefaultConfigurations.Values.GENERAL_CATEGORY_NAME, DefaultConfigurations.Values.DEATH_PROTECTION_NAME, DefaultConfigurations.Values.DEATH_PROTECTION_VALUE, DefaultConfigurations.Values.DEATH_PROTECTION_COMMENT).getBoolean(DefaultConfigurations.Values.DEATH_PROTECTION_VALUE);
+        Settings.General.isAbuseProtected = configuration.get(DefaultConfigurations.Values.GENERAL_CATEGORY_NAME, DefaultConfigurations.Values.ABUSE_PROTECTION_NAME, DefaultConfigurations.Values.ABUSE_PROTECTION_VALUE, DefaultConfigurations.Values.ABUSE_PROTECTION_COMMENT).getBoolean(DefaultConfigurations.Values.ABUSE_PROTECTION_VALUE);
+        Settings.General.isWorldProtected = configuration.get(DefaultConfigurations.Values.GENERAL_CATEGORY_NAME, DefaultConfigurations.Values.VOID_PROTECTION_NAME, DefaultConfigurations.Values.VOID_PROTECTION_VALUE, DefaultConfigurations.Values.VOID_PROTECTION_COMMENT).getBoolean(DefaultConfigurations.Values.VOID_PROTECTION_VALUE);
 
         //World Generation
-        configuration.addCustomCategoryComment(DefaultConfigurationValues.GENERATION_CATEGORY_NAME, DefaultConfigurationValues.GENERATION_CATEGORY_COMMENT);
+        configuration.addCustomCategoryComment(DefaultConfigurations.Values.GENERATION_CATEGORY_NAME, DefaultConfigurations.Values.GENERATION_CATEGORY_COMMENT);
 
-        Settings.Generation.areStructuresGenerated = configuration.get(DefaultConfigurationValues.GENERATION_CATEGORY_NAME, DefaultConfigurationValues.GENERATION_NAME, DefaultConfigurationValues.GENERATION_VALUE, DefaultConfigurationValues.GENERATION_COMMENT).getBoolean(DefaultConfigurationValues.GENERATION_VALUE);
-        Settings.Generation.areRiftsRegenerating = configuration.get(DefaultConfigurationValues.GENERATION_CATEGORY_NAME, DefaultConfigurationValues.REGENERATE_NATURAL_NAME, DefaultConfigurationValues.REGENERATE_NATURAL_VALUE, DefaultConfigurationValues.REGENERATE_NATURAL_COMMENT).getBoolean(DefaultConfigurationValues.REGENERATE_NATURAL_VALUE);
+        Settings.Generation.areStructuresGenerated = configuration.get(DefaultConfigurations.Values.GENERATION_CATEGORY_NAME, DefaultConfigurations.Values.GENERATION_NAME, DefaultConfigurations.Values.GENERATION_VALUE, DefaultConfigurations.Values.GENERATION_COMMENT).getBoolean(DefaultConfigurations.Values.GENERATION_VALUE);
+        Settings.Generation.areRiftsRegenerating = configuration.get(DefaultConfigurations.Values.GENERATION_CATEGORY_NAME, DefaultConfigurations.Values.REGENERATE_NATURAL_NAME, DefaultConfigurations.Values.REGENERATE_NATURAL_VALUE, DefaultConfigurations.Values.REGENERATE_NATURAL_COMMENT).getBoolean(DefaultConfigurations.Values.REGENERATE_NATURAL_VALUE);
 
         //Conversion Variables
-        configuration.addCustomCategoryComment(DefaultConfigurationValues.CONVERSION_CATEGORY_NAME, DefaultConfigurationValues.CONVERSION_CATEGORY_COMMENT);
+        configuration.addCustomCategoryComment(DefaultConfigurations.Values.CONVERSION_CATEGORY_NAME, DefaultConfigurations.Values.CONVERSION_CATEGORY_COMMENT);
         
-        Settings.Conversion.rfConversionRate = configuration.get(DefaultConfigurationValues.CONVERSION_CATEGORY_NAME, DefaultConfigurationValues.RF_NAME, DefaultConfigurationValues.RF_VALUE).getDouble(DefaultConfigurationValues.RF_VALUE);
-        Settings.Conversion.euConversionRate = configuration.get(DefaultConfigurationValues.CONVERSION_CATEGORY_NAME, DefaultConfigurationValues.EU_NAME, DefaultConfigurationValues.EU_VALUE).getDouble(DefaultConfigurationValues.EU_VALUE);
-        Settings.Conversion.mjConversionRate = configuration.get(DefaultConfigurationValues.CONVERSION_CATEGORY_NAME, DefaultConfigurationValues.MJ_NAME, DefaultConfigurationValues.MJ_VALUE).getDouble(DefaultConfigurationValues.MJ_VALUE);
+        Settings.Conversion.rfConversionRate = configuration.get(DefaultConfigurations.Values.CONVERSION_CATEGORY_NAME, DefaultConfigurations.Values.RF_NAME, DefaultConfigurations.Values.RF_VALUE).getDouble(DefaultConfigurations.Values.RF_VALUE);
+        Settings.Conversion.euConversionRate = configuration.get(DefaultConfigurations.Values.CONVERSION_CATEGORY_NAME, DefaultConfigurations.Values.EU_NAME, DefaultConfigurations.Values.EU_VALUE).getDouble(DefaultConfigurations.Values.EU_VALUE);
+        Settings.Conversion.mjConversionRate = configuration.get(DefaultConfigurations.Values.CONVERSION_CATEGORY_NAME, DefaultConfigurations.Values.MJ_NAME, DefaultConfigurations.Values.MJ_VALUE).getDouble(DefaultConfigurations.Values.MJ_VALUE);
 
         //Debug Settings
-        configuration.addCustomCategoryComment(DefaultConfigurationValues.DEBUG_CATEGORY_NAME, DefaultConfigurationValues.DEBUG_CATEGORY_COMMENT);
+        configuration.addCustomCategoryComment(DefaultConfigurations.Values.DEBUG_CATEGORY_NAME, DefaultConfigurations.Values.DEBUG_CATEGORY_COMMENT);
 
-        Settings.Debug.isDebugging = configuration.get(DefaultConfigurationValues.DEBUG_CATEGORY_NAME, DefaultConfigurationValues.DEBUG_MODE_NAME, DefaultConfigurationValues.DEBUG_MODE_VALUE, DefaultConfigurationValues.DEBUG_MODE_COMMENT).getBoolean(DefaultConfigurationValues.DEBUG_MODE_VALUE);
+        Settings.Debug.isDebugging = configuration.get(DefaultConfigurations.Values.DEBUG_CATEGORY_NAME, DefaultConfigurations.Values.DEBUG_MODE_NAME, DefaultConfigurations.Values.DEBUG_MODE_VALUE, DefaultConfigurations.Values.DEBUG_MODE_COMMENT).getBoolean(DefaultConfigurations.Values.DEBUG_MODE_VALUE);
 
         //Setup config
         setupConfigurationProperties();
@@ -99,12 +97,12 @@ public class ConfigurationHandler {
     }
 
     private static void setupConfigurationProperties(){
-        configuration.setCategoryPropertyOrder(DefaultConfigurationValues.GENERAL_CATEGORY_NAME, DefaultConfigurationProperties.GENERAL_ORDER);
-        configuration.setCategoryPropertyOrder(DefaultConfigurationValues.GENERATION_CATEGORY_NAME, DefaultConfigurationProperties.GENERATING_ORDER);
+        configuration.setCategoryPropertyOrder(DefaultConfigurations.Values.GENERAL_CATEGORY_NAME, DefaultConfigurations.Properties.GENERAL_ORDER);
+        configuration.setCategoryPropertyOrder(DefaultConfigurations.Values.GENERATION_CATEGORY_NAME, DefaultConfigurations.Properties.GENERATING_ORDER);
 
-        configuration.setCategoryRequiresMcRestart(DefaultConfigurationValues.CONVERSION_CATEGORY_NAME, DefaultConfigurationProperties.CONVERSION_REQUIRES_REBOOT);
+        configuration.setCategoryRequiresMcRestart(DefaultConfigurations.Values.CONVERSION_CATEGORY_NAME, DefaultConfigurations.Properties.CONVERSION_REQUIRES_REBOOT);
 
-        configuration.getCategory(DefaultConfigurationValues.DEBUG_CATEGORY_NAME).setShowInGui(DefaultConfigurationProperties.IS_DEBUG_GUIABLE);
+        configuration.getCategory(DefaultConfigurations.Values.DEBUG_CATEGORY_NAME).setShowInGui(DefaultConfigurations.Properties.IS_DEBUG_GUIABLE);
     }
 
 }

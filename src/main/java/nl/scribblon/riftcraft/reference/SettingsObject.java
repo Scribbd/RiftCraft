@@ -9,18 +9,9 @@ package nl.scribblon.riftcraft.reference;
 public class SettingsObject {
 
     public class General {
-        private String language;
         private boolean isAbuseProtected;
         private boolean isDeathProtected;
         private boolean isWorldProtected;
-
-        public String getLanguage() {
-            return language;
-        }
-
-        public void setLanguage(String language) {
-            this.language = language;
-        }
 
         public boolean isAbuseProtected() {
             return isAbuseProtected;

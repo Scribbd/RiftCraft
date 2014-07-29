@@ -5,19 +5,19 @@ package nl.scribblon.riftcraft.reference;
  * Date Creation: 17-6-2014
  */
 public class Names {
-    public static enum Blocks {
+    public static class Blocks {
+        public static final String CLEARQUARTZ = "clearQuartz";
+    }
+
+    public static class Items {
+        public static final String ENDERSHARD = "enderShard";
+        public static final String RIFTSHARD = "riftShard";
+    }
+
+    public static class NBT {
 
     }
 
-    public static enum Items {
-
-
-    }
-
-    public static enum NBT {
-
-    }
-
-    public static enum Containers {
+    public static class Containers {
     }
 }

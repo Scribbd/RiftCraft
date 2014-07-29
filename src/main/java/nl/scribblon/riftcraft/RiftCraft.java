@@ -1,11 +1,13 @@
 package nl.scribblon.riftcraft;
 
-import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.*;
 import cpw.mods.fml.common.event.FMLInterModComms.IMCEvent;
 import nl.scribblon.riftcraft.handler.ConfigurationHandler;
+import nl.scribblon.riftcraft.init.ModBlocks;
+import nl.scribblon.riftcraft.init.ModHandlers;
+import nl.scribblon.riftcraft.init.ModItems;
 import nl.scribblon.riftcraft.proxy.IRCProxy;
 import nl.scribblon.riftcraft.reference.Reference;
 import nl.scribblon.riftcraft.reference.Settings;
@@ -47,7 +49,13 @@ public class RiftCraft {
 
         // Config loading, initialize networkHandeling, keybinding, items, blocks
         ConfigurationHandler.init(event.getSuggestedConfigurationFile());
-        FMLCommonHandler.instance().bus().register(new ConfigurationHandler());
+
+        // Register Block & Items
+        ModBlocks.init();
+        ModItems.init();
+
+        // Register Handler
+        ModHandlers.init();
 
         if(Settings.Debug.isDebugging)
             LogHelper.info("Pre-Init Passed");

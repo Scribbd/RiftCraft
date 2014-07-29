@@ -42,10 +42,4 @@ public class LogHelper {
     public static void warn(Object object){
         log(Level.WARN, object);
     }
-
-    public static void preDebugCheck(boolean preDebug){
-        if (preDebug) {
-
-        }
-    }
 }

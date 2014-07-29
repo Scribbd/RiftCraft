@@ -2,12 +2,9 @@ package nl.scribblon.riftcraft.client.gui;
 
 import cpw.mods.fml.client.config.GuiConfig;
 import net.minecraft.client.gui.GuiScreen;
-import net.minecraftforge.common.config.ConfigElement;
 import nl.scribblon.riftcraft.handler.ConfigurationHandler;
-import nl.scribblon.riftcraft.reference.DefaultConfigurationValues;
 import nl.scribblon.riftcraft.reference.Reference;
 import nl.scribblon.riftcraft.util.GUIConfigHelper;
-import nl.scribblon.riftcraft.util.LogHelper;
 
 /**
  * Created by Scribblon for RiftCraft.

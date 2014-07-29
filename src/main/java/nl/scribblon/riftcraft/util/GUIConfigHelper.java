@@ -3,8 +3,6 @@ package nl.scribblon.riftcraft.util;
 import cpw.mods.fml.client.config.IConfigElement;
 import net.minecraftforge.common.config.ConfigElement;
 import net.minecraftforge.common.config.Configuration;
-import nl.scribblon.riftcraft.handler.ConfigurationHandler;
-import nl.scribblon.riftcraft.reference.DefaultConfigurationValues;
 
 import java.util.LinkedList;
 import java.util.List;

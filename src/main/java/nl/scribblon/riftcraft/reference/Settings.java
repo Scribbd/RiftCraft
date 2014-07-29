@@ -6,7 +6,6 @@ package nl.scribblon.riftcraft.reference;
  */
 public class Settings {
     public static class General {
-        public static String language;
         public static boolean isHTExternalPowerRequired;
         public static boolean isAbuseProtected;
         public static boolean isDeathProtected;
