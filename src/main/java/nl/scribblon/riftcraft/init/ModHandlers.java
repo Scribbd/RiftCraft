@@ -2,7 +2,10 @@ package nl.scribblon.riftcraft.init;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.EventBus;
+import net.minecraftforge.common.MinecraftForge;
 import nl.scribblon.riftcraft.handler.ConfigurationHandler;
+import nl.scribblon.riftcraft.handler.EnderPearlHandler;
+import nl.scribblon.riftcraft.handler.TestHandler;
 
 /**
  * Created by Scribblon for RiftCraft.
@@ -10,11 +13,18 @@ import nl.scribblon.riftcraft.handler.ConfigurationHandler;
  */
 public class ModHandlers {
 
-    public static final ConfigurationHandler configurationHandler = new ConfigurationHandler();
+    public static final ConfigurationHandler CONFIGURATION_HANDLER = new ConfigurationHandler();
+    public static final TestHandler PLAYER_HANDLER = new TestHandler();
+    public static final EnderPearlHandler ENDER_TOSS_HANDLER = new EnderPearlHandler();
 
     public static void init(){
         EventBus fmlBus = FMLCommonHandler.instance().bus();
+        fmlBus.register(CONFIGURATION_HANDLER);
 
-        fmlBus.register(configurationHandler);
+        EventBus forgeBus = MinecraftForge.EVENT_BUS;
+        forgeBus.register(PLAYER_HANDLER);
+        forgeBus.register(ENDER_TOSS_HANDLER);
+
+
     }
 }

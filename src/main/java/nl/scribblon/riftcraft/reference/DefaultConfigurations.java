@@ -14,6 +14,7 @@ public class DefaultConfigurations {
      * Created by Scribblon for RiftCraft.
      * Date Creation: 26-7-2014
      */
+    //TODO make config localized
     public static class Values {
         /*
          * General Default Configuration Values + Comments

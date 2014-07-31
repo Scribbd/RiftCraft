@@ -4,10 +4,12 @@ import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.*;
 import cpw.mods.fml.common.event.FMLInterModComms.IMCEvent;
+import net.minecraftforge.common.MinecraftForge;
 import nl.scribblon.riftcraft.handler.ConfigurationHandler;
 import nl.scribblon.riftcraft.init.ModBlocks;
 import nl.scribblon.riftcraft.init.ModHandlers;
 import nl.scribblon.riftcraft.init.ModItems;
+import nl.scribblon.riftcraft.init.ModRecipes;
 import nl.scribblon.riftcraft.proxy.IRCProxy;
 import nl.scribblon.riftcraft.reference.Reference;
 import nl.scribblon.riftcraft.reference.Settings;
@@ -54,9 +56,6 @@ public class RiftCraft {
         ModBlocks.init();
         ModItems.init();
 
-        // Register Handler
-        ModHandlers.init();
-
         if(Settings.Debug.isDebugging)
             LogHelper.info("Pre-Init Passed");
     }
@@ -66,7 +65,14 @@ public class RiftCraft {
     {
         if(Settings.Debug.isDebugging)
             LogHelper.info("Init Started");
-        // Gui Handler, Tile entities, Rendering, Even Handlers, start registering Recipies
+        // Gui Handler, Tile entities, Rendering, Even Handlers, start registering Recipes
+
+        //Recipes
+        ModRecipes.init();
+
+        // Register Handler
+        ModHandlers.init();
+
         if(Settings.Debug.isDebugging)
             LogHelper.info("Init Passed");
     }
@@ -77,6 +83,7 @@ public class RiftCraft {
         if(Settings.Debug.isDebugging)
             LogHelper.info("Post-Init Started");
         //
+
         if(Settings.Debug.isDebugging)
             LogHelper.info("Post-Init Passed");
     }

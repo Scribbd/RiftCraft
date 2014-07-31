@@ -19,7 +19,7 @@ public class ConfigurationHandler {
     public static Configuration configuration;
 
     /**
-     * Initializes the configurationHandler
+     * Initializes the CONFIGURATION_HANDLER
      * @param configurationFile File-Object with location of config-file
      */
     public static void init(File configurationFile) {
