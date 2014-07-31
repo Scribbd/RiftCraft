@@ -10,6 +10,7 @@ import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.oredict.OreDictionary;
 import nl.scribblon.riftcraft.entity.RCEntityItem;
 import nl.scribblon.riftcraft.event.EntityItemDeathEvent;
+import nl.scribblon.riftcraft.event.EntityItemHurtEvent;
 import nl.scribblon.riftcraft.reference.Settings;
 import nl.scribblon.riftcraft.util.LogHelper;
 
@@ -56,8 +57,13 @@ public class EnderPearlHandler {
     }
 
     @SubscribeEvent
-    public void onItemDeath(EntityItemDeathEvent event){
+     public void onItemDeath(EntityItemDeathEvent event){
+        LogHelper.info("Item just died! Yes!");
+    }
 
+    @SubscribeEvent
+    public void onItemHurt(EntityItemHurtEvent event){
+        LogHelper.info("Item just got hurt! Nooohs!");
     }
 
 }

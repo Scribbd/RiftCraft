@@ -19,8 +19,8 @@ public class TestHandler {
 
     @SubscribeEvent
     public void onItemTossEvent(ItemTossEvent event){
-        LogHelper.info("Just dropped " + event.entityItem.getEntityItem().getDisplayName());
-        LogHelper.info("The itemEntity has " + event.entity.toString());
+//        LogHelper.info("Just dropped " + event.entityItem.getEntityItem().getDisplayName());
+//        LogHelper.info("The itemEntity has " + event.entity.toString());
     }
 
     @SubscribeEvent
