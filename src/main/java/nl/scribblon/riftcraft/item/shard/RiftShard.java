@@ -1,5 +1,6 @@
-package nl.scribblon.riftcraft.item;
+package nl.scribblon.riftcraft.item.shard;
 
+import nl.scribblon.riftcraft.item.RCItem;
 import nl.scribblon.riftcraft.reference.Names;
 
 /**

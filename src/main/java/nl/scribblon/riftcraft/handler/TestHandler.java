@@ -50,7 +50,7 @@ public class TestHandler {
 
     @SubscribeEvent
     public void onItemHurt(EntityItemHurtEvent event){
-        LogHelper.info("Wow! " + event.entity + " was hurt by " + event.damageSource + "how is that possible!");
+        LogHelper.info("Wow! " + event.entity + " was hurt by " + event.damageSource + " how is that possible!");
     }
 
 }

@@ -1,9 +1,9 @@
 package nl.scribblon.riftcraft.init;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import nl.scribblon.riftcraft.item.EnderShard;
+import nl.scribblon.riftcraft.item.shard.EnderShard;
 import nl.scribblon.riftcraft.item.RCItem;
-import nl.scribblon.riftcraft.item.RiftShard;
+import nl.scribblon.riftcraft.item.shard.RiftShard;
 import nl.scribblon.riftcraft.reference.Names;
 import nl.scribblon.riftcraft.reference.Reference;
 

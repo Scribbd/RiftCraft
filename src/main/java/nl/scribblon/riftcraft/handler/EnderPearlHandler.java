@@ -14,7 +14,7 @@ import nl.scribblon.riftcraft.event.EntityItemHurtEvent;
 import nl.scribblon.riftcraft.reference.Settings;
 import nl.scribblon.riftcraft.util.LogHelper;
 
-/**
+/**f
  * Created by Scribblon for RiftCraft.
  * Date Creation: 31-7-2014
  */
@@ -36,7 +36,7 @@ public class EnderPearlHandler {
         if (Settings.Debug.isDebugging)
             LogHelper.info("EntityItemJoinWorldEvent Triggered! " + event.entity);
 
-        if(event.entity.ticksExisted < 1) return;
+        //if(event.entity.ticksExisted < 1) return;
 
         //Process entityItem
         EntityItem entityItem = (EntityItem) event.entity;
@@ -51,8 +51,8 @@ public class EnderPearlHandler {
         //Check if item in question is an EnderPearl
         if (entityItem.getEntityItem().getItem().getUnlocalizedName().equals(Items.ender_pearl.getUnlocalizedName())){
             RCEntityItem rcEntityItem = RCEntityItem.convert(entityItem);
-            event.world.spawnEntityInWorld(rcEntityItem);
             entityItem.setDead();
+            event.world.spawnEntityInWorld(rcEntityItem);
         }
     }
 
