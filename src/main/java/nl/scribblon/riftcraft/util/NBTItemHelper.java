@@ -8,7 +8,7 @@ import net.minecraft.nbt.NBTTagCompound;
  * Created by Scribblon for RiftCraft.
  * Date Creation: 29-7-2014
  */
-public class NBTHelper {
+public class NBTItemHelper {
 
     private static boolean initNBTTagCompound(ItemStack itemStack) {
         if (!itemStack.hasTagCompound()) {
@@ -192,7 +192,6 @@ public class NBTHelper {
     public static void setDouble(ItemStack itemStack, String keyName, double keyValue)
     {
         initNBTTagCompound(itemStack);
-
         itemStack.stackTagCompound.setDouble(keyName, keyValue);
     }
 }

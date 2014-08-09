@@ -14,7 +14,7 @@ import nl.scribblon.riftcraft.util.LogHelper;
  * Created by Scribblon for riftcraft.
  * Date Creation: 17-6-2014
  */
-public class RCItem extends Item{
+public class RCItem extends Item {
 
     public RCItem(){
         super();

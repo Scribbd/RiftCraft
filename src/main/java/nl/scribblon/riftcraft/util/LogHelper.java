@@ -3,6 +3,7 @@ package nl.scribblon.riftcraft.util;
 
 import cpw.mods.fml.common.FMLLog;
 import nl.scribblon.riftcraft.reference.Reference;
+import nl.scribblon.riftcraft.reference.Settings;
 import org.apache.logging.log4j.Level;
 
 
@@ -41,5 +42,9 @@ public class LogHelper {
     }
     public static void warn(Object object){
         log(Level.WARN, object);
+    }
+
+    public static void reportWhenDebugging(Object object) {
+        if(Settings.Debug.isDebugging) info(object);
     }
 }

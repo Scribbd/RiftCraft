@@ -9,9 +9,9 @@ import net.minecraft.world.World;
  */
 public class Location implements ILocation{
     private World world;
-    private int x,y,z;
+    private double x,y,z;
 
-    public Location(World world, int x, int y, int z){
+    public Location(World world, double x, double y, double z){
         this.world = world;
         this.x = x;
         this.y = y;
@@ -37,4 +37,17 @@ public class Location implements ILocation{
     public double getZ() {
         return this.z;
     }
+
+    public int getIntX() {
+        return (int) Math.floor(x);
+    }
+
+    public int getIntY() {
+        return (int) Math.floor(y);
+    }
+
+    public int getIntZ() {
+        return (int) Math.floor(z);
+    }
+
 }
