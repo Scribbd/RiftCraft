@@ -1,5 +1,7 @@
 package nl.scribblon.riftcraft.util;
 
+import nl.scribblon.riftcraft.reference.Settings;
+
 import java.util.Random;
 
 /**
@@ -18,11 +20,14 @@ public class RandomHelper {
 
     private static void init() {
         if (rngesus == null){
+            LogHelper.reportWhenDebugging("Creating RnGesus!");
             rngesus = new Random();
         }
     }
 
     public static boolean rollD100(double target){
-        return rngesus.nextDouble()*D100 >= target;
+        double roll = rngesus.nextDouble()*D100;
+        LogHelper.reportWhenDebugging("RnGesus rolled: " + roll);
+        return roll >= target;
     }
 }

@@ -58,8 +58,7 @@ public class EnderPearlHandler {
         if (!(event.entity instanceof EntityItem)) return;
 
         if (event.entity instanceof RCEntityItem){
-            if(Settings.Debug.isDebugging)
-                LogHelper.info("RCEntityItem just entered the world! " + event.entity);
+            LogHelper.reportWhenDebugging("RCEntityItem just entered the world! " + event.entity);
             return;
         }
 
@@ -78,20 +77,20 @@ public class EnderPearlHandler {
         //Check if item in question is an EnderPearl
         if (isEnderPearl(entityItem)){
             RCEntityItem rcEntityItem = RCEntityItem.convert(entityItem);
-            entityItem.setDead();
+            event.setCanceled(true);
             event.world.spawnEntityInWorld(rcEntityItem);
         }
     }
 
     @SubscribeEvent
     public void onItemDeath(EntityItemDeathEvent event){
-        if(Settings.Debug.isDebugging) LogHelper.info("ItemDeath Triggered");
+        LogHelper.reportWhenDebugging("ItemDeath Triggered");
 
         if (isEnderPearl(event.entityItem) && event.damageSource.isExplosion()){
             //Calculate chances
 
             int spawnTotal = 0;
-
+            LogHelper.reportWhenDebugging("Stacksize of Exploded stack: " + event.entityItem.getEntityItem().stackSize);
             for(int i = 0; i < event.entityItem.getEntityItem().stackSize; i++) {
                 if (RandomHelper.rollD100(EXPLOSION_FIRST_CHANCE)) {
                     ++spawnTotal;
@@ -106,7 +105,7 @@ public class EnderPearlHandler {
                 }
             }
 
-            if(Settings.Debug.isDebugging) LogHelper.info("Chances rolled: " + spawnTotal);
+            LogHelper.reportWhenDebugging("Chances rolled: " + spawnTotal);
 
             if(spawnTotal > 0){
                 event.entity.worldObj.spawnEntityInWorld(createShardEntity(event.entity.worldObj, event.entity, spawnTotal));

@@ -1,6 +1,7 @@
 package nl.scribblon.riftcraft.init;
 
 import cpw.mods.fml.common.registry.GameRegistry;
+import nl.scribblon.riftcraft.item.GlitteringDust;
 import nl.scribblon.riftcraft.item.shard.EnderShard;
 import nl.scribblon.riftcraft.item.RCItem;
 import nl.scribblon.riftcraft.item.shard.RiftShard;
@@ -16,9 +17,11 @@ public class ModItems {
 
     public static final RCItem enderShard = new EnderShard();
     public static final RCItem riftShard = new RiftShard();
+    public static final RCItem glitteringDust = new GlitteringDust();
 
     public static void init(){
         GameRegistry.registerItem(enderShard, Names.Items.ENDERSHARD);
         GameRegistry.registerItem(riftShard, Names.Items.RIFTSHARD);
+        GameRegistry.registerItem(glitteringDust, Names.Items.GLITTERING_DUST);
     }
 }

@@ -56,15 +56,13 @@ public class RiftCraft {
         ModBlocks.init();
         ModItems.init();
 
-        if(Settings.Debug.isDebugging)
-            LogHelper.info("Pre-Init Passed");
+        LogHelper.reportWhenDebugging("Pre-Init Passed");
     }
 
     @Mod.EventHandler
     public void init(FMLInitializationEvent event)
     {
-        if(Settings.Debug.isDebugging)
-            LogHelper.info("Init Started");
+        LogHelper.reportWhenDebugging("Init Started");
         // Gui Handler, Tile entities, Rendering, Even Handlers, start registering Recipes
 
         //Recipes
@@ -73,19 +71,16 @@ public class RiftCraft {
         // Register Handler
         ModHandlers.init();
 
-        if(Settings.Debug.isDebugging)
-            LogHelper.info("Init Passed");
+        LogHelper.reportWhenDebugging("Init Passed");
     }
 
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event)
     {
-        if(Settings.Debug.isDebugging)
-            LogHelper.info("Post-Init Started");
+        LogHelper.reportWhenDebugging("Post-Init Started");
         //
 
-        if(Settings.Debug.isDebugging)
-            LogHelper.info("Post-Init Passed");
+        LogHelper.reportWhenDebugging("Post-Init Passed");
     }
 
     @Mod.EventHandler

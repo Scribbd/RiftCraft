@@ -6,12 +6,14 @@ package nl.scribblon.riftcraft.reference;
  */
 public class Names {
     public static class Blocks {
-        public static final String CLEARQUARTZ = "clearQuartz";
+        public static final String CLEAR_QUARTZ = "clearQuartz";
+        public static final String ACTIVATED_QUARTS = "activatedQuartz";
     }
 
     public static class Items {
         public static final String ENDERSHARD = "enderShard";
         public static final String RIFTSHARD = "riftShard";
+        public static final String GLITTERING_DUST = "glitteringDust";
     }
 
     public static class NBT {
