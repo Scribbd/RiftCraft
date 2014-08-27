@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 import nl.scribblon.riftcraft.creativetab.RCCreativeTab;
 import nl.scribblon.riftcraft.reference.Settings;
 import nl.scribblon.riftcraft.reference.Textures;
-import nl.scribblon.riftcraft.util.LogHelper;
+import nl.scribblon.riftcraft.util.helper.LogHelper;
 
 /**
  * Created by Scribblon for riftcraft.

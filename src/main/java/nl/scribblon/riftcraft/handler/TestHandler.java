@@ -1,16 +1,6 @@
 package nl.scribblon.riftcraft.handler;
 
 
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.event.entity.item.ItemTossEvent;
-import net.minecraftforge.event.entity.living.LivingAttackEvent;
-import net.minecraftforge.event.entity.living.LivingDeathEvent;
-import net.minecraftforge.event.entity.living.LivingDropsEvent;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraftforge.event.entity.player.AttackEntityEvent;
-import nl.scribblon.riftcraft.event.EntityItemHurtEvent;
-import nl.scribblon.riftcraft.util.LogHelper;
-
 /**
  * Created by Scribblon for RiftCraft.
  * Date Creation: 29-7-2014

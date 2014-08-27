@@ -1,4 +1,4 @@
-package nl.scribblon.riftcraft.util;
+package nl.scribblon.riftcraft.util.helper;
 
 import cpw.mods.fml.client.config.IConfigElement;
 import net.minecraftforge.common.config.ConfigElement;
@@ -8,10 +8,12 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
+ * Utility for the creation of the config options.
+ *
  * Created by Scribblon for RiftCraft.
  * Date Creation: 28-7-2014
  */
-public class GUIConfigHelper {
+final public class GUIConfigHelper {
 
     public static List<IConfigElement> getAllOptions(Configuration config) {
         List<IConfigElement> elementList = new LinkedList<IConfigElement>();

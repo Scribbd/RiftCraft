@@ -12,7 +12,7 @@ import nl.scribblon.riftcraft.reference.Textures;
  * Created by Scribblon for RiftCraft.
  * Date Creation: 29-7-2014
  */
-public class RCBlock extends Block {
+public abstract class RCBlock extends Block {
 
     public RCBlock(Material material) {
         super(material);

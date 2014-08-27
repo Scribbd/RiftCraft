@@ -9,6 +9,10 @@ import net.minecraft.tileentity.TileEntity;
  */
 public class RCTileEntity extends TileEntity {
 
+    public RCTileEntity(){
+        super();
+    }
+
     @Override
     public void writeToNBT(NBTTagCompound tagCompound) {
         super.writeToNBT(tagCompound);

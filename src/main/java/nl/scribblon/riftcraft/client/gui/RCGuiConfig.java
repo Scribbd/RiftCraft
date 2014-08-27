@@ -4,7 +4,7 @@ import cpw.mods.fml.client.config.GuiConfig;
 import net.minecraft.client.gui.GuiScreen;
 import nl.scribblon.riftcraft.handler.ConfigurationHandler;
 import nl.scribblon.riftcraft.reference.Reference;
-import nl.scribblon.riftcraft.util.GUIConfigHelper;
+import nl.scribblon.riftcraft.util.helper.GUIConfigHelper;
 
 /**
  * Created by Scribblon for RiftCraft.

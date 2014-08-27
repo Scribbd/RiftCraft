@@ -6,7 +6,7 @@ import net.minecraftforge.common.config.Configuration;
 import nl.scribblon.riftcraft.reference.DefaultConfigurations;
 import nl.scribblon.riftcraft.reference.Reference;
 import nl.scribblon.riftcraft.reference.Settings;
-import nl.scribblon.riftcraft.util.LogHelper;
+import nl.scribblon.riftcraft.util.helper.LogHelper;
 
 import java.io.File;
 

@@ -1,6 +1,5 @@
 package nl.scribblon.riftcraft.block;
 
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockQuartz;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -17,9 +16,9 @@ import java.util.Random;
  *
  * Special Quartzblock, only spawns inside the enderCluster multiStructure
  */
-public class ActivatedQuartz extends BlockQuartz{
+public class BlockActivatedQuartz extends BlockQuartz{
 
-    public ActivatedQuartz(){
+    public BlockActivatedQuartz(){
         super();
         this.setCreativeTab(null);
         this.setBlockName(Names.Blocks.ACTIVATED_QUARTS);
@@ -33,7 +32,7 @@ public class ActivatedQuartz extends BlockQuartz{
         //Check if Glittering Dust is used
         if(!entityPlayer.getHeldItem().getItem().getUnlocalizedName().equals(Names.Items.GLITTERING_DUST)) return false;
 
-        world.setBlock(x,y,z, ModBlocks.activatedQuarts);
+        world.setBlock(x,y,z, ModBlocks.clearQuartz);
 
         return false;
     }

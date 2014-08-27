@@ -1,26 +1,17 @@
 package nl.scribblon.riftcraft.handler;
 
-import cpw.mods.fml.common.eventhandler.Event;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemEnderPearl;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
-import net.minecraftforge.oredict.OreDictionary;
 import nl.scribblon.riftcraft.entity.RCEntityItem;
-import nl.scribblon.riftcraft.event.EntityItemDeathEvent;
-import nl.scribblon.riftcraft.event.EntityItemHurtEvent;
+import nl.scribblon.riftcraft.event.item.EntityItemDeathEvent;
 import nl.scribblon.riftcraft.init.ModItems;
-import nl.scribblon.riftcraft.reference.Settings;
-import nl.scribblon.riftcraft.util.LogHelper;
-import nl.scribblon.riftcraft.util.RandomHelper;
-
-import java.util.Random;
+import nl.scribblon.riftcraft.util.helper.LogHelper;
+import nl.scribblon.riftcraft.util.helper.RandomHelper;
 
 /**f
  * Created by Scribblon for RiftCraft.

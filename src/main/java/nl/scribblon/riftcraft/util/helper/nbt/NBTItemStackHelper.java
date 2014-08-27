@@ -1,15 +1,19 @@
-package nl.scribblon.riftcraft.util;
+package nl.scribblon.riftcraft.util.helper.nbt;
 
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 
 /**
+ * Utility class for NBT data in ItemStacks.
+ * Inspired by https://github.com/pahimar/LetsModReboot/blob/master/src/main/java/com/pahimar/letsmodreboot/utility/NBTHelper.java
+ * by Pahimar https://github.com/pahimar
+ *
  * Created by Scribblon for RiftCraft.
  * Date Creation: 29-7-2014
  */
-public class NBTItemHelper {
+final public class NBTItemStackHelper {
 
+    //Creation of NBT-Data in stack
     private static boolean initNBTTagCompound(ItemStack itemStack) {
         if (!itemStack.hasTagCompound()) {
             itemStack.setTagCompound(new NBTTagCompound());
@@ -18,29 +22,18 @@ public class NBTItemHelper {
         return false;
     }
 
+    //HasKey Test
     public static boolean hasTagKey(ItemStack itemStack, String keyName) {
-        if (itemStack == null)
-            return false;
-
-        if (!itemStack.hasTagCompound())
-            return false;
-
+        if (itemStack == null) return false;
+        if (!itemStack.hasTagCompound()) return false;
         return itemStack.getTagCompound().hasKey(keyName);
     }
 
+    //Removal
     public static boolean removeTag(ItemStack itemStack, String keyName) {
-        if (!hasTagKey(itemStack, keyName))
-            return false;
-
+        if (!hasTagKey(itemStack, keyName)) return false;
         itemStack.getTagCompound().removeTag(keyName);
         return true;
-    }
-
-    public static void setLong(ItemStack itemStack, String keyName, long keyValue)
-    {
-        initNBTTagCompound(itemStack);
-
-        itemStack.stackTagCompound.setLong(keyName, keyValue);
     }
 
     // String
@@ -124,7 +117,7 @@ public class NBTItemHelper {
     }
 
     // int
-    public static int getInt(ItemStack itemStack, String keyName)
+    public static int getInteger(ItemStack itemStack, String keyName)
     {
         initNBTTagCompound(itemStack);
 
@@ -155,6 +148,14 @@ public class NBTItemHelper {
 
         return itemStack.stackTagCompound.getLong(keyName);
     }
+
+    public static void setLong(ItemStack itemStack, String keyName, long keyValue)
+    {
+        initNBTTagCompound(itemStack);
+
+        itemStack.stackTagCompound.setLong(keyName, keyValue);
+    }
+
 
     // float
     public static float getFloat(ItemStack itemStack, String keyName)

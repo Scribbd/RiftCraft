@@ -1,4 +1,4 @@
-package nl.scribblon.riftcraft.util;
+package nl.scribblon.riftcraft.util.helper;
 
 
 import cpw.mods.fml.common.FMLLog;
@@ -13,7 +13,7 @@ import org.apache.logging.log4j.Level;
  * https://github.com/pahimar/Equivalent-Exchange-3
  * Date Creation: 26-7-2014
  */
-public class LogHelper {
+final public class LogHelper {
 
     private static void log (Level logLevel, Object object){
         FMLLog.log(Reference.MOD_NAME, logLevel, String.valueOf(object));

@@ -4,7 +4,6 @@ import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.*;
 import cpw.mods.fml.common.event.FMLInterModComms.IMCEvent;
-import net.minecraftforge.common.MinecraftForge;
 import nl.scribblon.riftcraft.handler.ConfigurationHandler;
 import nl.scribblon.riftcraft.init.ModBlocks;
 import nl.scribblon.riftcraft.init.ModHandlers;
@@ -12,8 +11,7 @@ import nl.scribblon.riftcraft.init.ModItems;
 import nl.scribblon.riftcraft.init.ModRecipes;
 import nl.scribblon.riftcraft.proxy.IRCProxy;
 import nl.scribblon.riftcraft.reference.Reference;
-import nl.scribblon.riftcraft.reference.Settings;
-import nl.scribblon.riftcraft.util.LogHelper;
+import nl.scribblon.riftcraft.util.helper.LogHelper;
 
 /**
  * Created by Scribblon for riftcraft.
@@ -46,7 +44,7 @@ public class RiftCraft {
     {
         if(Reference.IS_PRE_CONFIG_DEV_MODE) {
             LogHelper.info("Pre-Init Started");
-            LogHelper.info("If you read this, and this is not a DEV/RAW build. Then I forgot to turn of the pre-configure load debug check! Warn me!");
+            LogHelper.info("If you read this, and this is not a DEV/RAW build. Then I forgot to turn of the debug-mode! Warn me!");
         }
 
         // Config loading, initialize networkHandeling, keybinding, items, blocks

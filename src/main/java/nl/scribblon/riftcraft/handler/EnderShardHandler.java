@@ -1,7 +1,6 @@
 package nl.scribblon.riftcraft.handler;
 
 import com.google.common.eventbus.Subscribe;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -14,7 +13,7 @@ import nl.scribblon.riftcraft.init.ModItems;
 public class EnderShardHandler {
 
     @Subscribe
-    public void onItemExpiraton(ItemExpireEvent event){
+    public void onItemExpiration(ItemExpireEvent event){
         //Standard remote checks
         if(event.entity.worldObj.isRemote) return;
         //check if this concerns EnderShard
