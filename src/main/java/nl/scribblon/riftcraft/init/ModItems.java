@@ -1,10 +1,12 @@
 package nl.scribblon.riftcraft.init;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import nl.scribblon.riftcraft.item.GlitteringDust;
-import nl.scribblon.riftcraft.item.shard.EnderShard;
+import nl.scribblon.riftcraft.item.ItemGlitteringDust;
+import nl.scribblon.riftcraft.item.ItemGlitteringOrb;
+import nl.scribblon.riftcraft.item.ItemGlitteringWrench;
 import nl.scribblon.riftcraft.item.RCItem;
-import nl.scribblon.riftcraft.item.shard.RiftShard;
+import nl.scribblon.riftcraft.item.shard.ItemEnderShard;
+import nl.scribblon.riftcraft.item.shard.ItemRiftShard;
 import nl.scribblon.riftcraft.reference.Names;
 import nl.scribblon.riftcraft.reference.Reference;
 
@@ -15,13 +17,17 @@ import nl.scribblon.riftcraft.reference.Reference;
 @GameRegistry.ObjectHolder(Reference.MOD_ID)
 public class ModItems {
 
-    public static final RCItem enderShard = new EnderShard();
-    public static final RCItem riftShard = new RiftShard();
-    public static final RCItem glitteringDust = new GlitteringDust();
+    public static final RCItem enderShard = new ItemEnderShard();
+    public static final RCItem riftShard = new ItemRiftShard();
+    public static final RCItem glitteringDust = new ItemGlitteringDust();
+    public static final RCItem glitteringOrb = new ItemGlitteringOrb();
+    public static final RCItem glitteringWrench = new ItemGlitteringWrench();
 
     public static void init(){
-        GameRegistry.registerItem(enderShard, Names.Items.ENDERSHARD);
-        GameRegistry.registerItem(riftShard, Names.Items.RIFTSHARD);
+        GameRegistry.registerItem(enderShard, Names.Items.ENDER_SHARD);
+        GameRegistry.registerItem(riftShard, Names.Items.RIFT_SHARD);
         GameRegistry.registerItem(glitteringDust, Names.Items.GLITTERING_DUST);
+        GameRegistry.registerItem(glitteringOrb, Names.Items.GLITTERING_ORB);
+        GameRegistry.registerItem(glitteringWrench, Names.Items.GLITTERING_WRENCH);
     }
 }

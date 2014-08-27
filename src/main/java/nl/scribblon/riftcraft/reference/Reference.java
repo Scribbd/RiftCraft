@@ -14,4 +14,6 @@ public class Reference {
     public static final String GUI_FACTORY_CLASS = "nl.scribblon.riftcraft.client.gui.RCGuiFactory";
 
     public static final boolean IS_PRE_CONFIG_DEV_MODE = true; //set to false before release
+
+    public static final int TICKS_IN_SECOND = 20;
 }

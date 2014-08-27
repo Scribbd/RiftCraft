@@ -1,13 +1,12 @@
 package nl.scribblon.riftcraft.entity;
 
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
-import nl.scribblon.riftcraft.event.EntityItemDeathEvent;
-import nl.scribblon.riftcraft.event.EntityItemHurtEvent;
+import nl.scribblon.riftcraft.event.item.EntityItemDeathEvent;
+import nl.scribblon.riftcraft.event.item.EntityItemHurtEvent;
 
 /**
  * Created by Scribblon for RiftCraft.
@@ -29,11 +28,10 @@ public class RCEntityItem extends EntityItem {
         this.previousDamageSource = damageSource;
 
         if (this.velocityChanged)
-            MinecraftForge.EVENT_BUS.post(new EntityItemHurtEvent(this, damageSource));
+            MinecraftForge.EVENT_BUS.post(new EntityItemHurtEvent(this, damageSource, damage));
 
         if (this.isDead)
             MinecraftForge.EVENT_BUS.post(new EntityItemDeathEvent(this, damageSource));
-
 
         return returnValue;
     }

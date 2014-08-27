@@ -1,8 +1,16 @@
 #Items
-item.riftcraft:enderShard.name=Enderpearl Shard
+item.riftcraft:enderShard.name= Enderpearl Shard
+item.riftcraft:riftShard.name= Rift Shard
+item.riftcraft:glitteringDust.name= Glittering Dust
+item.riftcraft:glitteringOrb.name= Glittering Orb
+item.riftcraft:glitteringWrench.name= Glittering Wrench
 
 #Blocks
 tile.riftcraft:clearQuartz.name= Clear Quartz
+tile.riftcraft:activatedQuarts.name= Activated Quartz
+tile.riftcraft:enderShardCluster.name= Ender Shard Cluster
+tile.riftcraft:riftShardCluster.name= Rift Shard Cluster
+tile.riftcraft:riftStone.name= Rift Stone
 
 #Tabs
 itemGroup.riftcraft=RiftCraft
