@@ -1,4 +1,4 @@
-package nl.scribblon.riftcraft.event;
+package nl.scribblon.riftcraft.event.item;
 
 
 import net.minecraft.entity.item.EntityItem;
