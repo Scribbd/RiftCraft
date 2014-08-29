@@ -4,7 +4,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraftforge.common.DimensionManager;
 import nl.scribblon.riftcraft.util.ILocationRC;
-import nl.scribblon.riftcraft.util.LocationRC;
+import nl.scribblon.riftcraft.util.Location;
 import nl.scribblon.riftcraft.util.helper.LogHelper;
 
 /**
@@ -54,8 +54,8 @@ final public class NBTLocationHelper {
      * @param prefix
      * @return
      */
-    public static LocationRC readLocationNBT(NBTTagCompound nbtTagCompound, String prefix){
-        if (NBTBasicsHelper.hasTagKey(nbtTagCompound, prefix + WORLD_TAG_POSTFIX)) return LocationRC.INVALID_LOCATION;
+    public static Location readLocationNBT(NBTTagCompound nbtTagCompound, String prefix){
+        if (NBTBasicsHelper.hasTagKey(nbtTagCompound, prefix + WORLD_TAG_POSTFIX)) return Location.INVALID_LOCATION;
 
         //TODO is World a superclass of WorldServer?
         World world = DimensionManager.getWorld(nbtTagCompound.getInteger(prefix + WORLD_TAG_POSTFIX));
@@ -64,7 +64,7 @@ final public class NBTLocationHelper {
         double y = nbtTagCompound.getDouble(prefix + Y_TAG_POSTFIX);
         double z = nbtTagCompound.getDouble(prefix + Z_TAG_POSTFIX);
 
-        return new LocationRC(world, x, y, z);
+        return new Location(world, x, y, z);
     }
 
     /**

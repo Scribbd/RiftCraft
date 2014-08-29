@@ -2,7 +2,7 @@ package nl.scribblon.riftcraft.util.helper;
 
 import net.minecraft.tileentity.TileEntity;
 import nl.scribblon.riftcraft.util.ILocationRC;
-import nl.scribblon.riftcraft.util.LocationRC;
+import nl.scribblon.riftcraft.util.Location;
 import nl.scribblon.riftcraft.util.imulti.IMultiTiled;
 import nl.scribblon.riftcraft.util.imulti.IMultiTiledSlave;
 
@@ -24,7 +24,7 @@ public class LocationHelper {
      * @return The List with IMultiTiledSlaves.
      */
     public static ArrayList<IMultiTiledSlave> convertLocationToSlave(List<? extends ILocationRC> locationList) {
-        ArrayList<IMultiTiledSlave> blockList = new ArrayList(locationList.size());
+        ArrayList<IMultiTiledSlave> blockList = new ArrayList<IMultiTiledSlave>(locationList.size());
 
         int index = 0;
         for(ILocationRC location : locationList){
@@ -45,8 +45,8 @@ public class LocationHelper {
      * @param blockList A list with implementations of IMultiTiledSlave
      * @return The List with Locations
      */
-    public static ArrayList<LocationRC> convertSlaveToLocation(List<? extends IMultiTiledSlave> blockList) {
-        ArrayList<LocationRC> locationList = new ArrayList(blockList.size());
+    public static ArrayList<Location> convertSlaveToLocation(List<? extends IMultiTiledSlave> blockList) {
+        ArrayList<Location> locationList = new ArrayList<Location>(blockList.size());
 
         int index = 0;
 
@@ -57,7 +57,7 @@ public class LocationHelper {
                     LogHelper.fatal("SOMETHING WENT WRONG. TILEENTITY (NULL) NOT FOUND WHILE CONVERTING.");
                     return locationList;
                 }
-                locationList.set(index++, new LocationRC(entity));
+                locationList.set(index++, new Location(entity));
             }
         } catch (ClassCastException e){
             LogHelper.fatal("SOMETHING WENT WRONG CASTING! \n" + e);

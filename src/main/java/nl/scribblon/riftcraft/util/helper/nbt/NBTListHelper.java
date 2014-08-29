@@ -3,7 +3,7 @@ package nl.scribblon.riftcraft.util.helper.nbt;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.common.DimensionManager;
 import nl.scribblon.riftcraft.util.ILocationRC;
-import nl.scribblon.riftcraft.util.LocationRC;
+import nl.scribblon.riftcraft.util.Location;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,12 +32,12 @@ final public class NBTListHelper {
     public static NBTTagCompound writeLocationListToNBT(NBTTagCompound tagCompound, List<? extends ILocationRC> list, String tagPrefix) {
 
         //Chose for a simple array over a List as a reliable index can be calculated.
-        int[] locationArray = new int[list.size() * LocationRC.FIELD_COUNT]; //each Location Entry got four elements, world (dimid used), x, y, z,-coordinates.
+        int[] locationArray = new int[list.size() * Location.FIELD_COUNT]; //each Location Entry got four elements, world (dimid used), x, y, z,-coordinates.
 
         //Populate array
         int index = 0;
         for(ILocationRC location : list){
-            LocationRC castedLocation = new LocationRC(location);
+            Location castedLocation = new Location(location);
             locationArray[index++] = location.getWorld().provider.dimensionId;
             locationArray[index++] = castedLocation.getIntX();
             locationArray[index++] = castedLocation.getIntY();
@@ -63,14 +63,14 @@ final public class NBTListHelper {
     public static List<ILocationRC> readLocationListFromNBT(NBTTagCompound tagCompound, String tagPrefix) {
         //Retrieve array from NBTTagCompound
         int[] locationArray = tagCompound.getIntArray(tagPrefix + LOCATION_TAG_POSTFIX);
-        int listLength = (int) Math.floor(locationArray.length / LocationRC.FIELD_COUNT);
+        int listLength = (int) Math.floor(locationArray.length / Location.FIELD_COUNT);
 
-        List<ILocationRC> list = new ArrayList(listLength); //Chosen for ArrayList as the length can be determined.
+        List<ILocationRC> list = new ArrayList<ILocationRC>(listLength); //Chosen for ArrayList as the length can be determined.
 
         //Populate ArrayList
         int arrayIndex = 0;
         for(int i=0; i<listLength; ++i) {
-            list.set(i, new LocationRC(
+            list.set(i, new Location(
                     DimensionManager.getWorld(locationArray[arrayIndex++]),
                     locationArray[arrayIndex++],
                     locationArray[arrayIndex++],

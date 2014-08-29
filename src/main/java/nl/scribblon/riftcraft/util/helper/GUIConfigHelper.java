@@ -13,6 +13,7 @@ import java.util.List;
  * Created by Scribblon for RiftCraft.
  * Date Creation: 28-7-2014
  */
+@SuppressWarnings("unchecked")
 final public class GUIConfigHelper {
 
     public static List<IConfigElement> getAllOptions(Configuration config) {

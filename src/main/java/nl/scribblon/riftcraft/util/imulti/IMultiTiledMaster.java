@@ -1,6 +1,6 @@
 package nl.scribblon.riftcraft.util.imulti;
 
-import java.util.List;
+import nl.scribblon.riftcraft.util.IRelativeStructure;
 
 /**
  * Created by Scribblon for RiftCraft.
@@ -14,7 +14,7 @@ public interface IMultiTiledMaster extends IMultiTiled {
      * Forces implementations to have a list of its slaves.
      * @return A list of IMultiTiledSlave implementations
      */
-    public List<IMultiTiledSlave> getSlaveList();
+    public IMultiTiledSlave[] getSlaveList();
 
     /**
      * A check to see if structure is ready to be constructed.
@@ -26,19 +26,24 @@ public interface IMultiTiledMaster extends IMultiTiled {
      * The setup implementation.
      * @return The resulting IMultiTiledSlave list that should be saved.
      */
-    public List<IMultiTiledSlave> setupStructureAsMaster();
+    public IMultiTiledSlave[] setupStructureAsMaster();
 
     /**
      * The deconstruct implementation.
      * @return A boolean describing if the overall process was successful.
      */
-    public boolean deconstructMultiStructureAsMaster();
+    public boolean deconstructStructureAsMaster();
+
+    /**
+     * Forces (final) implementations to
+     */
+    public IRelativeStructure getStructure();
 
     /**
      * This enum is for identifying which multi-block structure is active.
      * One block can be part of different kind of multi tiles. This allows for the potential slave to identify what block it should be using.
      */
-    public static enum MultiEntityType {
+    public enum MultiEntityType {
         UNSET (1),
         RIFT_STONE (8),
         DISRUPT_STONE (8),

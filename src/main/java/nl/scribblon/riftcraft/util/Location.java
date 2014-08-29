@@ -9,46 +9,53 @@ import net.minecraft.world.World;
  * Created by Scribblon for RiftCraft.
  * Date Creation: 1-8-2014
  */
-public class LocationRC implements ILocationRC {
+public class Location implements ILocationRC {
 
-    public static final LocationRC INVALID_LOCATION = new LocationRC(null, Double.MIN_VALUE, Double.MIN_VALUE, Double.MIN_VALUE);
+    public static final Location INVALID_LOCATION = new Location(null, Double.MIN_VALUE, Double.MIN_VALUE, Double.MIN_VALUE);
 
     private World world;
     private double x,y,z;
 
-    public LocationRC(World world, double x, double y, double z){
+    public Location(World world, double x, double y, double z){
         this.world = world;
         this.x = x;
         this.y = y;
         this.z = z;
     }
 
-    public LocationRC(World world, int x, int y, int z){
+    public Location(World world, int x, int y, int z){
         this.world = world;
         this.x = x;
         this.y = y;
         this.z = z;
     }
 
-    public LocationRC(ILocationRC locatedObject){
+    public Location(ILocationRC locatedObject){
         this.world = locatedObject.getWorld();
         this.x = locatedObject.getX();
         this.y = locatedObject.getY();
         this.z = locatedObject.getZ();
     }
 
-    public LocationRC(Entity entity){
+    public Location(Entity entity){
         this.world = entity.worldObj;
         this.x = entity.posX;
         this.y = entity.posY;
         this.z = entity.posZ;
     }
 
-    public LocationRC(TileEntity tileEntity){
+    public Location(TileEntity tileEntity){
         this.world = tileEntity.getWorldObj();
         this.x = tileEntity.xCoord;
         this.y = tileEntity.yCoord;
         this.z = tileEntity.zCoord;
+    }
+
+    public Location(double x, double y, double z){
+        this.world = null;
+        this.x = x;
+        this.y = y;
+        this.z = z;
     }
 
     @Override
@@ -104,23 +111,25 @@ public class LocationRC implements ILocationRC {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof LocationRC)) return false;
+        if (!(o instanceof Location)) return false;
 
-        LocationRC that = (LocationRC) o;
+        Location that = (Location) o;
 
         if (Double.compare(that.x, x) != 0) return false;
         if (Double.compare(that.y, y) != 0) return false;
         if (Double.compare(that.z, z) != 0) return false;
-        if (this.getDimensionID() != that.getDimensionID()) return false;
+        if(this.world != null)
+            if (this.getDimensionID() != that.getDimensionID()) return false;
 
         return true;
     }
 
     @Override
     public int hashCode() {
-        int result;
+        int result = 0;
         long temp;
-        result = world.provider.dimensionId;
+        if(this.world != null)
+            result = world.provider.dimensionId;
         temp = Double.doubleToLongBits(x);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         temp = Double.doubleToLongBits(y);

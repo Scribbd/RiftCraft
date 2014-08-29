@@ -1,5 +1,6 @@
 package nl.scribblon.riftcraft.util.imulti;
 
+import net.minecraft.block.Block;
 import net.minecraft.tileentity.TileEntity;
 import nl.scribblon.riftcraft.util.ILocationRC;
 
@@ -50,6 +51,12 @@ public interface IMultiTiled {
      * @return TileEntity implementation of the master.
      */
     public TileEntity getMasterTileEntity();
+
+    /**
+     * Get the Block of the IMultiTiledImplementation
+     * @return Block blockType of the thing
+     */
+    public Block getBlockType();
 
     /**
      * Get Location of current entity.
