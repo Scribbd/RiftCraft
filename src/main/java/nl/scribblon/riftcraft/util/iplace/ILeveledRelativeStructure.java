@@ -14,11 +14,13 @@ public interface ILeveledRelativeStructure extends IRelativeStructure {
     int ROOT_LEVEL = 0;
     int INVALID = -1;
 
+    Set<RelativeStructureBlock> getParts(int fromLevel, int toLevel);
+
     Set<RelativeStructureBlock> getParts(int level);
 
     boolean isStructureCorrectFrom(IMultiTiledMaster master, int level);
 
-    int detectLevel(IMultiTiledMaster master);
+    int getLevel(IMultiTiledMaster master);
 
     Map<RelativeStructureBlock, Integer> getLevelMap(int fromLevel, int toLevel);
 }

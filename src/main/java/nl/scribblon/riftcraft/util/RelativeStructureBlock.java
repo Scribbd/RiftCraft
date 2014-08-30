@@ -49,7 +49,7 @@ public class RelativeStructureBlock extends RelativeLocation implements Comparab
     }
 
     public boolean isBlockSupportedRelativeTo(IMultiTiledMaster master) {
-        return this.isBlockSupported(this.getBlockRelativeTo(master.getLocation()));
+        return this.isBlockSupported(this.getBlockRelativelyFrom(master.getLocation()));
     }
 
     /*_*********************************************************************************************************

@@ -1,5 +1,7 @@
 package nl.scribblon.riftcraft.util;
 
+import nl.scribblon.riftcraft.util.iplace.ILocationRC;
+import nl.scribblon.riftcraft.util.iplace.IRelativeLocationRC;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -49,8 +51,8 @@ public class RelativeLocationTest {
 
     @Test
     public void testLocationNoShift() {
-        assertEquals(root, noShift.getRelativeILocationFrom(root));
-        assertEquals(location, noShift.getRelativeILocationFrom(location));
+        assertEquals(root, noShift.getILocationRelativelyFrom(root));
+        assertEquals(location, noShift.getILocationRelativelyFrom(location));
     }
 
     @Test
@@ -65,8 +67,8 @@ public class RelativeLocationTest {
                 location.getY() + shift1.getYShift(),
                 location.getZ() + shift1.getZShift());
 
-        assertEquals(expectedFromRoot, shift1.getRelativeILocationFrom(root));
-        assertEquals(expectedFrom1, shift1.getRelativeILocationFrom(location));
+        assertEquals(expectedFromRoot, shift1.getILocationRelativelyFrom(root));
+        assertEquals(expectedFrom1, shift1.getILocationRelativelyFrom(location));
     }
 
 }

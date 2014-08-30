@@ -1,6 +1,6 @@
 package nl.scribblon.riftcraft.util.imulti;
 
-import nl.scribblon.riftcraft.util.iplace.IRelativeStructure;
+import nl.scribblon.riftcraft.util.iplace.ILocationRC;
 
 /**
  * Created by Scribblon for RiftCraft.
@@ -14,7 +14,7 @@ public interface IMultiTiledMaster extends IMultiTiled {
      * Forces implementations to have a list of its slaves.
      * @return A list of IMultiTiledSlave implementations
      */
-    IMultiTiledSlave[] getSlaveList();
+    IMultiTiledSlave[] getTileEntitySlaveList();
 
     /**
      * A check to see if structure is ready to be constructed.
@@ -34,10 +34,7 @@ public interface IMultiTiledMaster extends IMultiTiled {
      */
     boolean deconstructStructureAsMaster();
 
-    /**
-     * Forces (final) implementations to
-     */
-    IRelativeStructure getStructure();
+    ILocationRC[] getStructureLocations();
 
     /**
      * This enum is for identifying which multi-block structure is active.

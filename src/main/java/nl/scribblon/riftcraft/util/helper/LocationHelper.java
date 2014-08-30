@@ -5,6 +5,7 @@ import nl.scribblon.riftcraft.util.Location;
 import nl.scribblon.riftcraft.util.imulti.IMultiTiled;
 import nl.scribblon.riftcraft.util.imulti.IMultiTiledSlave;
 import nl.scribblon.riftcraft.util.iplace.ILocationRC;
+import nl.scribblon.riftcraft.util.iplace.IRelativeLocationRC;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,6 +66,14 @@ public class LocationHelper {
         } finally {
             return locationList;
         }
+    }
+
+    public static ILocationRC[] convertRelativeToAbsolute(IRelativeLocationRC[] relativeLocations, ILocationRC fromLocation){
+        ILocationRC[] results = new ILocationRC[relativeLocations.length];
+        for(int index = 0; index < relativeLocations.length; ++index)
+            results[index] = relativeLocations[index].getILocationRelativelyFrom(fromLocation);
+
+        return results;
     }
 
     public static boolean isInterDimensional(ILocationRC location1, ILocationRC location2) {

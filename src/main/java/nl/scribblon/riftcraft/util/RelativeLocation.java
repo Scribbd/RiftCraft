@@ -131,18 +131,18 @@ public class RelativeLocation implements IRelativeLocationRC {
     }
 
     @Override
-    public ILocationRC getRelativeILocationFrom(ILocationRC location) {
+    public ILocationRC getILocationRelativelyFrom(ILocationRC location) {
         return new Location(location.getWorld(), this.getShiftedXTo(location), this.getShiftedYTo(location), this.getShiftedZTo(location));
     }
 
     @Override
-    public Block getBlockRelativeTo(ILocationRC location) {
-        return this.getRelativeILocationFrom(location).getBlockAtLocation();
+    public Block getBlockRelativelyFrom(ILocationRC location) {
+        return this.getILocationRelativelyFrom(location).getBlockAtLocation();
     }
 
     @Override
-    public TileEntity getTileEntityRelativeTo(ILocationRC location) {
-        return this.getRelativeILocationFrom(location).getTileEntityAtLocation();
+    public TileEntity getTileEntityRelativelyFrom(ILocationRC location) {
+        return this.getILocationRelativelyFrom(location).getTileEntityAtLocation();
     }
 
     /*_*********************************************************************************************************

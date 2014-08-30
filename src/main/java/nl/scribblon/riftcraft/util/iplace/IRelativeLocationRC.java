@@ -47,11 +47,11 @@ public interface IRelativeLocationRC {
 
     int getShiftedIntZTo(ILocationRC location);
 
-    ILocationRC getRelativeILocationFrom(ILocationRC location);
+    ILocationRC getILocationRelativelyFrom(ILocationRC location);
 
-    Block getBlockRelativeTo(ILocationRC location);
+    Block getBlockRelativelyFrom(ILocationRC location);
 
-    TileEntity getTileEntityRelativeTo(ILocationRC location);
+    TileEntity getTileEntityRelativelyFrom(ILocationRC location);
 
     /*_*********************************************************************************************************
      * Vector functions

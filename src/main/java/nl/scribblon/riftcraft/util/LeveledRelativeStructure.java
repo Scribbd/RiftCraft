@@ -25,12 +25,31 @@ public class LeveledRelativeStructure implements ILeveledRelativeStructure {
     }
 
     @Override
-    public boolean isStructureCorrectFrom(IMultiTiledMaster master, int toLevel) {
-        return this.detectLevel(master) == toLevel;
+    public Set<RelativeStructureBlock> getParts(int fromLevel, int toLevel) {
+        TreeSet<RelativeStructureBlock> results = new TreeSet<RelativeStructureBlock>();
+
+        for(int level = fromLevel; level < toLevel; ++level) {
+            results.addAll(levels.get(level).getParts());
+        }
+
+        return results;
     }
 
     @Override
-    public int detectLevel(IMultiTiledMaster master) {
+    public Set<RelativeStructureBlock> getParts() {
+        TreeSet<RelativeStructureBlock> all = new TreeSet<RelativeStructureBlock>();
+        for(RelativeStructure structureLevel : this.levels)
+            all.addAll(structureLevel.getParts());
+        return all;
+    }
+
+    @Override
+    public boolean isStructureCorrectFrom(IMultiTiledMaster master, int toLevel) {
+        return this.getLevel(master) == toLevel;
+    }
+
+    @Override
+    public int getLevel(IMultiTiledMaster master) {
         if(!this.structureSupportsMaster(master)) return INVALID;
 
         for(Map.Entry<RelativeStructureBlock, Integer> set : this.getLevelMap(ROOT_LEVEL, levels.size()).entrySet()) {
@@ -51,15 +70,6 @@ public class LeveledRelativeStructure implements ILeveledRelativeStructure {
         }
 
         return levelMap;
-    }
-
-    @Override
-    public Set<RelativeStructureBlock> getParts() {
-        TreeSet<RelativeStructureBlock> all = new TreeSet<RelativeStructureBlock>();
-        for(RelativeStructure structureLevel : this.levels)
-            all.addAll(structureLevel.getParts());
-
-        return all;
     }
 
     @Override
