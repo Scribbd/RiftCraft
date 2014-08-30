@@ -1,4 +1,4 @@
-package nl.scribblon.riftcraft.util;
+package nl.scribblon.riftcraft.util.iplace;
 
 import net.minecraft.block.Block;
 import net.minecraft.dispenser.ILocation;
@@ -13,18 +13,22 @@ public interface ILocationRC extends ILocation {
 
     /**
      * This is the amount of fields expected to be in an implementation.
+     * Used in NBTHelpers
      */
-    public static final int FIELD_COUNT = 4; //TODO could go for "getClass().getDeclaredFields().length;" ?
+    int FIELD_COUNT = 4; //TODO could go for "getClass().getDeclaredFields().length;" ?
 
-    public int getIntX();
+    /*_*********************************************************************************************************
+     * Normal getters
+     */
+    int getIntX();
 
-    public int getIntY();
+    int getIntY();
 
-    public int getIntZ();
+    int getIntZ();
 
-    public int getDimensionID();
+    int getDimensionID();
 
-    public Block getBlockAtLocation();
+    Block getBlockAtLocation();
 
-    public TileEntity getTileEntityAtLocation();
+    TileEntity getTileEntityAtLocation();
 }

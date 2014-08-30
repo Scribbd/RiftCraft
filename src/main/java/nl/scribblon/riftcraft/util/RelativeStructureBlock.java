@@ -2,6 +2,7 @@ package nl.scribblon.riftcraft.util;
 
 import net.minecraft.block.Block;
 import nl.scribblon.riftcraft.util.imulti.IMultiTiledMaster;
+import nl.scribblon.riftcraft.util.iplace.IRelativeLocationRC;
 
 import java.util.Arrays;
 
@@ -13,13 +14,14 @@ public class RelativeStructureBlock extends RelativeLocation implements Comparab
 
     public static final RelativeStructureBlock ROOT = new RelativeStructureBlock(0,0,0);
 
-    private Block[] allowedStructureParts;
+    private Block[] allowedStructureParts;  //Should maybe make this dynamic... But as far as I can see this is not needed.
+                                            //Might be changed to OreDictionary compatible things... Maybe it is already...
 
-    private RelativeStructureBlock(boolean isInterDimensional, double x, double y, double z) {
-        super(isInterDimensional, x,y,z);
+    //Only for testing and defining a ROOT position is this here
+    private RelativeStructureBlock(double x, double y, double z) {
+        super(false, x,y,z);
         this.allowedStructureParts = null;
     }
-
 
     public RelativeStructureBlock(boolean isInterDimensional, double x, double y, double z, Block... allowedStructureParts) {
         super(isInterDimensional, x, y, z);
@@ -50,6 +52,9 @@ public class RelativeStructureBlock extends RelativeLocation implements Comparab
         return this.isBlockSupported(this.getBlockRelativeTo(master.getLocation()));
     }
 
+    /*_*********************************************************************************************************
+     * Auto-Generated things
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -70,12 +75,15 @@ public class RelativeStructureBlock extends RelativeLocation implements Comparab
         return result;
     }
 
+    /*_*********************************************************************************************************
+     * Semi-Auto-Generated
+     */
     @Override
     public int compareTo(Object o) throws ClassCastException {
-        if(!(o instanceof RelativeStructureBlock))
-            throw new ClassCastException("A Relative Structure Part was expected.");
+        if(!(o instanceof IRelativeLocationRC))
+            throw new ClassCastException("A ILocationRC implementations was expected.");
 
-        RelativeStructureBlock that = (RelativeStructureBlock) o;
+        IRelativeLocationRC that = (IRelativeLocationRC) o;
 
         if(this.getYShift() < that.getYShift()) return -1;
 

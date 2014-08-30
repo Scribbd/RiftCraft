@@ -1,5 +1,6 @@
-package nl.scribblon.riftcraft.util;
+package nl.scribblon.riftcraft.util.iplace;
 
+import nl.scribblon.riftcraft.util.RelativeStructureBlock;
 import nl.scribblon.riftcraft.util.imulti.IMultiTiledMaster;
 
 import java.util.Map;

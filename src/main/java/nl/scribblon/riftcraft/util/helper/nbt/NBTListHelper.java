@@ -2,8 +2,8 @@ package nl.scribblon.riftcraft.util.helper.nbt;
 
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.common.DimensionManager;
-import nl.scribblon.riftcraft.util.ILocationRC;
 import nl.scribblon.riftcraft.util.Location;
+import nl.scribblon.riftcraft.util.iplace.ILocationRC;
 
 import java.util.ArrayList;
 import java.util.List;

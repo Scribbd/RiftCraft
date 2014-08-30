@@ -1,10 +1,10 @@
 package nl.scribblon.riftcraft.util.helper;
 
 import net.minecraft.tileentity.TileEntity;
-import nl.scribblon.riftcraft.util.ILocationRC;
 import nl.scribblon.riftcraft.util.Location;
 import nl.scribblon.riftcraft.util.imulti.IMultiTiled;
 import nl.scribblon.riftcraft.util.imulti.IMultiTiledSlave;
+import nl.scribblon.riftcraft.util.iplace.ILocationRC;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +16,7 @@ import java.util.List;
  *
  */
 public class LocationHelper {
+
 
     /**
      * Converts Location Lists to Tile entities. Then to IMultiSlave Implementations.
@@ -64,5 +65,9 @@ public class LocationHelper {
         } finally {
             return locationList;
         }
+    }
+
+    public static boolean isInterDimensional(ILocationRC location1, ILocationRC location2) {
+        return location1.getDimensionID() != location2.getDimensionID();
     }
 }

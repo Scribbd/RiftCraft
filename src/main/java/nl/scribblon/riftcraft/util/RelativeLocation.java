@@ -2,6 +2,8 @@ package nl.scribblon.riftcraft.util;
 
 import net.minecraft.block.Block;
 import net.minecraft.tileentity.TileEntity;
+import nl.scribblon.riftcraft.util.iplace.ILocationRC;
+import nl.scribblon.riftcraft.util.iplace.IRelativeLocationRC;
 
 /**
  * Created by Scribblon for RiftCraft.
@@ -12,7 +14,6 @@ public class RelativeLocation implements IRelativeLocationRC {
     public static final RelativeLocation ROOT = new RelativeLocation(0,0,0);
 
     private boolean isInterDimensional;
-
     private double x, y, z;
 
     public RelativeLocation(boolean isInterDimensional, double x, double y, double z) {
@@ -33,8 +34,8 @@ public class RelativeLocation implements IRelativeLocationRC {
         this.z = location2.getZ() - location1.getZ();
     }
 
-    /*
-     * vector  functions
+    /*_*********************************************************************************************************
+     * Vector Functions
      */
     @Override
     public IRelativeLocationRC getInverse() {
@@ -58,10 +59,9 @@ public class RelativeLocation implements IRelativeLocationRC {
         );
     }
 
-    /*
-     * Getters of various kinds
+    /*_*********************************************************************************************************
+     * Literal getters of various kinds
      */
-
     @Override
     public double getXShift() {
         return this.x;
@@ -97,6 +97,9 @@ public class RelativeLocation implements IRelativeLocationRC {
         return this.isInterDimensional;
     }
 
+    /*_*********************************************************************************************************
+     * Relative getters of various kinds
+     */
     @Override
     public double getShiftedXTo(ILocationRC location) {
         return location.getX() + this.x;
@@ -142,8 +145,8 @@ public class RelativeLocation implements IRelativeLocationRC {
         return this.getRelativeILocationFrom(location).getTileEntityAtLocation();
     }
 
-    /*
-     * Auto generated bits
+    /*_*********************************************************************************************************
+     * Auto-Generated things
      */
     @Override
     public boolean equals(Object o) {
@@ -166,11 +169,11 @@ public class RelativeLocation implements IRelativeLocationRC {
         long temp;
         result = (isInterDimensional ? 1 : 0);
         temp = Double.doubleToLongBits(x);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (int) (temp ^ (temp >>> 32)); //I don't understand this... -_-'
         temp = Double.doubleToLongBits(y);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (int) (temp ^ (temp >>> 32)); //I know these are bit shifts basically applying *2 to the value
         temp = Double.doubleToLongBits(z);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (int) (temp ^ (temp >>> 32)); //But the '^' part and the need to do this... I don't...
         return result;
     }
 }

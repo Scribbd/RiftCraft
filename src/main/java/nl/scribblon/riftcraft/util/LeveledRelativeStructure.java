@@ -1,6 +1,7 @@
 package nl.scribblon.riftcraft.util;
 
 import nl.scribblon.riftcraft.util.imulti.IMultiTiledMaster;
+import nl.scribblon.riftcraft.util.iplace.ILeveledRelativeStructure;
 
 import java.util.*;
 
@@ -17,7 +18,6 @@ public class LeveledRelativeStructure implements ILeveledRelativeStructure {
         for(RelativeStructure level : levels)
             this.levels.add(level);
     }
-
 
     @Override
     public Set<RelativeStructureBlock> getParts(int level) {

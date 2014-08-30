@@ -1,6 +1,7 @@
 package nl.scribblon.riftcraft.util;
 
 import nl.scribblon.riftcraft.util.imulti.IMultiTiledMaster;
+import nl.scribblon.riftcraft.util.iplace.IRelativeStructure;
 
 import java.util.Set;
 import java.util.TreeSet;
@@ -9,7 +10,7 @@ import java.util.TreeSet;
  * Created by Scribblon for RiftCraft.
  * Date Creation: 29-8-2014
  */
-public class RelativeStructure implements IRelativeStructure{
+public class RelativeStructure implements IRelativeStructure {
 
     private TreeSet<RelativeStructureBlock> parts;
 

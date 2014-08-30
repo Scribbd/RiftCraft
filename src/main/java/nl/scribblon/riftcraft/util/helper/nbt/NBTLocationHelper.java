@@ -3,9 +3,9 @@ package nl.scribblon.riftcraft.util.helper.nbt;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraftforge.common.DimensionManager;
-import nl.scribblon.riftcraft.util.ILocationRC;
 import nl.scribblon.riftcraft.util.Location;
 import nl.scribblon.riftcraft.util.helper.LogHelper;
+import nl.scribblon.riftcraft.util.iplace.ILocationRC;
 
 /**
  * Utility class for writing a location to NBT-Data.

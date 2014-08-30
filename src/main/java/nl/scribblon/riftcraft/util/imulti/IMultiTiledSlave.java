@@ -11,26 +11,26 @@ public interface IMultiTiledSlave extends IMultiTiled {
      * @param master the master block should be given to the slaves. This way the slave can decide how to behave on the type of block it is.
      * @return boolean, true when update could be made and structure is still able to continue operating. False if it can't.
      */
-    public boolean receiveMultiTileUpdateFromMaster(IMultiTiledMaster master);
+    boolean receiveMultiTileUpdateFromMaster(IMultiTiledMaster master);
 
     /**
      * Checks if the entity, in its current condition, can be part of the multi-entity structure.
      * @param master should be given to the potential slave, to decide on the type of master if it can be part of the structure.
      * @return boolean, true if it can be part of the structure. False if it can't.
      */
-    public boolean canConstructAsSlave(IMultiTiledMaster master);
+    boolean canConstructAsSlave(IMultiTiledMaster master);
 
     /**
      * Constructs the IMultiTiledSlave implementation. Allows to set values, for the slave.
      * @param master allows the new slave to determine what values to set to the type of multi-entity structure it will be part off.
      * @return Should be the implementation itself (this) to keep it recorded in the master block.
      */
-    public IMultiTiledSlave setupAsSlave(IMultiTiledMaster master);
+    IMultiTiledSlave setupAsSlave(IMultiTiledMaster master);
 
     /**
      * Deconstructs the IMultiTiledSlave implementation. Allows to set values for the slaves.
      * @param master
      * @return
      */
-    public boolean deconstructAsSlave(IMultiTiledMaster master);
+    boolean deconstructAsSlave(IMultiTiledMaster master);
 }

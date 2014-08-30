@@ -4,6 +4,7 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
+import nl.scribblon.riftcraft.util.iplace.ILocationRC;
 
 /**
  * Created by Scribblon for RiftCraft.
@@ -30,6 +31,13 @@ public class Location implements ILocationRC {
         this.z = z;
     }
 
+    public Location(double x, double y, double z){
+        this.world = null;
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+
     public Location(ILocationRC locatedObject){
         this.world = locatedObject.getWorld();
         this.x = locatedObject.getX();
@@ -51,13 +59,9 @@ public class Location implements ILocationRC {
         this.z = tileEntity.zCoord;
     }
 
-    public Location(double x, double y, double z){
-        this.world = null;
-        this.x = x;
-        this.y = y;
-        this.z = z;
-    }
-
+    /*_*********************************************************************************************************
+     * Literal getters of various kinds
+     */
     @Override
     public World getWorld() {
         return this.world;
@@ -108,6 +112,9 @@ public class Location implements ILocationRC {
         return world.getTileEntity(getIntX(), getIntY(), getIntZ());
     }
 
+    /*_*********************************************************************************************************
+     * Auto-Generated things
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
