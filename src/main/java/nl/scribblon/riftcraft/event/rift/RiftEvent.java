@@ -7,5 +7,4 @@ import nl.scribblon.riftcraft.event.RiftCraftEvent;
  */
 public class RiftEvent extends RiftCraftEvent {
 
-    public final
 }

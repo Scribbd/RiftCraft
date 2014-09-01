@@ -79,17 +79,17 @@ public class EnderPearlHandler {
 
         if (isEnderPearl(event.entityItem) && event.damageSource.isExplosion()){
             //Calculate chances
-
+            RandomHelper rngesus = RandomHelper.getInstance();
             int spawnTotal = 0;
             LogHelper.reportWhenDebugging("Stacksize of Exploded stack: " + event.entityItem.getEntityItem().stackSize);
             for(int i = 0; i < event.entityItem.getEntityItem().stackSize; i++) {
-                if (RandomHelper.rollD100(EXPLOSION_FIRST_CHANCE)) {
+                if (rngesus.rollD100(EXPLOSION_FIRST_CHANCE)) {
                     ++spawnTotal;
-                    if (RandomHelper.rollD100(EXPLOSION_SECOND_CHANCE)) {
+                    if (rngesus.rollD100(EXPLOSION_SECOND_CHANCE)) {
                         ++spawnTotal;
-                        if (RandomHelper.rollD100(EXPLOSION_THIRD_CHANCE)) {
+                        if (rngesus.rollD100(EXPLOSION_THIRD_CHANCE)) {
                             ++spawnTotal;
-                            if (RandomHelper.rollD100(EXPLOSION_FOURTH_CHANCE))
+                            if (rngesus.rollD100(EXPLOSION_FOURTH_CHANCE))
                                 ++spawnTotal;
                         }
                     }
