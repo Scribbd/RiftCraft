@@ -8,7 +8,7 @@ import net.minecraftforge.event.entity.item.ItemEvent;
  * Created by Scribblon for RiftCraft.
  * Date Creation: 30-7-2014
  *
- * Event for when an EntityItem is not picked up, has not expired, but has been destroyed by other means.
+ * Event for when an EntityItemRC is not picked up, has not expired, but has been destroyed by other means.
  */
 public class EntityItemHurtEvent extends ItemEvent {
 

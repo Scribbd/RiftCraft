@@ -9,7 +9,7 @@ import net.minecraftforge.event.entity.item.ItemEvent;
  * Created by Scribblon for RiftCraft.
  * Date Creation: 31-7-2014
  *
- * Event launched whenever an ItemEntity dies
+ * Event launched whenever an ItemEntityRC dies
  */
 public class EntityItemDeathEvent extends ItemEvent{
 
