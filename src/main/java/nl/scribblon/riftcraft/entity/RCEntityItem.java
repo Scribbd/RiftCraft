@@ -11,13 +11,16 @@ import nl.scribblon.riftcraft.event.item.EntityItemHurtEvent;
 /**
  * Created by Scribblon for RiftCraft.
  * Date Creation: 31-7-2014
+ *
+ * Made to check on the enderpearl.
+ * For other EntityItem crafting I might utilize this class or create one for every type of crafting.
  */
 public class RCEntityItem extends EntityItem {
 
     private DamageSource previousDamageSource;
 
-    public RCEntityItem(World p_i1710_1_, double p_i1710_2_, double p_i1710_4_, double p_i1710_6_, ItemStack p_i1710_8_) {
-        super(p_i1710_1_, p_i1710_2_, p_i1710_4_, p_i1710_6_, p_i1710_8_);
+    public RCEntityItem(World world, double x, double y, double z, ItemStack itemStack) {
+        super(world, x, y, z, itemStack);
     }
 
     @Override

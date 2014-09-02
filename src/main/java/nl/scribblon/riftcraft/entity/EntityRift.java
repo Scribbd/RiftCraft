@@ -27,4 +27,8 @@ public class EntityRift extends Entity {
     protected void writeEntityToNBT(NBTTagCompound p_70014_1_) {
 
     }
+
+    public static enum RiftType {
+
+    }
 }
