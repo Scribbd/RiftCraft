@@ -10,15 +10,13 @@ import nl.scribblon.riftcraft.util.helper.nbt.NBTLocationHelper;
 import nl.scribblon.riftcraft.util.imulti.IMultiTiled;
 import nl.scribblon.riftcraft.util.imulti.IMultiTiledMaster;
 import nl.scribblon.riftcraft.util.iplace.ILocationRC;
+import nl.scribblon.riftcraft.util.iplace.IRelativeStructure;
 
 /**
  * Created by Scribblon for RiftCraft.
  * Date Creation: 1-8-2014
  *
- * TODO delete note
- * x w > e
- * z s > n
- * Y d > u
+ * Implementation of IMultiTiled interface.
  */
 public abstract class TileEntityMultiImpl extends RCTileEntity implements IMultiTiled {
 
@@ -151,7 +149,7 @@ public abstract class TileEntityMultiImpl extends RCTileEntity implements IMulti
     }
 
     @Override
-    public IMultiTiledMaster.MultiEntityType getMultiEntityType() {
-        return this.getMaster().getMultiEntityType();
+    public IRelativeStructure.StructureType getActiveStructureType() {
+        return this.getMaster().getActiveStructureType();
     }
 }

@@ -22,12 +22,12 @@ import java.util.Set;
  */
 public abstract class TileEntityMultiMasterImpl extends TileEntityMultiImpl implements IMultiTiledMaster{
 
-    //Tag stored in MultiEntityType.enum
-    protected MultiEntityType type;
+    //Tag stored in Structure. Shows which structure is active.
+    protected IRelativeStructure.StructureType activeStructureType;
 
     public TileEntityMultiMasterImpl(){
         super();
-        this.type = MultiEntityType.UNSET;
+        this.activeStructureType = IRelativeStructure.StructureType.UNSET;
         this.masterLocation = new Location(this);
     }
 
@@ -39,7 +39,7 @@ public abstract class TileEntityMultiMasterImpl extends TileEntityMultiImpl impl
         super.writeToNBT(nbtTagCompound);
 
         if(isMaster) {
-            NBTBasicsHelper.setInteger(nbtTagCompound, MultiEntityType.MULTI_ENTITY_TYPE_TAG, type.ordinal());
+            NBTBasicsHelper.setInteger(nbtTagCompound, IRelativeStructure.StructureType.MULTI_ENTITY_TYPE_TAG, activeStructureType.ordinal());
         }
     }
 
@@ -48,7 +48,7 @@ public abstract class TileEntityMultiMasterImpl extends TileEntityMultiImpl impl
         super.readFromNBT(nbtTagCompound);
 
         if (isMaster) {
-            this.type = MultiEntityType.values()[NBTBasicsHelper.getInteger(nbtTagCompound, MultiEntityType.MULTI_ENTITY_TYPE_TAG)];
+            this.activeStructureType = IRelativeStructure.StructureType.values()[NBTBasicsHelper.getInteger(nbtTagCompound, IRelativeStructure.StructureType.MULTI_ENTITY_TYPE_TAG)];
         }
     }
 
@@ -56,7 +56,7 @@ public abstract class TileEntityMultiMasterImpl extends TileEntityMultiImpl impl
     protected NBTTagCompound purgeNBTTagCompound(NBTTagCompound nbtTagCompound) {
         super.purgeNBTTagCompound(nbtTagCompound);
 
-        NBTBasicsHelper.removeTag(nbtTagCompound, MultiEntityType.MULTI_ENTITY_TYPE_TAG);
+        NBTBasicsHelper.removeTag(nbtTagCompound, IRelativeStructure.StructureType.MULTI_ENTITY_TYPE_TAG);
 
         return nbtTagCompound;
     }
@@ -77,8 +77,8 @@ public abstract class TileEntityMultiMasterImpl extends TileEntityMultiImpl impl
      * Various (Simple) getters
      */
     @Override
-    public MultiEntityType getMultiEntityType() {
-        return this.type;
+    public IRelativeStructure.StructureType getActiveStructureType() {
+        return this.activeStructureType;
     }
 
     /*_*********************************************************************************************************

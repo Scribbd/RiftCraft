@@ -3,7 +3,8 @@ package nl.scribblon.riftcraft.item;
 import nl.scribblon.riftcraft.reference.Names;
 
 /**
- * Created by Peter on 09-08-14.
+ * Created by Scribblon for RiftCraft.
+ * Date Creation: 09-08-14
  */
 public class ItemGlitteringOrb extends RCItem {
 
