@@ -12,9 +12,12 @@ import java.util.TreeSet;
  */
 public class RelativeStructure implements IRelativeStructure {
 
+    protected StructureType type;
+
     private TreeSet<RelativeStructureBlock> parts;
 
-    public RelativeStructure(RelativeStructureBlock... parts){
+    public RelativeStructure(StructureType type, RelativeStructureBlock... parts){
+        this.type = type;
         this.parts = new TreeSet<RelativeStructureBlock>();
         for(RelativeStructureBlock part : parts)
             this.parts.add(part);
@@ -44,5 +47,10 @@ public class RelativeStructure implements IRelativeStructure {
                 return false;
         }
         return true;
+    }
+
+    @Override
+    public StructureType getStructureType() {
+        return this.type;
     }
 }

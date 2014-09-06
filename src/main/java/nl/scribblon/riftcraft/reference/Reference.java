@@ -16,4 +16,5 @@ public class Reference {
     public static final boolean IS_PRE_CONFIG_DEV_MODE = true; //set to false before release
 
     public static final int TICKS_IN_SECOND = 20;
+    public static final int DEFAULT_TICK_SPACE = 1;
 }

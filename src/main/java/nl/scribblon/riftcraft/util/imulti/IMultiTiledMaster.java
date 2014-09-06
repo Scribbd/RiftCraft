@@ -1,6 +1,7 @@
 package nl.scribblon.riftcraft.util.imulti;
 
 import nl.scribblon.riftcraft.util.iplace.ILocationRC;
+import nl.scribblon.riftcraft.util.iplace.IRelativeStructure;
 
 /**
  * Created by Scribblon for RiftCraft.
@@ -8,7 +9,7 @@ import nl.scribblon.riftcraft.util.iplace.ILocationRC;
  */
 public interface IMultiTiledMaster extends IMultiTiled {
 
-    MultiEntityType DEFAULT_TYPE = MultiEntityType.UNSET;
+    IRelativeStructure.StructureType DEFAULT_TYPE = IRelativeStructure.StructureType.UNSET;
 
     /**
      * Forces implementations to have a list of its slaves.
@@ -36,31 +37,4 @@ public interface IMultiTiledMaster extends IMultiTiled {
 
     ILocationRC[] getStructureLocations();
 
-    /**
-     * This enum is for identifying which multi-block structure is active.
-     * One block can be part of different kind of multi tiles. This allows for the potential slave to identify what block it should be using.
-     */
-    enum MultiEntityType {
-        UNSET (1),
-        RIFT_STONE (8),
-        DISRUPT_STONE (8),
-        /**
-         * This value is per level.
-         */
-        QUARTZ_RING (8),
-        RIFT_WELL (12),
-        DISRUPT_WELL (12);
-
-        public static final String MULTI_ENTITY_TYPE_TAG  = "multiEntityType";
-
-        private int arraySize;
-
-        private MultiEntityType(int arraySize){
-            this.arraySize = arraySize;
-        }
-
-        public int getArraySize(){
-            return arraySize;
-        }
-    }
 }

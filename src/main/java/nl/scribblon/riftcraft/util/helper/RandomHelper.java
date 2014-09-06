@@ -48,6 +48,14 @@ final public class RandomHelper {
     private Random rngesus;
 
     /**
+     * Give me an 'Amen'!
+     * @return
+     */
+    public Random getRngesus() {
+        return rngesus;
+    }
+
+    /**
      * RNGesus will roll 1D100 dice for you. And judge you on the result
      * @param target your karma
      * @return heaven or hell.

@@ -12,8 +12,10 @@ import java.util.*;
 public class LeveledRelativeStructure implements ILeveledRelativeStructure {
 
     private ArrayList<RelativeStructure> levels;
+    private StructureType type;
 
-    public LeveledRelativeStructure(RelativeStructure... levels){
+    public LeveledRelativeStructure(StructureType type, RelativeStructure... levels){
+        this.type = type;
         this.levels = new ArrayList<RelativeStructure>(levels.length);
         for(RelativeStructure level : levels)
             this.levels.add(level);
@@ -75,6 +77,11 @@ public class LeveledRelativeStructure implements ILeveledRelativeStructure {
     @Override
     public RelativeStructureBlock getRoot() {
         return this.levels.get(ROOT_LEVEL).getRoot();
+    }
+
+    @Override
+    public StructureType getStructureType() {
+        return this.type;
     }
 
     @Override

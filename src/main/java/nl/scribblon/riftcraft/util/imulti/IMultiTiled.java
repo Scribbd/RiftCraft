@@ -3,6 +3,7 @@ package nl.scribblon.riftcraft.util.imulti;
 import net.minecraft.block.Block;
 import net.minecraft.tileentity.TileEntity;
 import nl.scribblon.riftcraft.util.iplace.ILocationRC;
+import nl.scribblon.riftcraft.util.iplace.IRelativeStructure;
 
 /**
  * Created by Scribblon for RiftCraft.
@@ -74,7 +75,7 @@ public interface IMultiTiled {
      * Allows (and forces) all blocks of an MultiEntity to identify what kind of structure it is part of.
      * @return MultiEntityType, MultiEntityType.UNSET when not present.
      */
-    IMultiTiledMaster.MultiEntityType getMultiEntityType();
+    IRelativeStructure.StructureType getActiveStructureType();
 
     /**
      * Get blocktype of the the master. Could be done through .getMasterLocation().getBlockAtLocation()... Still

@@ -1,6 +1,8 @@
 package nl.scribblon.riftcraft.util.helper;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraft.world.ChunkCoordIntPair;
 import nl.scribblon.riftcraft.util.Location;
 import nl.scribblon.riftcraft.util.imulti.IMultiTiled;
 import nl.scribblon.riftcraft.util.imulti.IMultiTiledSlave;
@@ -78,5 +80,30 @@ public class LocationHelper {
 
     public static boolean isInterDimensional(ILocationRC location1, ILocationRC location2) {
         return location1.getDimensionID() != location2.getDimensionID();
+    }
+
+    public static void teleportEntity(Entity entity, ILocationRC location) {
+        if(entity.worldObj.isRemote) return;
+
+        entity.setWorld(location.getWorld());
+        entity.setPosition(location.getX(), location.getY(), location.getZ());
+    }
+
+    public static boolean loadChunk(ILocationRC location) {
+        if(!location.getWorld().isRemote) return false;
+        if(!location.getWorld().checkChunksExist(location.getIntX(), location.getIntY(), location.getIntZ(),
+                location.getIntX(), location.getIntY(), location.getIntZ())) return false;
+
+        //TODO load chunk at location
+
+        return true;
+
+    }
+
+    public static ChunkCoordIntPair getChunkCoordPairAt(ILocationRC location) {
+        if(!location.getWorld().checkChunksExist(location.getIntX(), location.getIntY(), location.getIntZ(),
+                location.getIntX(), location.getIntY(), location.getIntZ())) return null;
+
+        return location.getWorld().getChunkFromBlockCoords(location.getIntX(), location.getIntZ()).getChunkCoordIntPair();
     }
 }
