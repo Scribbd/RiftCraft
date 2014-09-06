@@ -7,6 +7,7 @@ import nl.scribblon.riftcraft.handler.ConfigurationHandler;
 import nl.scribblon.riftcraft.handler.EnderPearlHandler;
 import nl.scribblon.riftcraft.handler.EnderShardHandler;
 import nl.scribblon.riftcraft.handler.TestHandler;
+import nl.scribblon.riftcraft.manager.RiftCraftConductor;
 
 /**
  * Created by Scribblon for RiftCraft.
@@ -27,5 +28,6 @@ public class ModHandlers {
         forgeBus.register(PLAYER_HANDLER);
         forgeBus.register(ENDER_TOSS_HANDLER);
         forgeBus.register(ENDER_SHARD_HANDLER);
+        forgeBus.register(RiftCraftConductor.getInstance());
     }
 }

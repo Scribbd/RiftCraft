@@ -15,6 +15,8 @@ import net.minecraft.entity.Entity;
 @Cancelable
 public class ShardFocusEvent extends RiftCraftEntityEvent {
 
+    public static final EventType type = EventType.SHARD_FOCUS_EVENT;
+
     /**
      * The resulting double will determine how long the focus will take (in ticks)
      */

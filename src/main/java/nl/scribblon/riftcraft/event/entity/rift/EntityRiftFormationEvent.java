@@ -16,6 +16,8 @@ import nl.scribblon.riftcraft.util.Location;
 @Cancelable
 public class EntityRiftFormationEvent extends EntityRiftEvent {
 
+    public static final EventType type = EventType.RIFT_FORMATION_EVENT;
+
     public final Location location;
     public final EntityRift.RiftType riftType;
 
