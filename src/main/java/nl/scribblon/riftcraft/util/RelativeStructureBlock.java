@@ -10,7 +10,7 @@ import java.util.Arrays;
  * Created by Scribblon for RiftCraft.
  * Date Creation: 29-8-2014
  */
-public class RelativeStructureBlock extends RelativeLocation implements Comparable {
+public class RelativeStructureBlock extends RelativeLocation implements Comparable<IRelativeLocationRC> {
 
     public static final RelativeStructureBlock ROOT = new RelativeStructureBlock(0,0,0);
 
@@ -19,7 +19,7 @@ public class RelativeStructureBlock extends RelativeLocation implements Comparab
 
     //Only for testing and defining a ROOT position is this here
     private RelativeStructureBlock(double x, double y, double z) {
-        super(false, x,y,z);
+        super(false, x, y, z);
         this.allowedStructureParts = null;
     }
 
@@ -79,11 +79,7 @@ public class RelativeStructureBlock extends RelativeLocation implements Comparab
      * Semi-Auto-Generated
      */
     @Override
-    public int compareTo(Object o) throws ClassCastException {
-        if(!(o instanceof IRelativeLocationRC))
-            throw new ClassCastException("A ILocationRC implementations was expected.");
-
-        IRelativeLocationRC that = (IRelativeLocationRC) o;
+    public int compareTo(IRelativeLocationRC that) throws ClassCastException {
 
         if(this.getYShift() < that.getYShift()) return -1;
 

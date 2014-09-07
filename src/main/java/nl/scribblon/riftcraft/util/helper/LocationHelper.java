@@ -18,7 +18,7 @@ import java.util.List;
  * Date Creation: 26-8-2014
  *
  */
-public class LocationHelper {
+public final class LocationHelper {
 
 
     /**

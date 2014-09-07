@@ -19,9 +19,9 @@ public interface IMultiTiledMaster extends IMultiTiled {
 
     /**
      * A check to see if structure is ready to be constructed.
-     * @return true if structure is ready to be constructed, false if not.
+     * @return the structure type which is valid. IRelativeStructure.StructureType.UNSET if none has been found.
      */
-    boolean isStructureComplete();
+    IRelativeStructure.StructureType isStructureComplete();
 
     /**
      * The setup implementation.

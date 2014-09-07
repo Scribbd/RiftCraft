@@ -69,7 +69,7 @@ public abstract class TileEntityMultiImpl extends RCTileEntity implements IMulti
      * @return
      */
     protected boolean hasStatusChanged(NBTTagCompound nbtTagCompound) {
-        return (nbtTagCompound.getBoolean(IS_MASTER_TAG) && isMaster) && (nbtTagCompound.getBoolean(HAS_MASTER_TAG) && hasMaster);
+        return !(nbtTagCompound.getBoolean(IS_MASTER_TAG) && isMaster) || !(nbtTagCompound.getBoolean(HAS_MASTER_TAG) && hasMaster);
     }
 
     /**

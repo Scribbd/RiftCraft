@@ -39,7 +39,7 @@ public abstract class TileEntityMultiMasterImpl extends TileEntityMultiImpl impl
         super.writeToNBT(nbtTagCompound);
 
         if(isMaster) {
-            NBTBasicsHelper.setInteger(nbtTagCompound, IRelativeStructure.StructureType.MULTI_ENTITY_TYPE_TAG, activeStructureType.ordinal());
+            NBTBasicsHelper.setInteger(nbtTagCompound, IRelativeStructure.StructureType.STRUCTURE_TYPE_TAG, activeStructureType.ordinal());
         }
     }
 
@@ -48,7 +48,7 @@ public abstract class TileEntityMultiMasterImpl extends TileEntityMultiImpl impl
         super.readFromNBT(nbtTagCompound);
 
         if (isMaster) {
-            this.activeStructureType = IRelativeStructure.StructureType.values()[NBTBasicsHelper.getInteger(nbtTagCompound, IRelativeStructure.StructureType.MULTI_ENTITY_TYPE_TAG)];
+            this.activeStructureType = IRelativeStructure.StructureType.values()[NBTBasicsHelper.getInteger(nbtTagCompound, IRelativeStructure.StructureType.STRUCTURE_TYPE_TAG)];
         }
     }
 
@@ -56,7 +56,7 @@ public abstract class TileEntityMultiMasterImpl extends TileEntityMultiImpl impl
     protected NBTTagCompound purgeNBTTagCompound(NBTTagCompound nbtTagCompound) {
         super.purgeNBTTagCompound(nbtTagCompound);
 
-        NBTBasicsHelper.removeTag(nbtTagCompound, IRelativeStructure.StructureType.MULTI_ENTITY_TYPE_TAG);
+        NBTBasicsHelper.removeTag(nbtTagCompound, IRelativeStructure.StructureType.STRUCTURE_TYPE_TAG);
 
         return nbtTagCompound;
     }
@@ -71,7 +71,7 @@ public abstract class TileEntityMultiMasterImpl extends TileEntityMultiImpl impl
     abstract public boolean deconstructStructureAsMaster();
 
     @Override
-    abstract public boolean isStructureComplete();
+    abstract public IRelativeStructure.StructureType isStructureComplete();
 
     /*_*********************************************************************************************************
      * Various (Simple) getters

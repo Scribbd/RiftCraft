@@ -13,6 +13,7 @@ public interface ILeveledRelativeStructure extends IRelativeStructure {
 
     int ROOT_LEVEL = 0;
     int INVALID = -1;
+    int INVALID_LEVEL = -1;
 
     Set<RelativeStructureBlock> getParts(int fromLevel, int toLevel);
 
