@@ -25,7 +25,7 @@ import nl.scribblon.riftcraft.util.iplace.IRelativeStructure;
  *  Very Low Level Management (Simple Storage)
  *
  * Mid:
- *  RiftShard.
+ *  RiftCrystals
  *  RiftStone Well, DisruptionStoneWell
  *  Low Level Power Management (Simple Storage/ Harvesting)
  *
@@ -220,7 +220,7 @@ public class Structures {
      * Upgrades:
      *  1: Incorporate Rift(Stone) Structures to set final destination.
      *  2: Structure is able to identify incoming rifts and filter them.
-     *  3: Disruption is able to fauxCancle incoming rift. Basically completely denying it instead of pushing away. (Uses Energy VOID)
+     *  3: Disruption is able to fauxCancel incoming rift. Basically completely denying it instead of pushing away. (Uses Energy VOID)
      */
     public static final RelativeStructure Disruption_Well = null;
 

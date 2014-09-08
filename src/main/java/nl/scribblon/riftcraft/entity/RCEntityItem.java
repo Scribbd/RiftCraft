@@ -12,7 +12,7 @@ import nl.scribblon.riftcraft.event.item.EntityItemHurtEvent;
  * Created by Scribblon for RiftCraft.
  * Date Creation: 31-7-2014
  *
- * Made to check on the enderpearl.
+ * Custom EntityItem. Hope this will soon be replaced by a Forge implementation.
  * For other EntityItem crafting I might utilize this class or create one for every type of crafting.
  */
 public class RCEntityItem extends EntityItem {

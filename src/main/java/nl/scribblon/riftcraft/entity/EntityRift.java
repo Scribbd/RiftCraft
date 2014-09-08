@@ -1,34 +1,65 @@
 package nl.scribblon.riftcraft.entity;
 
 import net.minecraft.entity.Entity;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.world.World;
+import nl.scribblon.riftcraft.util.iplace.ILocationRC;
 
 /**
- * Created by Peter on 09-08-14.
+ * Created by Scribblon for RiftCraft.
+ * Date Creation: 09-08-14
+ *
+ * Entity for the rifts in the world.
  */
-public class EntityRift extends Entity {
+public class EntityRift extends RCEntity {
 
-    public EntityRift(World p_i1582_1_) {
-        super(p_i1582_1_);
+    private RiftType type;
+    private boolean hasBeenAttacked;
+
+    public EntityRift(ILocationRC location, RiftType type) {
+        super(location);
+        this.type = type;
+        this.hasBeenAttacked = false;
+    }
+
+    public RiftType getType() {
+        return this.type;
+    }
+
+    public boolean hasBeenAttacked() {
+        return hasBeenAttacked;
+    }
+
+    public void invokeNaturalClosing() {
+        
+    }
+
+    public void invokeArtificialClosing() {
+
+    }
+    
+    public void invokeSuddenClosing() {
+        
+    }
+
+    public void invokeSuccessfulClosing() {
+
+    }
+
+    public void selfDestruct() {
+        //The last tick you will see this.
     }
 
     @Override
-    protected void entityInit() {
-
-    }
-
-    @Override
-    protected void readEntityFromNBT(NBTTagCompound p_70037_1_) {
-
-    }
-
-    @Override
-    protected void writeEntityToNBT(NBTTagCompound p_70014_1_) {
-
+    public boolean hitByEntity(Entity entity) {
+        this.hasBeenAttacked = true;
+        return false;
     }
 
     public static enum RiftType {
-
+        NATURAL,                        //An entity spawned in nature
+        RIFT_SHARD_ENTER,               //Created by the usage of RiftShard EnterPoint
+        RIFT_SHARD_EXIT,                //Created by usage of RiftShard ExitPoint
+        STRUCTURE_CREATED_IN,           //Created by structure in Structure
+        STRUCTURE_CREATED_OUT_1WAY,     //Created by structure outside of Structure 1 Way type
+        STRUCTURE_CREATED_OUT_2WAY;     //Created by structure outside of Structure 2 Way type
     }
 }

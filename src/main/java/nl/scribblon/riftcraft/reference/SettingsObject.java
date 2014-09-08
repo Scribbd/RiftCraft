@@ -6,6 +6,7 @@ package nl.scribblon.riftcraft.reference;
  *
  * Probably not going to use this style of settings.
  */
+@Deprecated
 public class SettingsObject {
 
     public class General {

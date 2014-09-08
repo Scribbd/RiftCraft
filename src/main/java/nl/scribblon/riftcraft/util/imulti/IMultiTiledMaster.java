@@ -9,7 +9,7 @@ import nl.scribblon.riftcraft.util.iplace.IRelativeStructure;
  */
 public interface IMultiTiledMaster extends IMultiTiled {
 
-    IRelativeStructure.StructureType DEFAULT_TYPE = IRelativeStructure.StructureType.UNSET;
+    IRelativeStructure.StructureType DEFAULT_TYPE = IRelativeStructure.StructureType.NONE;
 
     /**
      * Forces implementations to have a list of its slaves.
@@ -19,7 +19,7 @@ public interface IMultiTiledMaster extends IMultiTiled {
 
     /**
      * A check to see if structure is ready to be constructed.
-     * @return the structure type which is valid. IRelativeStructure.StructureType.UNSET if none has been found.
+     * @return the structure type which is valid. IRelativeStructure.StructureType.NONE if none has been found.
      */
     IRelativeStructure.StructureType isStructureComplete();
 

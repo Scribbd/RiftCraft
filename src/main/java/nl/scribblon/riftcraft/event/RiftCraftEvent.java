@@ -1,7 +1,7 @@
 package nl.scribblon.riftcraft.event;
 
 import cpw.mods.fml.common.eventhandler.Event;
-import nl.scribblon.riftcraft.event.entity.ShardFocusEvent;
+import nl.scribblon.riftcraft.event.entity.ShardImprintEvent;
 import nl.scribblon.riftcraft.event.entity.rift.EntityRiftFormationEvent;
 import nl.scribblon.riftcraft.event.entity.rift.EntityRiftTeleportEvent;
 
@@ -28,7 +28,7 @@ public abstract class RiftCraftEvent extends Event {
         public static EventType valueOf(Event event) {
             if(event instanceof EntityRiftFormationEvent) return RIFT_FORMATION_EVENT;
             if(event instanceof EntityRiftTeleportEvent) return RIFT_TELEPORT_EVENT;
-            if(event instanceof ShardFocusEvent) return SHARD_FOCUS_EVENT;
+            if(event instanceof ShardImprintEvent) return SHARD_FOCUS_EVENT;
             if(event instanceof RiftCraftEvent) return DEFAULT;
 
             return null;

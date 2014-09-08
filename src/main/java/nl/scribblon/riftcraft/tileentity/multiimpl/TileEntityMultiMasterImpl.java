@@ -27,7 +27,7 @@ public abstract class TileEntityMultiMasterImpl extends TileEntityMultiImpl impl
 
     public TileEntityMultiMasterImpl(){
         super();
-        this.activeStructureType = IRelativeStructure.StructureType.UNSET;
+        this.activeStructureType = IRelativeStructure.StructureType.NONE;
         this.masterLocation = new Location(this);
     }
 

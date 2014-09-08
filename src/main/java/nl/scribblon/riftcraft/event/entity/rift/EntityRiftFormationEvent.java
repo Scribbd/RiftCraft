@@ -4,6 +4,7 @@ import cpw.mods.fml.common.eventhandler.Cancelable;
 import net.minecraft.world.World;
 import nl.scribblon.riftcraft.entity.EntityRift;
 import nl.scribblon.riftcraft.util.Location;
+import nl.scribblon.riftcraft.util.iplace.ILocationRC;
 
 /**
  * Created by Scribblon for RiftCraft.
@@ -18,10 +19,10 @@ public class EntityRiftFormationEvent extends EntityRiftEvent {
 
     public static final EventType type = EventType.RIFT_FORMATION_EVENT;
 
-    public final Location location;
+    public final ILocationRC location;
     public final EntityRift.RiftType riftType;
 
-    public EntityRiftFormationEvent(EntityRift entityRift, Location location, EntityRift.RiftType riftType) {
+    public EntityRiftFormationEvent(EntityRift entityRift, ILocationRC location, EntityRift.RiftType riftType) {
         super(entityRift);
         this.location = location;
         this.riftType = riftType;

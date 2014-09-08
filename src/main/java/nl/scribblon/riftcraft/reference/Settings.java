@@ -12,6 +12,11 @@ public class Settings {
         public static boolean isWorldProtected;
     }
 
+    public static class Rifts {
+        public static int defaultFocusTime = 40;
+        public static int defaultShiftTime = 40;
+    }
+
     public static class Generation {
         public static boolean areStructuresGenerated;
         public static boolean areRiftsRegenerating;

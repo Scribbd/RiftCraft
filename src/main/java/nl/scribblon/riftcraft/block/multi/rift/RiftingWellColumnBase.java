@@ -1,4 +1,4 @@
-package nl.scribblon.riftcraft.block.multi.well;
+package nl.scribblon.riftcraft.block.multi.rift;
 
 /**
  * Created by Scribblon for RiftCraft.

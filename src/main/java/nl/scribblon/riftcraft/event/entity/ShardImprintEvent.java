@@ -13,7 +13,7 @@ import net.minecraft.entity.Entity;
  * When canceled, focus will not occur.
  */
 @Cancelable
-public class ShardFocusEvent extends RiftCraftEntityEvent {
+public class ShardImprintEvent extends RiftCraftEntityEvent {
 
     public static final EventType type = EventType.SHARD_FOCUS_EVENT;
 
@@ -27,7 +27,7 @@ public class ShardFocusEvent extends RiftCraftEntityEvent {
      */
     public boolean fauxCancel;
 
-    public ShardFocusEvent(Entity entity, double baseDuration){
+    public ShardImprintEvent(Entity entity, double baseDuration){
         super(entity);
         this.resultingDuration = baseDuration;
         this.fauxCancel = false;

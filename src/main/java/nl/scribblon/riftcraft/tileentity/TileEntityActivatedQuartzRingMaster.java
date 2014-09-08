@@ -1,27 +1,27 @@
 package nl.scribblon.riftcraft.tileentity;
 
 import net.minecraft.nbt.NBTTagCompound;
-import nl.scribblon.riftcraft.tileentity.multiimpl.TileEntityMultiImpl;
+import nl.scribblon.riftcraft.tileentity.multiimpl.TileEntityMultiMasterImpl;
+import nl.scribblon.riftcraft.util.helper.nbt.NBTBasicsHelper;
 import nl.scribblon.riftcraft.util.imulti.IMultiTiledSlave;
-import nl.scribblon.riftcraft.util.iplace.ILocationRC;
+import nl.scribblon.riftcraft.util.iplace.ILeveledRelativeStructure;
+import nl.scribblon.riftcraft.util.iplace.IRelativeStructure;
 
 /**
  * Created by Scribblon for RiftCraft.
  * Date Creation: 8-8-2014
  * This block is a faux block in the center of the ring. The top block will always have this master block.
- * When this master-block is missing
+ * When this master-block is missing it should be
  */
-public class TileEntityActivatedQuartzRingMaster extends TileEntityMultiImpl {
+public class TileEntityActivatedQuartzRingMaster extends TileEntityMultiMasterImpl {
 
     public static final String LEVEL_TAG = "quartzRingLevel";
-
-    public static final int INVALID_LEVEL = -1;
 
     private int level;
 
     public TileEntityActivatedQuartzRingMaster(){
         super();
-        this.level = INVALID_LEVEL;
+        this.level = ILeveledRelativeStructure.INVALID_LEVEL;
     }
 
     @Override
@@ -29,7 +29,7 @@ public class TileEntityActivatedQuartzRingMaster extends TileEntityMultiImpl {
         super.writeToNBT(nbtTagCompound);
 
         if (isMaster) {
-            nbtTagCompound.setInteger(LEVEL_TAG, level);
+            NBTBasicsHelper.setInteger(nbtTagCompound, LEVEL_TAG, level);
         }
     }
 
@@ -37,18 +37,16 @@ public class TileEntityActivatedQuartzRingMaster extends TileEntityMultiImpl {
     public void readFromNBT(NBTTagCompound nbtTagCompound) {
         super.readFromNBT(nbtTagCompound);
 
-        if (isMaster)
-            this.level = nbtTagCompound.getInteger(LEVEL_TAG);
+        if (isMaster) {
+            this.level = NBTBasicsHelper.getInteger(nbtTagCompound, LEVEL_TAG);
+        }
     }
 
     @Override
-    public IMultiTiledSlave[] getTileEntitySlaveList() {
-        return new IMultiTiledSlave[0];
-    }
-
-    @Override
-    public boolean isStructureComplete() {
-        return false;
+    protected NBTTagCompound purgeNBTTagCompound(NBTTagCompound nbtTagCompound) {
+        super.purgeNBTTagCompound(nbtTagCompound);
+        NBTBasicsHelper.removeTag(nbtTagCompound, LEVEL_TAG);
+        return nbtTagCompound;
     }
 
     @Override
@@ -62,7 +60,12 @@ public class TileEntityActivatedQuartzRingMaster extends TileEntityMultiImpl {
     }
 
     @Override
-    public ILocationRC[] getStructureLocations() {
-        return new ILocationRC[0];
+    public IRelativeStructure.StructureType isStructureComplete() {
+        return IRelativeStructure.StructureType.NONE;
+    }
+
+    @Override
+    public IRelativeStructure getStructure() {
+        return null;
     }
 }
