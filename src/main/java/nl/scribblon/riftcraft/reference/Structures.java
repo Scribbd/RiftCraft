@@ -1,7 +1,7 @@
 package nl.scribblon.riftcraft.reference;
 
 import net.minecraft.init.Blocks;
-import nl.scribblon.riftcraft.init.ModBlocks;
+import nl.scribblon.riftcraft.init.RCModBlocks;
 import nl.scribblon.riftcraft.util.*;
 import nl.scribblon.riftcraft.util.iplace.IRelativeStructure;
 
@@ -55,21 +55,21 @@ public class Structures {
      *  The higher the level the bigger chance on extra (positive) effects.
      */
     public static final RelativeStructure QUARTZ_RING_LVL1 = new RelativeStructure(IRelativeStructure.StructureType.QUARTZ_RING,
-            new RelativeStructureBlock(1, 0, 1, ModBlocks.activatedQuartz),     new RelativeStructureBlock(0, 0, 1, ModBlocks.activatedQuartz),     new RelativeStructureBlock(-1, 0, 1, ModBlocks.activatedQuartz),
-            new RelativeStructureBlock(1, 0, 0, ModBlocks.activatedQuartz),     new RelativeStructureBlock(0, 0, 0, Blocks.air),                    new RelativeStructureBlock(-1, 0, 0, ModBlocks.activatedQuartz),
-            new RelativeStructureBlock(1, 0, -1, ModBlocks.activatedQuartz),    new RelativeStructureBlock(0, 0, -1, ModBlocks.activatedQuartz),    new RelativeStructureBlock(-1, 0, -1, ModBlocks.activatedQuartz)
+            new RelativeStructureBlock(1, 0, 1, RCModBlocks.activatedQuartz),     new RelativeStructureBlock(0, 0, 1, RCModBlocks.activatedQuartz),     new RelativeStructureBlock(-1, 0, 1, RCModBlocks.activatedQuartz),
+            new RelativeStructureBlock(1, 0, 0, RCModBlocks.activatedQuartz),     new RelativeStructureBlock(0, 0, 0, Blocks.air),                    new RelativeStructureBlock(-1, 0, 0, RCModBlocks.activatedQuartz),
+            new RelativeStructureBlock(1, 0, -1, RCModBlocks.activatedQuartz),    new RelativeStructureBlock(0, 0, -1, RCModBlocks.activatedQuartz),    new RelativeStructureBlock(-1, 0, -1, RCModBlocks.activatedQuartz)
     );
 
     public static final RelativeStructure QUARTZ_RING_LVL2 = new RelativeStructure(IRelativeStructure.StructureType.QUARTZ_RING,
-            new RelativeStructureBlock(1, -1, 1, ModBlocks.activatedQuartz),     new RelativeStructureBlock(0, -1, 1, ModBlocks.activatedQuartz),     new RelativeStructureBlock(-1, -1, 1, ModBlocks.activatedQuartz),
-            new RelativeStructureBlock(1, -1, 0, ModBlocks.activatedQuartz),     new RelativeStructureBlock(0, -1, 0, Blocks.air),                    new RelativeStructureBlock(-1, -1, 0, ModBlocks.activatedQuartz),
-            new RelativeStructureBlock(1, -1, -1, ModBlocks.activatedQuartz),    new RelativeStructureBlock(0, -1, -1, ModBlocks.activatedQuartz),    new RelativeStructureBlock(-1, -1, -1, ModBlocks.activatedQuartz)
+            new RelativeStructureBlock(1, -1, 1, RCModBlocks.activatedQuartz),     new RelativeStructureBlock(0, -1, 1, RCModBlocks.activatedQuartz),     new RelativeStructureBlock(-1, -1, 1, RCModBlocks.activatedQuartz),
+            new RelativeStructureBlock(1, -1, 0, RCModBlocks.activatedQuartz),     new RelativeStructureBlock(0, -1, 0, Blocks.air),                    new RelativeStructureBlock(-1, -1, 0, RCModBlocks.activatedQuartz),
+            new RelativeStructureBlock(1, -1, -1, RCModBlocks.activatedQuartz),    new RelativeStructureBlock(0, -1, -1, RCModBlocks.activatedQuartz),    new RelativeStructureBlock(-1, -1, -1, RCModBlocks.activatedQuartz)
     );
 
     public static final RelativeStructure QUARTZ_RING_LVL3 = new RelativeStructure(IRelativeStructure.StructureType.QUARTZ_RING,
-            new RelativeStructureBlock(1, -2, 1, ModBlocks.activatedQuartz),     new RelativeStructureBlock(0, -2, 1, ModBlocks.activatedQuartz),     new RelativeStructureBlock(-1, -2, 1, ModBlocks.activatedQuartz),
-            new RelativeStructureBlock(1, -2, 0, ModBlocks.activatedQuartz),     new RelativeStructureBlock(0, -2, 0, Blocks.air),                    new RelativeStructureBlock(-1, -2, 0, ModBlocks.activatedQuartz),
-            new RelativeStructureBlock(1, -2, -1, ModBlocks.activatedQuartz),    new RelativeStructureBlock(0, -2, -1, ModBlocks.activatedQuartz),    new RelativeStructureBlock(-1, -2, -1, ModBlocks.activatedQuartz)
+            new RelativeStructureBlock(1, -2, 1, RCModBlocks.activatedQuartz),     new RelativeStructureBlock(0, -2, 1, RCModBlocks.activatedQuartz),     new RelativeStructureBlock(-1, -2, 1, RCModBlocks.activatedQuartz),
+            new RelativeStructureBlock(1, -2, 0, RCModBlocks.activatedQuartz),     new RelativeStructureBlock(0, -2, 0, Blocks.air),                    new RelativeStructureBlock(-1, -2, 0, RCModBlocks.activatedQuartz),
+            new RelativeStructureBlock(1, -2, -1, RCModBlocks.activatedQuartz),    new RelativeStructureBlock(0, -2, -1, RCModBlocks.activatedQuartz),    new RelativeStructureBlock(-1, -2, -1, RCModBlocks.activatedQuartz)
     );
 
     public static final LeveledRelativeStructure QUARTZ_RING = new LeveledRelativeStructure(IRelativeStructure.StructureType.QUARTZ_RING,
@@ -203,7 +203,7 @@ public class Structures {
     public static final RelativeStructure RIFTING_WELL_LVL2 = null;
     public static final RelativeStructure RIFTING_WELL_LVL3 = null;
 
-    public static final LeveledRelativeStructure DISRUPTING_WELL = new LeveledRelativeStructure(IRelativeStructure.StructureType.DISRUPT_WELL,
+    public static final LeveledRelativeStructure RIFTING_WELL = new LeveledRelativeStructure(IRelativeStructure.StructureType.DISRUPT_WELL,
             RIFTING_WELL_BASIS,
             RIFTING_WELL_LVL1,
             RIFTING_WELL_LVL2,
@@ -222,7 +222,7 @@ public class Structures {
      *  2: Structure is able to identify incoming rifts and filter them.
      *  3: Disruption is able to fauxCancel incoming rift. Basically completely denying it instead of pushing away. (Uses Energy VOID)
      */
-    public static final RelativeStructure Disruption_Well = null;
+    public static final RelativeStructure DISRUPTION_WELL = null;
 
 
 //</editor-fold>
@@ -268,5 +268,6 @@ public class Structures {
      */
     public static final RelativeStructure REPOSITORY = null;
 //</editor-fold>
-    //@formatter:on
+
+//@formatter:on
 }

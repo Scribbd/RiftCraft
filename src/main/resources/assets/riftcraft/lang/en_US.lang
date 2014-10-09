@@ -1,16 +1,44 @@
+#@formatter:off
 #Items
-item.riftcraft:enderShard.name= Enderpearl Shard
+##Crystalic family
+item.riftcraft:enderShard.name= Enderic Shard
 item.riftcraft:riftShard.name= Rift Shard
+item.riftcraft:riftCrystal.name= Rift Crystal
+item.riftcraft:riftNote.name= Rift Note
+item.riftcraft:imprintedRiftNote.name= Imprinted Rift Note
+item.riftcraft:imprintMatrix.name= Imprint Matrix
+##Glittering family
 item.riftcraft:glitteringDust.name= Glittering Dust
 item.riftcraft:glitteringOrb.name= Glittering Orb
 item.riftcraft:glitteringWrench.name= Glittering Wrench
+item.riftcraft:glitteringFork.name= Glittering Fork
+item.riftcraft:glitteringTorch.name = Glittering Torch
+##Micro family
+item.riftcraft:quartzRod.name= Quartz Rod
+item.riftcraft:quartzPlate.name= Quartz Plate
+item.riftcraft:bareToolHead.name= Tool Head
+item.riftcraft:wrenchToolHead.name= Wrench Tool Head
+item.riftcraft:forkToolHead.name= Fork Tool Head
+item.riftcraft:energyIsolator.name= Energy Isolator
+item.riftcraft:energyIsolationUnit.name= Energy Isolation Unit
+item.riftcraft:isolatedShard.name= Isolated Shard
+item.riftcraft:isolatedMatrix.name= Isolated Matrix
+item.riftcraft:energyExchanger.name= Energy Exchange Unit
 
 #Blocks
+##Quartz
 tile.riftcraft:clearQuartz.name= Clear Quartz
 tile.riftcraft:activatedQuarts.name= Activated Quartz
+##Crystalic
 tile.riftcraft:enderShardCluster.name= Ender Shard Cluster
 tile.riftcraft:riftShardCluster.name= Rift Shard Cluster
+##Stones
 tile.riftcraft:riftStone.name= Rift Stone
 
 #Tabs
 itemGroup.riftcraft=RiftCraft
+
+#Config
+
+#@formatter:on
+

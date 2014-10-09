@@ -2,7 +2,7 @@ package nl.scribblon.riftcraft.creativetab;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
-import nl.scribblon.riftcraft.init.ModItems;
+import nl.scribblon.riftcraft.init.RCModItems;
 import nl.scribblon.riftcraft.reference.Reference;
 
 /**
@@ -14,7 +14,7 @@ public class RCCreativeTab {
     public static final CreativeTabs RC_TAB = new CreativeTabs(Reference.MOD_ID.toLowerCase()) {
         @Override
         public Item getTabIconItem() {
-            return ModItems.riftShard;
+            return RCModItems.riftShard;
         }
 
         @Override

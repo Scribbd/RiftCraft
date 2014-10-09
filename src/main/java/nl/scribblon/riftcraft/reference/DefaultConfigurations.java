@@ -83,6 +83,8 @@ public class DefaultConfigurations {
     /**
      * Created by Scribblon for RiftCraft.
      * Date Creation: 28-7-2014
+     *
+     * Subclass is used for the in-game mod config menu.
      */
     public static class Properties {
 
@@ -102,4 +104,6 @@ public class DefaultConfigurations {
 
         public static final boolean CONVERSION_REQUIRES_REBOOT = true;
     }
+
+    //@formatter:on
 }

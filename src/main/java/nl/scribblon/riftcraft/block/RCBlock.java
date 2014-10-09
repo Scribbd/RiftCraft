@@ -11,6 +11,8 @@ import nl.scribblon.riftcraft.reference.Textures;
 /**
  * Created by Scribblon for RiftCraft.
  * Date Creation: 29-7-2014
+ *
+ * Base block for anything Rift Crafty.
  */
 public abstract class RCBlock extends Block {
 
