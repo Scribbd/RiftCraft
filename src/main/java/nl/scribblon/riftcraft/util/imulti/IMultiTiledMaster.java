@@ -27,7 +27,7 @@ public interface IMultiTiledMaster extends IMultiTiled {
      * The setup implementation.
      * @return The resulting IMultiTiledSlave list that should be saved.
      */
-    IMultiTiledSlave[] setupStructureAsMaster();
+    void setupStructureAsMaster();
 
     /**
      * The deconstruct implementation.

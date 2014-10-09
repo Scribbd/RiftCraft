@@ -7,6 +7,8 @@ import nl.scribblon.riftcraft.util.imulti.IMultiTiledSlave;
 /**
  * Created by Scribblon for RiftCraft.
  * Date Creation: 26-8-2014
+ *
+ * Implementation of IMultiTiledSlave for blocks which can only be a slave
  */
 public abstract class TileEntityMultiSlaveImpl extends TileEntityMultiImpl implements IMultiTiledSlave {
 

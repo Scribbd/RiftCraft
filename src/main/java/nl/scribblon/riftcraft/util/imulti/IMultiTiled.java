@@ -82,5 +82,5 @@ public interface IMultiTiled {
      * Overimplementation FTW! \o/
      * @return
      */
-    Block getMasterBlockType();
+    Block getMasterBlock();
 }

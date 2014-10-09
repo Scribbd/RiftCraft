@@ -9,6 +9,9 @@ import nl.scribblon.riftcraft.util.imulti.IMultiTiledSlave;
  * For those Tile Entities that could function as both.
  * Created by Scribblon for RiftCraft.
  * Date Creation: 26-8-2014
+ *
+ * Implementation for TileEntities which can be both a master and a slave.
+ * (Investigate if I should use Meta-Data instead.)
  */
 public abstract class TileEntityMultiMasterSlaveImpl extends TileEntityMultiMasterImpl implements IMultiTiledSlave {
 

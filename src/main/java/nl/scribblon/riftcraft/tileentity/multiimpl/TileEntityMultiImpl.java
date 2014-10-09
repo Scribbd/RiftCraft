@@ -47,10 +47,10 @@ public abstract class TileEntityMultiImpl extends RCTileEntity implements IMulti
         nbtTagCompound.setBoolean(HAS_MASTER_TAG, hasMaster);
 
         if (hasStatusChanged(nbtTagCompound))
-            purgeNBTTagCompound(nbtTagCompound);
+            this.purgeNBTTagCompound(nbtTagCompound);
 
         if(hasMaster)
-            NBTLocationHelper.writeLocationNBT(nbtTagCompound, masterLocation, LOCATION_TAG_PREFIX);
+            NBTLocationHelper.setLocationNBT(nbtTagCompound, this.LOCATION_TAG_PREFIX, this.masterLocation);
     }
 
     @Override
@@ -60,7 +60,7 @@ public abstract class TileEntityMultiImpl extends RCTileEntity implements IMulti
         this.hasMaster = nbtTagCompound.getBoolean(HAS_MASTER_TAG);
 
         if(hasMaster)
-            this.masterLocation = NBTLocationHelper.readLocationNBT(nbtTagCompound, LOCATION_TAG_PREFIX);
+            this.masterLocation = NBTLocationHelper.getLocationNBT(nbtTagCompound, LOCATION_TAG_PREFIX);
     }
 
     /**
@@ -112,12 +112,7 @@ public abstract class TileEntityMultiImpl extends RCTileEntity implements IMulti
 
     @Override
     public boolean isInMultiStructure() {
-        return isMaster || hasMaster;
-    }
-
-    @Override
-    public Block getBlockType() {
-        return this.getBlockType();
+        return this.isMaster || this.hasMaster;
     }
 
     /*_*********************************************************************************************************
@@ -134,7 +129,7 @@ public abstract class TileEntityMultiImpl extends RCTileEntity implements IMulti
     }
 
     @Override
-    public Block getMasterBlockType() {
+    public Block getMasterBlock() {
         return masterLocation.getBlockAtLocation();
     }
 

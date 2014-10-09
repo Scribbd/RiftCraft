@@ -11,6 +11,8 @@ import nl.scribblon.riftcraft.util.iplace.ILocationRC;
  */
 public class EntityRift extends RCEntity {
 
+    public static final double NATURAL_SPAWN_CHANCE = 0.02; //1:50...
+
     private RiftType type;
     private boolean hasBeenAttacked;
 
