@@ -9,7 +9,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import nl.scribblon.riftcraft.entity.RCEntityItem;
 import nl.scribblon.riftcraft.event.item.EntityItemDeathEvent;
-import nl.scribblon.riftcraft.init.ModItems;
+import nl.scribblon.riftcraft.init.RCModItems;
 import nl.scribblon.riftcraft.util.helper.LogHelper;
 import nl.scribblon.riftcraft.util.helper.RandomHelper;
 
@@ -109,7 +109,7 @@ public class EnderPearlHandler {
     }
 
     private EntityItem createShardEntity(World world, Entity entity, int amount){
-        return new EntityItem(world, entity.posX, entity.posY, entity.posZ, new ItemStack(ModItems.enderShard, amount));
+        return new EntityItem(world, entity.posX, entity.posY, entity.posZ, new ItemStack(RCModItems.endericShard, amount));
     }
 
 }

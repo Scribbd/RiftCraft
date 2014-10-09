@@ -9,7 +9,7 @@ public interface IRiftConductable {
     /**
      * Updates ticksActive with the given tick amount
      * @param tick amount of ticks
-     * @return if the target has been reached
+     * @return if the target has been reached. When true is returned the item will be removed from the tickHandler.
      */
      boolean receiveConductorTick(int tick);
 }

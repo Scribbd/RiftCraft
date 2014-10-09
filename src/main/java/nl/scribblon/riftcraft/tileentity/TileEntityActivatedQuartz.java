@@ -1,7 +1,7 @@
 package nl.scribblon.riftcraft.tileentity;
 
-import net.minecraft.init.Blocks;
-import nl.scribblon.riftcraft.tileentity.multiimpl.TileEntityMultiImpl;
+import nl.scribblon.riftcraft.reference.Energy;
+import nl.scribblon.riftcraft.tileentity.multiimpl.TileEntityMultiSlaveImpl;
 import nl.scribblon.riftcraft.util.helper.RandomHelper;
 import nl.scribblon.riftcraft.util.imulti.IMultiTiledMaster;
 import nl.scribblon.riftcraft.util.imulti.IMultiTiledSlave;
@@ -13,11 +13,11 @@ import nl.scribblon.riftcraft.util.iplace.IRelativeStructure;
  *
  * The tile entity which comes with activated quartz.
  */
-public class TileEntityActivatedQuartz extends TileEntityMultiImpl implements IMultiTiledSlave {
+public class TileEntityActivatedQuartz extends TileEntityMultiSlaveImpl {
 
     public static final String TILE_ENTITY_ID = "rcTEClearQuartz";
 
-    public static final double MAX_ENERGY = 50; //arbitrary number, may change in the future
+    public static final double MAX_ENERGY = 50.0; //arbitrary number, may change in the future
     public static final double CHARGE_CHANCE_RING = 50.0; //percent chance to increase charge on usage in string structure
     public static final double CHARGE_INCREMENT = 1.0; //arbitrary charge number, might add a similar system like the ender shards.
 
@@ -31,7 +31,7 @@ public class TileEntityActivatedQuartz extends TileEntityMultiImpl implements IM
     }
 
     public TileEntityActivatedQuartz(){
-        this(MAX_ENERGY);
+        this(Energy.MIN_ENERGY);
     }
 
     @Override
@@ -47,7 +47,7 @@ public class TileEntityActivatedQuartz extends TileEntityMultiImpl implements IM
                     this.storedEnergy += this.CHARGE_INCREMENT;
             }
 
-            return this.storedEnergy >= this.MAX_ENERGY;
+            return this.isFull();
         }
 
         return false;
@@ -55,7 +55,7 @@ public class TileEntityActivatedQuartz extends TileEntityMultiImpl implements IM
 
     @Override
     public boolean canConstructAsSlave(IMultiTiledMaster master) {
-        return false;
+        return !this.isFull();
     }
 
     @Override
@@ -65,8 +65,11 @@ public class TileEntityActivatedQuartz extends TileEntityMultiImpl implements IM
 
     @Override
     public boolean deconstructAsSlave(IMultiTiledMaster master) {
-        this.worldObj.setBlock(this.xCoord, this.yCoord, this.zCoord, Blocks.quartz_block);
-        this.invalidate();
+
         return true;
+    }
+
+    public boolean isFull() {
+        return this.storedEnergy >= this.MAX_ENERGY;
     }
 }
