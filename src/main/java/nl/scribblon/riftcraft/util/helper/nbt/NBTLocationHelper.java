@@ -22,6 +22,21 @@ final public class NBTLocationHelper {
     public static final String Z_TAG_POSTFIX = "LocationZ";
 
     /**
+     * Checks whenever a given NBTTagCompound has location data in it.
+     * @param nbtTagCompound
+     * @param prefix
+     * @return
+     */
+    public static boolean hasLocationNBT(NBTTagCompound nbtTagCompound, String prefix) {
+        if(!NBTBasicsHelper.hasTagKey(nbtTagCompound, prefix + WORLD_TAG_POSTFIX)) return false;
+        if(!NBTBasicsHelper.hasTagKey(nbtTagCompound, prefix + X_TAG_POSTFIX)) return false;
+        if(!NBTBasicsHelper.hasTagKey(nbtTagCompound, prefix + Y_TAG_POSTFIX)) return false;
+        if(!NBTBasicsHelper.hasTagKey(nbtTagCompound, prefix + Z_TAG_POSTFIX)) return false;
+
+        return true;
+    }
+
+    /**
      * Writes a ILocationRC implementation to a NBT-Compound of four tags.
      *  - Integer with the dimensionID of the world (prefix + WORLD_TAG_POSTFIX)
      *  - Double with the X-Position (prefix + X_TAG_POSTFIX)
@@ -29,11 +44,11 @@ final public class NBTLocationHelper {
      *  - Double with the Z-Position (prefix + Z_TAG_POSTFIX)
      *  The presence of the dimensionID is used as identifier if dimension is present.
      * @param nbtTagCompound
-     * @param location
      * @param prefix
+     * @param location
      * @return
      */
-    public static NBTTagCompound writeLocationNBT(NBTTagCompound nbtTagCompound, ILocationRC location, String prefix){
+    public static NBTTagCompound setLocationNBT(NBTTagCompound nbtTagCompound, String prefix, ILocationRC location){
         //TODO should check if dimensionID is the best way of doing this.
         nbtTagCompound.setInteger(prefix + WORLD_TAG_POSTFIX, location.getDimensionID());
 
@@ -54,7 +69,7 @@ final public class NBTLocationHelper {
      * @param prefix
      * @return
      */
-    public static Location readLocationNBT(NBTTagCompound nbtTagCompound, String prefix){
+    public static ILocationRC getLocationNBT(NBTTagCompound nbtTagCompound, String prefix){
         if (NBTBasicsHelper.hasTagKey(nbtTagCompound, prefix + WORLD_TAG_POSTFIX)) return Location.INVALID_LOCATION;
 
         //TODO is World a superclass of WorldServer?

@@ -17,7 +17,7 @@ import java.util.PriorityQueue;
  * Date Creation: 05-09-14
  *
  * Used to conduct musicians like a stern conductor. Conducting them all to the beat of the server.
- * 20 swings a second, imagine net.
+ * 20 swings a second, imagine that.
  */
 public class RiftCraftConductor {
 
@@ -46,9 +46,9 @@ public class RiftCraftConductor {
     @SubscribeEvent
     public void onTick(TickEvent.ServerTickEvent event) {
         this.swingOnBeat(event);
-        this.punishTheSlowPlayers(event);
-        if(madeSwings == Integer.MAX_VALUE) LogHelper.fatal("Congratulations you gave the conductor RSI, but hey, if you read this he has been swinging his wand for 3.5 years Non-Stop!");
-        ++madeSwings;
+        //this.punishTheSlowPlayers(event);
+        if(this.madeSwings >= Integer.MAX_VALUE) LogHelper.fatal("Congratulations you gave the conductor RSI, but hey, if you read this he has been swinging his wand for 3.5 years Non-Stop!");
+        ++this.madeSwings;
     }
 
     public boolean seatMusician(IRiftConductable musician) {
@@ -71,7 +71,10 @@ public class RiftCraftConductor {
         this.slowSwingers.add(new DelayedRiftCraftEvent(slowSwinger, this.madeSwings));
     }
 
-    private void swingOnBeat(TickEvent event) {
+    private void swingOnBeat(TickEvent.ServerTickEvent event) {
+        // Check if the list is populated.
+        if(this.musicians.isEmpty()) return;
+
         // Check for the tick posted on server
         if(!event.side.equals(Side.SERVER)) return;
         // Check if event-type is right (prevent double firing)
@@ -86,10 +89,10 @@ public class RiftCraftConductor {
     }
 
     private void punishTheSlowPlayers(TickEvent event) {
-        //Return when queue is empty
+        // Return when queue is empty
         if(slowSwingers.isEmpty()) return;
 
-        //Check if empty while in the while loop.
+        // Check if empty while in the while loop.
         while(!slowSwingers.isEmpty() && slowSwingers.peek().isItTime(this.madeSwings)) {
             slowSwingers.poll();
         }

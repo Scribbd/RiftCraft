@@ -21,7 +21,7 @@ import java.util.Map;
  *
  * An active rift (aka teleport). A rift contains a source, destination, subject and a few other do-dats.
  * Not to be confused with the EntityRift which is the entity spawned in the world.
- * Does not handle teleportation through rifts made in the Rift Well.
+ * Does not handle teleportation through rifts made in the Rift Well structure.
  * Meta-class it doesn't really fit in any kind of package at the moment.
  * But basically this is a Rift managing tickHandler on the individual level.
  */
@@ -48,8 +48,8 @@ public class Rift implements IRiftConductable {
     //Set to private as these are independent initializations no matter what the input is.
     private Rift(){
         this.ticksActive = -1;
-        this.targetFocusTicks = Settings.Rifts.defaultFocusTime;
-        this.targetShiftTicks = Settings.Rifts.defaultShiftTime;
+        this.targetFocusTicks = Settings.Shards.defaultFocusTime;
+        this.targetShiftTicks = Settings.Shards.defaultShiftTime;
         this.fauxCancel = false;
 
         //Initialize all values of the enumMap.

@@ -106,4 +106,8 @@ public final class LocationHelper {
 
         return location.getWorld().getChunkFromBlockCoords(location.getIntX(), location.getIntZ()).getChunkCoordIntPair();
     }
+
+    public static boolean isOnTop(IRelativeLocationRC relativeLocationRC) {
+        return relativeLocationRC.getIntXShift() == 0 && relativeLocationRC.getIntZShift() == 0 && relativeLocationRC.getIntYShift() <= 3;
+    }
 }
