@@ -1,9 +1,9 @@
-package nl.scribblon.riftcraft.tileentity.multiimpl;
+package nl.scribblon.riftcraft.tileentity.structuretileimpl;
 
 import net.minecraft.nbt.NBTTagCompound;
 import nl.scribblon.riftcraft.util.Location;
-import nl.scribblon.riftcraft.util.imulti.IMultiTiledMaster;
-import nl.scribblon.riftcraft.util.imulti.IMultiTiledSlave;
+import nl.scribblon.riftcraft.util.istructure.IStructureTileMaster;
+import nl.scribblon.riftcraft.util.istructure.IStructureTileSlave;
 
 /**
  * For those Tile Entities that could function as both.
@@ -13,9 +13,9 @@ import nl.scribblon.riftcraft.util.imulti.IMultiTiledSlave;
  * Implementation for TileEntities which can be both a master and a slave.
  * (Investigate if I should use Meta-Data instead.)
  */
-public abstract class TileEntityMultiMasterSlaveImpl extends TileEntityMultiMasterImpl implements IMultiTiledSlave {
+public abstract class StructureTileMasterSlaveImpl extends StructureTileMasterImpl implements IStructureTileSlave {
 
-    public TileEntityMultiMasterSlaveImpl() {
+    public StructureTileMasterSlaveImpl() {
         super();
     }
 
@@ -30,12 +30,12 @@ public abstract class TileEntityMultiMasterSlaveImpl extends TileEntityMultiMast
     }
 
     @Override
-    public boolean canConstructAsSlave(IMultiTiledMaster master) {
+    public boolean canConstructAsSlave(IStructureTileMaster master) {
         return !isMaster();
     }
 
     @Override
-    public IMultiTiledSlave setupAsSlave(IMultiTiledMaster master) {
+    public IStructureTileSlave setupAsSlave(IStructureTileMaster master) {
         this.isMaster = false;
         this.hasMaster = true;
         this.masterLocation = master.getLocation();
@@ -43,7 +43,7 @@ public abstract class TileEntityMultiMasterSlaveImpl extends TileEntityMultiMast
     }
 
     @Override
-    public boolean deconstructAsSlave(IMultiTiledMaster master) {
+    public boolean deconstructAsSlave(IStructureTileMaster master) {
         this.isMaster = false;
         this.hasMaster = false;
         this.masterLocation = Location.INVALID_LOCATION;

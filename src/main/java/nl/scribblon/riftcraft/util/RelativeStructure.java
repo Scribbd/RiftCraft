@@ -1,7 +1,7 @@
 package nl.scribblon.riftcraft.util;
 
-import nl.scribblon.riftcraft.util.imulti.IMultiTiledMaster;
-import nl.scribblon.riftcraft.util.iplace.IRelativeStructure;
+import nl.scribblon.riftcraft.util.istructure.IStructureTileMaster;
+import nl.scribblon.riftcraft.util.istructure.IRelativeStructure;
 
 import java.util.Set;
 import java.util.TreeSet;
@@ -34,12 +34,12 @@ public class RelativeStructure implements IRelativeStructure {
     }
 
     @Override
-    public boolean structureSupportsMaster(IMultiTiledMaster master) {
+    public boolean structureSupportsMaster(IStructureTileMaster master) {
         return this.getRoot().isBlockSupported(master.getBlockType());
     }
 
     @Override
-    public boolean isStructureCorrectFrom(IMultiTiledMaster master) {
+    public boolean isStructureCorrectFrom(IStructureTileMaster master) {
         if(!this.structureSupportsMaster(master)) return false;
 
         for(RelativeStructureBlock structureBlock : this.parts) {

@@ -1,11 +1,11 @@
 package nl.scribblon.riftcraft.tileentity;
 
 import nl.scribblon.riftcraft.reference.Energy;
-import nl.scribblon.riftcraft.tileentity.multiimpl.TileEntityMultiSlaveImpl;
+import nl.scribblon.riftcraft.tileentity.structuretileimpl.StructureTileSlaveImpl;
 import nl.scribblon.riftcraft.util.helper.RandomHelper;
-import nl.scribblon.riftcraft.util.imulti.IMultiTiledMaster;
-import nl.scribblon.riftcraft.util.imulti.IMultiTiledSlave;
-import nl.scribblon.riftcraft.util.iplace.IRelativeStructure;
+import nl.scribblon.riftcraft.util.istructure.IStructureTileMaster;
+import nl.scribblon.riftcraft.util.istructure.IStructureTileSlave;
+import nl.scribblon.riftcraft.util.istructure.IRelativeStructure;
 
 /**
  * Created by Scribblon for RiftCraft.
@@ -13,7 +13,7 @@ import nl.scribblon.riftcraft.util.iplace.IRelativeStructure;
  *
  * The tile entity which comes with activated quartz.
  */
-public class TileEntityActivatedQuartz extends TileEntityMultiSlaveImpl {
+public class TileEntityActivatedQuartz extends StructureTileSlaveImpl {
 
     public static final String TILE_ENTITY_ID = "rcTEClearQuartz";
 
@@ -35,7 +35,7 @@ public class TileEntityActivatedQuartz extends TileEntityMultiSlaveImpl {
     }
 
     @Override
-    public boolean receiveMultiTileUpdateFromMaster(IMultiTiledMaster master) {
+    public boolean receiveMultiTileUpdateFromMaster(IStructureTileMaster master) {
 
         if(master.getActiveStructureType() == IRelativeStructure.StructureType.QUARTZ_RING) {
             RandomHelper rnd = RandomHelper.getInstance();
@@ -54,17 +54,17 @@ public class TileEntityActivatedQuartz extends TileEntityMultiSlaveImpl {
     }
 
     @Override
-    public boolean canConstructAsSlave(IMultiTiledMaster master) {
+    public boolean canConstructAsSlave(IStructureTileMaster master) {
         return !this.isFull();
     }
 
     @Override
-    public IMultiTiledSlave setupAsSlave(IMultiTiledMaster master) {
+    public IStructureTileSlave setupAsSlave(IStructureTileMaster master) {
         return this;
     }
 
     @Override
-    public boolean deconstructAsSlave(IMultiTiledMaster master) {
+    public boolean deconstructAsSlave(IStructureTileMaster master) {
 
         return true;
     }

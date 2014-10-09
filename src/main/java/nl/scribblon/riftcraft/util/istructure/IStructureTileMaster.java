@@ -1,13 +1,12 @@
-package nl.scribblon.riftcraft.util.imulti;
+package nl.scribblon.riftcraft.util.istructure;
 
 import nl.scribblon.riftcraft.util.iplace.ILocationRC;
-import nl.scribblon.riftcraft.util.iplace.IRelativeStructure;
 
 /**
  * Created by Scribblon for RiftCraft.
  * Date Creation: 8-8-2014
  */
-public interface IMultiTiledMaster extends IMultiTiled {
+public interface IStructureTileMaster extends IStructureTile {
 
     IRelativeStructure.StructureType DEFAULT_TYPE = IRelativeStructure.StructureType.NONE;
 
@@ -15,7 +14,7 @@ public interface IMultiTiledMaster extends IMultiTiled {
      * Forces implementations to have a list of its slaves.
      * @return A list of IMultiTiledSlave implementations
      */
-    IMultiTiledSlave[] getTileEntitySlaveList();
+    IStructureTileSlave[] getTileEntitySlaveList();
 
     /**
      * A check to see if structure is ready to be constructed.

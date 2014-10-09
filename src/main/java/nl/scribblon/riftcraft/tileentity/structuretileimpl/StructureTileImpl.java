@@ -1,4 +1,4 @@
-package nl.scribblon.riftcraft.tileentity.multiimpl;
+package nl.scribblon.riftcraft.tileentity.structuretileimpl;
 
 import net.minecraft.block.Block;
 import net.minecraft.nbt.NBTTagCompound;
@@ -7,10 +7,10 @@ import nl.scribblon.riftcraft.tileentity.RCTileEntity;
 import nl.scribblon.riftcraft.util.Location;
 import nl.scribblon.riftcraft.util.helper.LogHelper;
 import nl.scribblon.riftcraft.util.helper.nbt.NBTLocationHelper;
-import nl.scribblon.riftcraft.util.imulti.IMultiTiled;
-import nl.scribblon.riftcraft.util.imulti.IMultiTiledMaster;
+import nl.scribblon.riftcraft.util.istructure.IStructureTile;
+import nl.scribblon.riftcraft.util.istructure.IStructureTileMaster;
 import nl.scribblon.riftcraft.util.iplace.ILocationRC;
-import nl.scribblon.riftcraft.util.iplace.IRelativeStructure;
+import nl.scribblon.riftcraft.util.istructure.IRelativeStructure;
 
 /**
  * Created by Scribblon for RiftCraft.
@@ -18,7 +18,7 @@ import nl.scribblon.riftcraft.util.iplace.IRelativeStructure;
  *
  * Implementation of IMultiTiled interface.
  */
-public abstract class TileEntityMultiImpl extends RCTileEntity implements IMultiTiled {
+public abstract class StructureTileImpl extends RCTileEntity implements IStructureTile {
 
     public static final String IS_MASTER_TAG = "isMaster";
     public static final String HAS_MASTER_TAG = "hasMaster";
@@ -30,7 +30,7 @@ public abstract class TileEntityMultiImpl extends RCTileEntity implements IMulti
     private static final String LOCATION_TAG_PREFIX = "master";
     protected ILocationRC masterLocation;
 
-    public TileEntityMultiImpl(){
+    public StructureTileImpl(){
         super();
         this.hasMaster = false;
         this.isMaster = false;
@@ -134,9 +134,9 @@ public abstract class TileEntityMultiImpl extends RCTileEntity implements IMulti
     }
 
     @Override
-    public IMultiTiledMaster getMaster() {
+    public IStructureTileMaster getMaster() {
         try {
-            return (IMultiTiledMaster) masterLocation.getTileEntityAtLocation();
+            return (IStructureTileMaster) masterLocation.getTileEntityAtLocation();
         } catch (ClassCastException e){
             LogHelper.fatal("Slave: " + this + ". Has invalid master Block! \n" + e);
             return null;

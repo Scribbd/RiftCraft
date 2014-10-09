@@ -1,7 +1,7 @@
 package nl.scribblon.riftcraft.util.helper;
 
 import nl.scribblon.riftcraft.reference.Structures;
-import nl.scribblon.riftcraft.util.iplace.IRelativeStructure;
+import nl.scribblon.riftcraft.util.istructure.IRelativeStructure;
 
 /**
  * Created by Scribblon for RiftCraft.

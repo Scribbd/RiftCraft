@@ -3,7 +3,7 @@ package nl.scribblon.riftcraft.reference;
 import net.minecraft.init.Blocks;
 import nl.scribblon.riftcraft.init.RCModBlocks;
 import nl.scribblon.riftcraft.util.*;
-import nl.scribblon.riftcraft.util.iplace.IRelativeStructure;
+import nl.scribblon.riftcraft.util.istructure.IRelativeStructure;
 
 //@formatter:off
 /**

@@ -1,7 +1,6 @@
-package nl.scribblon.riftcraft.util.iplace;
+package nl.scribblon.riftcraft.util.istructure;
 
 import nl.scribblon.riftcraft.util.RelativeStructureBlock;
-import nl.scribblon.riftcraft.util.imulti.IMultiTiledMaster;
 
 import java.util.Set;
 
@@ -14,9 +13,9 @@ public interface IRelativeStructure {
     /*_*********************************************************************************************************
      * Functions to determine if a location is fit for use
      */
-    boolean structureSupportsMaster(IMultiTiledMaster master);
+    boolean structureSupportsMaster(IStructureTileMaster master);
 
-    boolean isStructureCorrectFrom(IMultiTiledMaster master);
+    boolean isStructureCorrectFrom(IStructureTileMaster master);
 
     /*_*********************************************************************************************************
      * Normal (simple) getters

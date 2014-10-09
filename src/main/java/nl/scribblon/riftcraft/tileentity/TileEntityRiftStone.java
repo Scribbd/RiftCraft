@@ -5,17 +5,17 @@ import nl.scribblon.riftcraft.event.RiftCraftEvent;
 import nl.scribblon.riftcraft.event.entity.ShardImprintEvent;
 import nl.scribblon.riftcraft.event.entity.rift.EntityRiftFormationEvent;
 import nl.scribblon.riftcraft.reference.Settings;
-import nl.scribblon.riftcraft.tileentity.multiimpl.TileEntityMultiMasterSlaveImpl;
+import nl.scribblon.riftcraft.tileentity.structuretileimpl.StructureTileMasterSlaveImpl;
 import nl.scribblon.riftcraft.util.IRiftConductable;
 import nl.scribblon.riftcraft.util.ISubscribable;
 import nl.scribblon.riftcraft.util.Location;
 import nl.scribblon.riftcraft.util.RelativeLocation;
 import nl.scribblon.riftcraft.util.helper.LocationHelper;
 import nl.scribblon.riftcraft.util.helper.nbt.NBTBasicsHelper;
-import nl.scribblon.riftcraft.util.imulti.IMultiTiledMaster;
-import nl.scribblon.riftcraft.util.imulti.IMultiTiledSlave;
+import nl.scribblon.riftcraft.util.istructure.IStructureTileMaster;
+import nl.scribblon.riftcraft.util.istructure.IStructureTileSlave;
 import nl.scribblon.riftcraft.util.iplace.ILocationRC;
-import nl.scribblon.riftcraft.util.iplace.IRelativeStructure;
+import nl.scribblon.riftcraft.util.istructure.IRelativeStructure;
 
 /**
  * Created by Scribblon for RiftCraft.
@@ -24,7 +24,7 @@ import nl.scribblon.riftcraft.util.iplace.IRelativeStructure;
  * TileEntity for RiftStone Blocks
  * Listens to RiftFormationEvent and ShardImprintEvent
  */
-public class TileEntityRiftStone extends TileEntityMultiMasterSlaveImpl implements IRiftConductable, ISubscribable {
+public class TileEntityRiftStone extends StructureTileMasterSlaveImpl implements IRiftConductable, ISubscribable {
 
     public static final String TICK_TAG = "rcTicksActive";
 
@@ -51,7 +51,7 @@ public class TileEntityRiftStone extends TileEntityMultiMasterSlaveImpl implemen
     }
 
     @Override
-    public boolean receiveMultiTileUpdateFromMaster(IMultiTiledMaster master) {
+    public boolean receiveMultiTileUpdateFromMaster(IStructureTileMaster master) {
         return false;
     }
 
@@ -99,8 +99,8 @@ public class TileEntityRiftStone extends TileEntityMultiMasterSlaveImpl implemen
      * MasterBlock
      */
     @Override
-    public IMultiTiledSlave[] getTileEntitySlaveList() {
-        return new IMultiTiledSlave[0];
+    public IStructureTileSlave[] getTileEntitySlaveList() {
+        return new IStructureTileSlave[0];
     }
 
     @Override

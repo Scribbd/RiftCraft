@@ -1,7 +1,7 @@
 package nl.scribblon.riftcraft.util;
 
 import nl.scribblon.riftcraft.util.iplace.IRelativeLocationRC;
-import nl.scribblon.riftcraft.util.iplace.IRelativeStructure;
+import nl.scribblon.riftcraft.util.istructure.IRelativeStructure;
 
 import java.util.TreeSet;
 

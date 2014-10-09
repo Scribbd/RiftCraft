@@ -1,4 +1,4 @@
-package nl.scribblon.riftcraft.tileentity.multiimpl;
+package nl.scribblon.riftcraft.tileentity.structuretileimpl;
 
 import net.minecraft.nbt.NBTTagCompound;
 import nl.scribblon.riftcraft.util.Location;
@@ -7,12 +7,12 @@ import nl.scribblon.riftcraft.util.helper.LocationHelper;
 import nl.scribblon.riftcraft.util.helper.LogHelper;
 import nl.scribblon.riftcraft.util.helper.StructureHelper;
 import nl.scribblon.riftcraft.util.helper.nbt.NBTBasicsHelper;
-import nl.scribblon.riftcraft.util.imulti.IMultiTiledMaster;
-import nl.scribblon.riftcraft.util.imulti.IMultiTiledSlave;
-import nl.scribblon.riftcraft.util.iplace.ILeveledRelativeStructure;
+import nl.scribblon.riftcraft.util.istructure.IStructureTileSlave;
+import nl.scribblon.riftcraft.util.istructure.IStructureTileMaster;
+import nl.scribblon.riftcraft.util.istructure.ILeveledRelativeStructure;
 import nl.scribblon.riftcraft.util.iplace.ILocationRC;
 import nl.scribblon.riftcraft.util.iplace.IRelativeLocationRC;
-import nl.scribblon.riftcraft.util.iplace.IRelativeStructure;
+import nl.scribblon.riftcraft.util.istructure.IRelativeStructure;
 
 import java.util.ArrayList;
 import java.util.Set;
@@ -23,12 +23,12 @@ import java.util.Set;
  *
  * Implementation of the IMultiTiledMaster for blocks which are only going to be masterBlocks.
  */
-public abstract class TileEntityMultiMasterImpl extends TileEntityMultiImpl implements IMultiTiledMaster{
+public abstract class StructureTileMasterImpl extends StructureTileImpl implements IStructureTileMaster {
 
     //Tag stored in Structure. Shows which structure is active.
     protected IRelativeStructure.StructureType activeStructureType;
 
-    public TileEntityMultiMasterImpl(){
+    public StructureTileMasterImpl(){
         super();
         this.activeStructureType = IRelativeStructure.StructureType.NONE;
         this.masterLocation = new Location(this);
@@ -74,7 +74,7 @@ public abstract class TileEntityMultiMasterImpl extends TileEntityMultiImpl impl
     public boolean deconstructStructureAsMaster() {
         if (this.activeStructureType == IRelativeStructure.StructureType.NONE) return true;
 
-        for(IMultiTiledSlave slave : this.getTileEntitySlaveList()) {
+        for(IStructureTileSlave slave : this.getTileEntitySlaveList()) {
             if(!slave.deconstructAsSlave(this)){
                 LogHelper.reportWhenDebugging("ERROR: " + this + " encountered a slave that couldn't deconstruct itself!");
                 return false;
@@ -104,17 +104,17 @@ public abstract class TileEntityMultiMasterImpl extends TileEntityMultiImpl impl
          * Various (Complex) getters
          */
     @Override
-    public IMultiTiledSlave[] getTileEntitySlaveList() {
+    public IStructureTileSlave[] getTileEntitySlaveList() {
         if (this.activeStructureType == IRelativeStructure.StructureType.NONE) return null;
 
-        ArrayList<IMultiTiledSlave> slaves= new ArrayList<IMultiTiledSlave>();
+        ArrayList<IStructureTileSlave> slaves= new ArrayList<IStructureTileSlave>();
         for(ILocationRC location: this.getStructureLocations()) {
             if(location.getBlockAtLocation().hasTileEntity(0))
-                if(location.getTileEntityAtLocation() instanceof IMultiTiledSlave)
-                    slaves.add((IMultiTiledSlave) location.getTileEntityAtLocation());
+                if(location.getTileEntityAtLocation() instanceof IStructureTileSlave)
+                    slaves.add((IStructureTileSlave) location.getTileEntityAtLocation());
         }
 
-        return slaves.toArray(new IMultiTiledSlave[slaves.size()]);
+        return slaves.toArray(new IStructureTileSlave[slaves.size()]);
     }
 
     @Override

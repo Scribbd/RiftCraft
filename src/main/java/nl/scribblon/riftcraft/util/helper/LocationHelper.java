@@ -4,8 +4,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.ChunkCoordIntPair;
 import nl.scribblon.riftcraft.util.Location;
-import nl.scribblon.riftcraft.util.imulti.IMultiTiled;
-import nl.scribblon.riftcraft.util.imulti.IMultiTiledSlave;
+import nl.scribblon.riftcraft.util.istructure.IStructureTile;
+import nl.scribblon.riftcraft.util.istructure.IStructureTileSlave;
 import nl.scribblon.riftcraft.util.iplace.ILocationRC;
 import nl.scribblon.riftcraft.util.iplace.IRelativeLocationRC;
 
@@ -27,13 +27,13 @@ public final class LocationHelper {
      * @param locationList A List with an implementation or subclass of ILocationRC .
      * @return The List with IMultiTiledSlaves.
      */
-    public static ArrayList<IMultiTiledSlave> convertLocationToSlave(List<? extends ILocationRC> locationList) {
-        ArrayList<IMultiTiledSlave> blockList = new ArrayList<IMultiTiledSlave>(locationList.size());
+    public static ArrayList<IStructureTileSlave> convertLocationToSlave(List<? extends ILocationRC> locationList) {
+        ArrayList<IStructureTileSlave> blockList = new ArrayList<IStructureTileSlave>(locationList.size());
 
         int index = 0;
         for(ILocationRC location : locationList){
             try {
-                blockList.set(index++, (IMultiTiledSlave) location.getTileEntityAtLocation());
+                blockList.set(index++, (IStructureTileSlave) location.getTileEntityAtLocation());
             } catch(ClassCastException e){
                 LogHelper.fatal("SOMETHING WENT WRONG CASTING! \n" + e);
                 return blockList;
@@ -49,13 +49,13 @@ public final class LocationHelper {
      * @param blockList A list with implementations of IMultiTiledSlave
      * @return The List with Locations
      */
-    public static ArrayList<Location> convertSlaveToLocation(List<? extends IMultiTiledSlave> blockList) {
+    public static ArrayList<Location> convertSlaveToLocation(List<? extends IStructureTileSlave> blockList) {
         ArrayList<Location> locationList = new ArrayList<Location>(blockList.size());
 
         int index = 0;
 
         try {
-            for(IMultiTiled tile : blockList){
+            for(IStructureTile tile : blockList){
                 TileEntity entity = (TileEntity) tile;
                 if (entity == null){
                     LogHelper.fatal("SOMETHING WENT WRONG. TILEENTITY (NULL) NOT FOUND WHILE CONVERTING.");

@@ -1,7 +1,7 @@
 package nl.scribblon.riftcraft.util;
 
 import net.minecraft.block.Block;
-import nl.scribblon.riftcraft.util.imulti.IMultiTiledMaster;
+import nl.scribblon.riftcraft.util.istructure.IStructureTileMaster;
 import nl.scribblon.riftcraft.util.iplace.IRelativeLocationRC;
 
 import java.util.Arrays;
@@ -48,7 +48,7 @@ public class RelativeStructureBlock extends RelativeLocation implements Comparab
         return false;
     }
 
-    public boolean isBlockSupportedRelativeTo(IMultiTiledMaster master) {
+    public boolean isBlockSupportedRelativeTo(IStructureTileMaster master) {
         return this.isBlockSupported(this.getBlockRelativelyFrom(master.getLocation()));
     }
 

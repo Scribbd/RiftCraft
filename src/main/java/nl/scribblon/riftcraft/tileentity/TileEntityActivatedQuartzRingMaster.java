@@ -2,12 +2,12 @@ package nl.scribblon.riftcraft.tileentity;
 
 import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
-import nl.scribblon.riftcraft.tileentity.multiimpl.TileEntityMultiMasterImpl;
+import nl.scribblon.riftcraft.tileentity.structuretileimpl.StructureTileMasterImpl;
 import nl.scribblon.riftcraft.util.helper.LogHelper;
 import nl.scribblon.riftcraft.util.helper.nbt.NBTBasicsHelper;
-import nl.scribblon.riftcraft.util.iplace.ILeveledRelativeStructure;
+import nl.scribblon.riftcraft.util.istructure.ILeveledRelativeStructure;
 import nl.scribblon.riftcraft.util.iplace.ILocationRC;
-import nl.scribblon.riftcraft.util.iplace.IRelativeStructure;
+import nl.scribblon.riftcraft.util.istructure.IRelativeStructure;
 
 /**
  * Created by Scribblon for RiftCraft.
@@ -16,7 +16,7 @@ import nl.scribblon.riftcraft.util.iplace.IRelativeStructure;
  * When this master-block is missing it should deconstruct itself.
  *
  */
-public class TileEntityActivatedQuartzRingMaster extends TileEntityMultiMasterImpl {
+public class TileEntityActivatedQuartzRingMaster extends StructureTileMasterImpl {
 
     public static final String LEVEL_TAG = "quartzRingLevel";
 

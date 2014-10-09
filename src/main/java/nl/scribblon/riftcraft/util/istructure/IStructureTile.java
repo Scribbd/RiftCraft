@@ -1,15 +1,14 @@
-package nl.scribblon.riftcraft.util.imulti;
+package nl.scribblon.riftcraft.util.istructure;
 
 import net.minecraft.block.Block;
 import net.minecraft.tileentity.TileEntity;
 import nl.scribblon.riftcraft.util.iplace.ILocationRC;
-import nl.scribblon.riftcraft.util.iplace.IRelativeStructure;
 
 /**
  * Created by Scribblon for RiftCraft.
  * Date Creation: 8-8-2014
  */
-public interface IMultiTiled {
+public interface IStructureTile {
 
     /**
      * Forces implementation to keep track of their Master Status.
@@ -39,7 +38,7 @@ public interface IMultiTiled {
      * Get the master.
      * @return IMultiTiledMaster implementation of the master.
      */
-    IMultiTiledMaster getMaster();
+    IStructureTileMaster getMaster();
 
     /**
      * Get the Master Location.

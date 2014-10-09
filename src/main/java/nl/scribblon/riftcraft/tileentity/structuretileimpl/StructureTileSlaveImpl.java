@@ -1,8 +1,8 @@
-package nl.scribblon.riftcraft.tileentity.multiimpl;
+package nl.scribblon.riftcraft.tileentity.structuretileimpl;
 
 import nl.scribblon.riftcraft.util.Location;
-import nl.scribblon.riftcraft.util.imulti.IMultiTiledMaster;
-import nl.scribblon.riftcraft.util.imulti.IMultiTiledSlave;
+import nl.scribblon.riftcraft.util.istructure.IStructureTileMaster;
+import nl.scribblon.riftcraft.util.istructure.IStructureTileSlave;
 
 /**
  * Created by Scribblon for RiftCraft.
@@ -10,14 +10,14 @@ import nl.scribblon.riftcraft.util.imulti.IMultiTiledSlave;
  *
  * Implementation of IMultiTiledSlave for blocks which can only be a slave
  */
-public abstract class TileEntityMultiSlaveImpl extends TileEntityMultiImpl implements IMultiTiledSlave {
+public abstract class StructureTileSlaveImpl extends StructureTileImpl implements IStructureTileSlave {
 
-    public TileEntityMultiSlaveImpl() {
+    public StructureTileSlaveImpl() {
         super();
     }
 
     @Override
-    public IMultiTiledSlave setupAsSlave(IMultiTiledMaster master) {
+    public IStructureTileSlave setupAsSlave(IStructureTileMaster master) {
         //set booleans to correct value
         this.isMaster = false;
         this.hasMaster = true;
@@ -32,7 +32,7 @@ public abstract class TileEntityMultiSlaveImpl extends TileEntityMultiImpl imple
     }
 
     @Override
-    public boolean deconstructAsSlave(IMultiTiledMaster master) {
+    public boolean deconstructAsSlave(IStructureTileMaster master) {
 
         //Reset to default values
         this.isMaster = false;

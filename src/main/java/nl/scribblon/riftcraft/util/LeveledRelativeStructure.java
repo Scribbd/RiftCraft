@@ -1,7 +1,7 @@
 package nl.scribblon.riftcraft.util;
 
-import nl.scribblon.riftcraft.util.imulti.IMultiTiledMaster;
-import nl.scribblon.riftcraft.util.iplace.ILeveledRelativeStructure;
+import nl.scribblon.riftcraft.util.istructure.IStructureTileMaster;
+import nl.scribblon.riftcraft.util.istructure.ILeveledRelativeStructure;
 
 import java.util.*;
 
@@ -46,12 +46,12 @@ public class LeveledRelativeStructure implements ILeveledRelativeStructure {
     }
 
     @Override
-    public boolean isStructureCorrectFrom(IMultiTiledMaster master, int toLevel) {
+    public boolean isStructureCorrectFrom(IStructureTileMaster master, int toLevel) {
         return this.getLevel(master) == toLevel;
     }
 
     @Override
-    public int getLevel(IMultiTiledMaster master) {
+    public int getLevel(IStructureTileMaster master) {
         if(!this.structureSupportsMaster(master)) return INVALID;
 
         for(Map.Entry<RelativeStructureBlock, Integer> set : this.getLevelMap(ROOT_LEVEL, levels.size()).entrySet()) {
@@ -85,12 +85,12 @@ public class LeveledRelativeStructure implements ILeveledRelativeStructure {
     }
 
     @Override
-    public boolean structureSupportsMaster(IMultiTiledMaster master) {
+    public boolean structureSupportsMaster(IStructureTileMaster master) {
         return this.levels.get(ROOT_LEVEL).structureSupportsMaster(master);
     }
 
     @Override
-    public boolean isStructureCorrectFrom(IMultiTiledMaster master) {
+    public boolean isStructureCorrectFrom(IStructureTileMaster master) {
         return this.isStructureCorrectFrom(master, levels.size());
     }
 }

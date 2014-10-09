@@ -1,13 +1,13 @@
-package nl.scribblon.riftcraft.util.iplace;
+package nl.scribblon.riftcraft.util.istructure;
 
 import nl.scribblon.riftcraft.util.RelativeStructureBlock;
-import nl.scribblon.riftcraft.util.imulti.IMultiTiledMaster;
 
 import java.util.Map;
 import java.util.Set;
 
 /**
- * Created by Peter on 29-08-14.
+ * Created by Scribblon for project RiftCraft.
+ * Date Creation: 29-08-14
  */
 public interface ILeveledRelativeStructure extends IRelativeStructure {
 
@@ -19,9 +19,9 @@ public interface ILeveledRelativeStructure extends IRelativeStructure {
 
     Set<RelativeStructureBlock> getParts(int level);
 
-    boolean isStructureCorrectFrom(IMultiTiledMaster master, int level);
+    boolean isStructureCorrectFrom(IStructureTileMaster master, int level);
 
-    int getLevel(IMultiTiledMaster master);
+    int getLevel(IStructureTileMaster master);
 
     Map<RelativeStructureBlock, Integer> getLevelMap(int fromLevel, int toLevel);
 }
