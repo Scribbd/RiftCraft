@@ -1,7 +1,7 @@
 package nl.scribblon.riftcraft.util;
 
+import nl.scribblon.riftcraft.util.istructure.ILeveledStructure;
 import nl.scribblon.riftcraft.util.istructure.IStructureTileMaster;
-import nl.scribblon.riftcraft.util.istructure.ILeveledRelativeStructure;
 
 import java.util.*;
 
@@ -9,12 +9,12 @@ import java.util.*;
  * Created by Scribblon for RiftCraft.
  * Date Creation: 29-8-2014
  */
-public class LeveledRelativeStructure implements ILeveledRelativeStructure {
+public class RelativeLeveledStructure implements ILeveledStructure {
 
     private ArrayList<RelativeStructure> levels;
     private StructureType type;
 
-    public LeveledRelativeStructure(StructureType type, RelativeStructure... levels){
+    public RelativeLeveledStructure(StructureType type, RelativeStructure... levels){
         this.type = type;
         this.levels = new ArrayList<RelativeStructure>(levels.length);
         for(RelativeStructure level : levels)
@@ -22,13 +22,13 @@ public class LeveledRelativeStructure implements ILeveledRelativeStructure {
     }
 
     @Override
-    public Set<RelativeStructureBlock> getParts(int level) {
+    public Set<RelativeStructureBlockArray> getParts(int level) {
         return this.levels.get(level).getParts();
     }
 
     @Override
-    public Set<RelativeStructureBlock> getParts(int fromLevel, int toLevel) {
-        TreeSet<RelativeStructureBlock> results = new TreeSet<RelativeStructureBlock>();
+    public Set<RelativeStructureBlockArray> getParts(int fromLevel, int toLevel) {
+        TreeSet<RelativeStructureBlockArray> results = new TreeSet<RelativeStructureBlockArray>();
 
         for(int level = fromLevel; level < toLevel; ++level) {
             results.addAll(levels.get(level).getParts());
@@ -38,8 +38,8 @@ public class LeveledRelativeStructure implements ILeveledRelativeStructure {
     }
 
     @Override
-    public Set<RelativeStructureBlock> getParts() {
-        TreeSet<RelativeStructureBlock> all = new TreeSet<RelativeStructureBlock>();
+    public Set<? extends nl.scribblon.riftcraft.util.istructure.IStructurePart> getParts() {
+        TreeSet<RelativeStructureBlockArray> all = new TreeSet<RelativeStructureBlockArray>();
         for(RelativeStructure structureLevel : this.levels)
             all.addAll(structureLevel.getParts());
         return all;
@@ -54,7 +54,7 @@ public class LeveledRelativeStructure implements ILeveledRelativeStructure {
     public int getLevel(IStructureTileMaster master) {
         if(!this.structureSupportsMaster(master)) return INVALID;
 
-        for(Map.Entry<RelativeStructureBlock, Integer> set : this.getLevelMap(ROOT_LEVEL, levels.size()).entrySet()) {
+        for(Map.Entry<RelativeStructureBlockArray, Integer> set : this.getLevelMap(ROOT_LEVEL, levels.size()).entrySet()) {
             if(!set.getKey().isBlockSupportedRelativeTo(master))
                 return set.getValue() - 1;
         }
@@ -62,11 +62,11 @@ public class LeveledRelativeStructure implements ILeveledRelativeStructure {
     }
 
     @Override
-    public Map<RelativeStructureBlock, Integer> getLevelMap(int fromLevel, int toLevel) {
-        LinkedHashMap<RelativeStructureBlock, Integer> levelMap = new LinkedHashMap<RelativeStructureBlock, Integer>();
+    public Map<RelativeStructureBlockArray, Integer> getLevelMap(int fromLevel, int toLevel) {
+        LinkedHashMap<RelativeStructureBlockArray, Integer> levelMap = new LinkedHashMap<RelativeStructureBlockArray, Integer>();
 
         for(int levelValue = fromLevel; levelValue < toLevel && levelValue < this.levels.size(); ++levelValue) {
-            for(RelativeStructureBlock block : this.getParts(levelValue)) {
+            for(RelativeStructureBlockArray block : this.getParts(levelValue)) {
                 levelMap.put(block, levelValue);
             }
         }
@@ -75,8 +75,8 @@ public class LeveledRelativeStructure implements ILeveledRelativeStructure {
     }
 
     @Override
-    public RelativeStructureBlock getRoot() {
-        return this.levels.get(ROOT_LEVEL).getRoot();
+    public RelativeStructureBlockArray getMasterPart() {
+        return this.levels.get(ROOT_LEVEL).getMasterPart();
     }
 
     @Override

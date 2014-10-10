@@ -7,10 +7,10 @@ import nl.scribblon.riftcraft.tileentity.RCTileEntity;
 import nl.scribblon.riftcraft.util.Location;
 import nl.scribblon.riftcraft.util.helper.LogHelper;
 import nl.scribblon.riftcraft.util.helper.nbt.NBTLocationHelper;
+import nl.scribblon.riftcraft.util.istructure.IStructure;
 import nl.scribblon.riftcraft.util.istructure.IStructureTile;
 import nl.scribblon.riftcraft.util.istructure.IStructureTileMaster;
 import nl.scribblon.riftcraft.util.iplace.ILocationRC;
-import nl.scribblon.riftcraft.util.istructure.IRelativeStructure;
 
 /**
  * Created by Scribblon for RiftCraft.
@@ -144,7 +144,7 @@ public abstract class StructureTileImpl extends RCTileEntity implements IStructu
     }
 
     @Override
-    public IRelativeStructure.StructureType getActiveStructureType() {
+    public IStructure.StructureType getActiveStructureType() {
         return this.getMaster().getActiveStructureType();
     }
 }

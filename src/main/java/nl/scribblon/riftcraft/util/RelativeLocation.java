@@ -23,7 +23,7 @@ public class RelativeLocation implements IRelativeLocationRC {
         this.z = z;
     }
 
-    public RelativeLocation(double x, double y, double z) {
+    protected RelativeLocation(double x, double y, double z) {
         this(false, x, y, z);
     }
 

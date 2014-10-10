@@ -5,9 +5,9 @@ import net.minecraft.nbt.NBTTagCompound;
 import nl.scribblon.riftcraft.tileentity.structuretileimpl.StructureTileMasterImpl;
 import nl.scribblon.riftcraft.util.helper.LogHelper;
 import nl.scribblon.riftcraft.util.helper.nbt.NBTBasicsHelper;
-import nl.scribblon.riftcraft.util.istructure.ILeveledRelativeStructure;
+import nl.scribblon.riftcraft.util.istructure.ILeveledStructure;
 import nl.scribblon.riftcraft.util.iplace.ILocationRC;
-import nl.scribblon.riftcraft.util.istructure.IRelativeStructure;
+import nl.scribblon.riftcraft.util.istructure.IStructure;
 
 /**
  * Created by Scribblon for RiftCraft.
@@ -24,7 +24,7 @@ public class TileEntityActivatedQuartzRingMaster extends StructureTileMasterImpl
 
     public TileEntityActivatedQuartzRingMaster(){
         super();
-        this.level = ILeveledRelativeStructure.INVALID_LEVEL;
+        this.level = ILeveledStructure.INVALID_LEVEL;
         this.setupStructureAsMaster();
     }
 
@@ -57,7 +57,7 @@ public class TileEntityActivatedQuartzRingMaster extends StructureTileMasterImpl
     public void setupStructureAsMaster() {
         this.activeStructureType = this.isStructureComplete();
 
-        if(this.activeStructureType == IRelativeStructure.StructureType.NONE) return;
+        if(this.activeStructureType == IStructure.StructureType.NONE) return;
 
 
     }
@@ -71,16 +71,16 @@ public class TileEntityActivatedQuartzRingMaster extends StructureTileMasterImpl
     }
 
     @Override
-    public IRelativeStructure.StructureType isStructureComplete() {
+    public IStructure.StructureType isStructureComplete() {
         //Only for this block, whenever structure is not active, it shouldn't exist.
         if(this.getStructure() == null) {
             LogHelper.reportWhenDebugging("ERROR: A QuartzRingMaster is without ring!");
-            return IRelativeStructure.StructureType.NONE;
+            return IStructure.StructureType.NONE;
         }
 
-        if(!this.getStructure().isStructureCorrectFrom(this)) return IRelativeStructure.StructureType.NONE;
+        if(!this.getStructure().isStructureCorrectFrom(this)) return IStructure.StructureType.NONE;
 
-        return IRelativeStructure.StructureType.NONE;
+        return IStructure.StructureType.NONE;
     }
 
     private void moveMaster(ILocationRC location) {

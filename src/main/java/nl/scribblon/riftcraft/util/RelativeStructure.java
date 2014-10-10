@@ -1,49 +1,48 @@
 package nl.scribblon.riftcraft.util;
 
-import nl.scribblon.riftcraft.util.istructure.IStructureTileMaster;
-import nl.scribblon.riftcraft.util.istructure.IRelativeStructure;
+import nl.scribblon.riftcraft.util.iplace.ILocationRC;
+import nl.scribblon.riftcraft.util.istructure.IRelativeStructurePart;
+import nl.scribblon.riftcraft.util.istructure.IStructure;
+import nl.scribblon.riftcraft.util.istructure.IStructurePart;
 
-import java.util.Set;
 import java.util.TreeSet;
 
 /**
  * Created by Scribblon for RiftCraft.
  * Date Creation: 29-8-2014
+ *
+ * A structure containing subblocks
  */
-public class RelativeStructure implements IRelativeStructure {
+public class RelativeStructure implements IStructure {
 
     protected StructureType type;
 
-    private TreeSet<RelativeStructureBlock> parts;
+    protected IRelativeStructurePart[] parts;
+    protected IRelativeStructurePart masterPart;
 
-    public RelativeStructure(StructureType type, RelativeStructureBlock... parts){
+    public RelativeStructure(StructureType type, IRelativeStructurePart masterPart, IRelativeStructurePart... parts){
         this.type = type;
-        this.parts = new TreeSet<RelativeStructureBlock>();
-        for(RelativeStructureBlock part : parts)
-            this.parts.add(part);
+        this.masterPart = masterPart;
+
+        TreeSet<IRelativeStructurePart> sortedParts =  new TreeSet<IRelativeStructurePart>(new StructurePartComparator());
+
+        for(IRelativeStructurePart part : parts)
+            sortedParts.add(part);
+
+        this.parts = sortedParts.toArray(new IRelativeStructurePart[sortedParts.size()]);
     }
 
     @Override
-    public Set<RelativeStructureBlock> getParts() {
-        return this.parts;
+    public boolean structureSupportsMaster(ILocationRC root) {
+        return this.masterPart.isPartValidAt(root);
     }
 
     @Override
-    public RelativeStructureBlock getRoot() {
-        return parts.subSet(RelativeStructureBlock.ROOT, RelativeStructureBlock.ROOT).first();
-    }
+    public boolean isStructureCorrectFrom(ILocationRC root) {
+        if(!this.structureSupportsMaster(root)) return false;
 
-    @Override
-    public boolean structureSupportsMaster(IStructureTileMaster master) {
-        return this.getRoot().isBlockSupported(master.getBlockType());
-    }
-
-    @Override
-    public boolean isStructureCorrectFrom(IStructureTileMaster master) {
-        if(!this.structureSupportsMaster(master)) return false;
-
-        for(RelativeStructureBlock structureBlock : this.parts) {
-            if(!structureBlock.isBlockSupportedRelativeTo(master))
+        for(IStructurePart structureBlock : this.parts) {
+            if(!structureBlock.isPartValidAt(root))
                 return false;
         }
         return true;
@@ -52,5 +51,15 @@ public class RelativeStructure implements IRelativeStructure {
     @Override
     public StructureType getStructureType() {
         return this.type;
+    }
+
+    @Override
+    public IStructurePart[] getParts() {
+        return this.parts;
+    }
+
+    @Override
+    public IStructurePart getMasterPart() {
+        return this.masterPart;
     }
 }

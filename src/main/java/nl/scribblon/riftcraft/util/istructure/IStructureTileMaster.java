@@ -8,7 +8,7 @@ import nl.scribblon.riftcraft.util.iplace.ILocationRC;
  */
 public interface IStructureTileMaster extends IStructureTile {
 
-    IRelativeStructure.StructureType DEFAULT_TYPE = IRelativeStructure.StructureType.NONE;
+    IStructure.StructureType DEFAULT_TYPE = IStructure.StructureType.NONE;
 
     /**
      * Forces implementations to have a list of its slaves.
@@ -20,7 +20,7 @@ public interface IStructureTileMaster extends IStructureTile {
      * A check to see if structure is ready to be constructed.
      * @return the structure type which is valid. IRelativeStructure.StructureType.NONE if none has been found.
      */
-    IRelativeStructure.StructureType isStructureComplete();
+    IStructure.StructureType isStructureComplete();
 
     /**
      * The setup implementation.

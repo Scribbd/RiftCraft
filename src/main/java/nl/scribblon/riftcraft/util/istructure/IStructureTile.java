@@ -74,7 +74,7 @@ public interface IStructureTile {
      * Allows (and forces) all blocks of an MultiEntity to identify what kind of structure it is part of.
      * @return MultiEntityType, MultiEntityType.NONE when not present.
      */
-    IRelativeStructure.StructureType getActiveStructureType();
+    IStructure.StructureType getActiveStructureType();
 
     /**
      * Get blocktype of the the master. Could be done through .getMasterLocation().getBlockAtLocation()... Still

@@ -2,17 +2,17 @@ package nl.scribblon.riftcraft.tileentity.structuretileimpl;
 
 import net.minecraft.nbt.NBTTagCompound;
 import nl.scribblon.riftcraft.util.Location;
-import nl.scribblon.riftcraft.util.RelativeStructureBlock;
+import nl.scribblon.riftcraft.util.RelativeStructureBlockArray;
 import nl.scribblon.riftcraft.util.helper.LocationHelper;
 import nl.scribblon.riftcraft.util.helper.LogHelper;
 import nl.scribblon.riftcraft.util.helper.StructureHelper;
 import nl.scribblon.riftcraft.util.helper.nbt.NBTBasicsHelper;
-import nl.scribblon.riftcraft.util.istructure.IStructureTileSlave;
-import nl.scribblon.riftcraft.util.istructure.IStructureTileMaster;
-import nl.scribblon.riftcraft.util.istructure.ILeveledRelativeStructure;
 import nl.scribblon.riftcraft.util.iplace.ILocationRC;
 import nl.scribblon.riftcraft.util.iplace.IRelativeLocationRC;
-import nl.scribblon.riftcraft.util.istructure.IRelativeStructure;
+import nl.scribblon.riftcraft.util.istructure.ILeveledStructure;
+import nl.scribblon.riftcraft.util.istructure.IStructure;
+import nl.scribblon.riftcraft.util.istructure.IStructureTileMaster;
+import nl.scribblon.riftcraft.util.istructure.IStructureTileSlave;
 
 import java.util.ArrayList;
 import java.util.Set;
@@ -26,11 +26,11 @@ import java.util.Set;
 public abstract class StructureTileMasterImpl extends StructureTileImpl implements IStructureTileMaster {
 
     //Tag stored in Structure. Shows which structure is active.
-    protected IRelativeStructure.StructureType activeStructureType;
+    protected IStructure.StructureType activeStructureType;
 
     public StructureTileMasterImpl(){
         super();
-        this.activeStructureType = IRelativeStructure.StructureType.NONE;
+        this.activeStructureType = IStructure.StructureType.NONE;
         this.masterLocation = new Location(this);
     }
 
@@ -42,7 +42,7 @@ public abstract class StructureTileMasterImpl extends StructureTileImpl implemen
         super.writeToNBT(nbtTagCompound);
 
         if(isMaster) {
-            NBTBasicsHelper.setInteger(nbtTagCompound, IRelativeStructure.StructureType.STRUCTURE_TYPE_TAG, activeStructureType.ordinal());
+            NBTBasicsHelper.setInteger(nbtTagCompound, IStructure.StructureType.STRUCTURE_TYPE_TAG, activeStructureType.ordinal());
         }
     }
 
@@ -51,7 +51,7 @@ public abstract class StructureTileMasterImpl extends StructureTileImpl implemen
         super.readFromNBT(nbtTagCompound);
 
         if (isMaster) {
-            this.activeStructureType = IRelativeStructure.StructureType.values()[NBTBasicsHelper.getInteger(nbtTagCompound, IRelativeStructure.StructureType.STRUCTURE_TYPE_TAG)];
+            this.activeStructureType = IStructure.StructureType.values()[NBTBasicsHelper.getInteger(nbtTagCompound, IStructure.StructureType.STRUCTURE_TYPE_TAG)];
         }
     }
 
@@ -59,7 +59,7 @@ public abstract class StructureTileMasterImpl extends StructureTileImpl implemen
     protected NBTTagCompound purgeNBTTagCompound(NBTTagCompound nbtTagCompound) {
         super.purgeNBTTagCompound(nbtTagCompound);
 
-        NBTBasicsHelper.removeTag(nbtTagCompound, IRelativeStructure.StructureType.STRUCTURE_TYPE_TAG);
+        NBTBasicsHelper.removeTag(nbtTagCompound, IStructure.StructureType.STRUCTURE_TYPE_TAG);
 
         return nbtTagCompound;
     }
@@ -72,7 +72,7 @@ public abstract class StructureTileMasterImpl extends StructureTileImpl implemen
 
     @Override
     public boolean deconstructStructureAsMaster() {
-        if (this.activeStructureType == IRelativeStructure.StructureType.NONE) return true;
+        if (this.activeStructureType == IStructure.StructureType.NONE) return true;
 
         for(IStructureTileSlave slave : this.getTileEntitySlaveList()) {
             if(!slave.deconstructAsSlave(this)){
@@ -80,23 +80,23 @@ public abstract class StructureTileMasterImpl extends StructureTileImpl implemen
                 return false;
             }
         }
-        this.activeStructureType = IRelativeStructure.StructureType.NONE;
+        this.activeStructureType = IStructure.StructureType.NONE;
 
         return true;
     }
 
     @Override
-    abstract public IRelativeStructure.StructureType isStructureComplete();
+    abstract public IStructure.StructureType isStructureComplete();
 
     /*_*********************************************************************************************************
      * Various (Simple) getters
      */
     @Override
-    public IRelativeStructure.StructureType getActiveStructureType() {
+    public IStructure.StructureType getActiveStructureType() {
         return this.activeStructureType;
     }
 
-    public IRelativeStructure getStructure() {
+    public IStructure getStructure() {
         return StructureHelper.getStructure(this.activeStructureType);
     }
 
@@ -105,7 +105,7 @@ public abstract class StructureTileMasterImpl extends StructureTileImpl implemen
          */
     @Override
     public IStructureTileSlave[] getTileEntitySlaveList() {
-        if (this.activeStructureType == IRelativeStructure.StructureType.NONE) return null;
+        if (this.activeStructureType == IStructure.StructureType.NONE) return null;
 
         ArrayList<IStructureTileSlave> slaves= new ArrayList<IStructureTileSlave>();
         for(ILocationRC location: this.getStructureLocations()) {
@@ -119,11 +119,11 @@ public abstract class StructureTileMasterImpl extends StructureTileImpl implemen
 
     @Override
     public ILocationRC[] getStructureLocations() {
-        if (this.getActiveStructureType() == IRelativeStructure.StructureType.NONE) return null;
+        if (this.getActiveStructureType() == IStructure.StructureType.NONE) return null;
 
-        Set<RelativeStructureBlock> set = this.getStructureSet();
+        Set<RelativeStructureBlockArray> set = this.getStructureSet();
 
-        return LocationHelper.convertRelativeToAbsolute(set.toArray(new RelativeStructureBlock[set.size()]), this.getLocation());
+        return LocationHelper.convertRelativeToAbsolute(set.toArray(new RelativeStructureBlockArray[set.size()]), this.getLocation());
     }
 
 
@@ -136,10 +136,10 @@ public abstract class StructureTileMasterImpl extends StructureTileImpl implemen
     /*_*********************************************************************************************************
      * basic functions which are needed. Should not be part of public domain! These functions assume structure is correct
      */
-    protected Set<RelativeStructureBlock> getStructureSet(){
-        if(getStructure() instanceof ILeveledRelativeStructure) {
-            ILeveledRelativeStructure structure = (ILeveledRelativeStructure) this.getStructure();
-            return structure.getParts(ILeveledRelativeStructure.ROOT_LEVEL, structure.getLevel(this));
+    protected Set<RelativeStructureBlockArray> getStructureSet(){
+        if(getStructure() instanceof ILeveledStructure) {
+            ILeveledStructure structure = (ILeveledStructure) this.getStructure();
+            return structure.getParts(ILeveledStructure.ROOT_LEVEL, structure.getLevel(this));
         }
         return this.getStructure().getParts();
     }

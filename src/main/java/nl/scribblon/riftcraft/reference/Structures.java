@@ -3,7 +3,7 @@ package nl.scribblon.riftcraft.reference;
 import net.minecraft.init.Blocks;
 import nl.scribblon.riftcraft.init.RCModBlocks;
 import nl.scribblon.riftcraft.util.*;
-import nl.scribblon.riftcraft.util.istructure.IRelativeStructure;
+import nl.scribblon.riftcraft.util.istructure.IStructure;
 
 //@formatter:off
 /**
@@ -54,25 +54,25 @@ public class Structures {
      *
      *  The higher the level the bigger chance on extra (positive) effects.
      */
-    public static final RelativeStructure QUARTZ_RING_LVL1 = new RelativeStructure(IRelativeStructure.StructureType.QUARTZ_RING,
-            new RelativeStructureBlock(1, 0, 1, RCModBlocks.activatedQuartz),     new RelativeStructureBlock(0, 0, 1, RCModBlocks.activatedQuartz),     new RelativeStructureBlock(-1, 0, 1, RCModBlocks.activatedQuartz),
-            new RelativeStructureBlock(1, 0, 0, RCModBlocks.activatedQuartz),     new RelativeStructureBlock(0, 0, 0, Blocks.air),                    new RelativeStructureBlock(-1, 0, 0, RCModBlocks.activatedQuartz),
-            new RelativeStructureBlock(1, 0, -1, RCModBlocks.activatedQuartz),    new RelativeStructureBlock(0, 0, -1, RCModBlocks.activatedQuartz),    new RelativeStructureBlock(-1, 0, -1, RCModBlocks.activatedQuartz)
+    public static final RelativeStructure QUARTZ_RING_LVL1 = new RelativeStructure(IStructure.StructureType.QUARTZ_RING,
+            new RelativeStructureBlockArray(1, 0, 1, RCModBlocks.activatedQuartz),     new RelativeStructureBlockArray(0, 0, 1, RCModBlocks.activatedQuartz),     new RelativeStructureBlockArray(-1, 0, 1, RCModBlocks.activatedQuartz),
+            new RelativeStructureBlockArray(1, 0, 0, RCModBlocks.activatedQuartz),     new RelativeStructureBlockArray(0, 0, 0, Blocks.air),                    new RelativeStructureBlockArray(-1, 0, 0, RCModBlocks.activatedQuartz),
+            new RelativeStructureBlockArray(1, 0, -1, RCModBlocks.activatedQuartz),    new RelativeStructureBlockArray(0, 0, -1, RCModBlocks.activatedQuartz),    new RelativeStructureBlockArray(-1, 0, -1, RCModBlocks.activatedQuartz)
     );
 
-    public static final RelativeStructure QUARTZ_RING_LVL2 = new RelativeStructure(IRelativeStructure.StructureType.QUARTZ_RING,
-            new RelativeStructureBlock(1, -1, 1, RCModBlocks.activatedQuartz),     new RelativeStructureBlock(0, -1, 1, RCModBlocks.activatedQuartz),     new RelativeStructureBlock(-1, -1, 1, RCModBlocks.activatedQuartz),
-            new RelativeStructureBlock(1, -1, 0, RCModBlocks.activatedQuartz),     new RelativeStructureBlock(0, -1, 0, Blocks.air),                    new RelativeStructureBlock(-1, -1, 0, RCModBlocks.activatedQuartz),
-            new RelativeStructureBlock(1, -1, -1, RCModBlocks.activatedQuartz),    new RelativeStructureBlock(0, -1, -1, RCModBlocks.activatedQuartz),    new RelativeStructureBlock(-1, -1, -1, RCModBlocks.activatedQuartz)
+    public static final RelativeStructure QUARTZ_RING_LVL2 = new RelativeStructure(IStructure.StructureType.QUARTZ_RING,
+            new RelativeStructureBlockArray(1, -1, 1, RCModBlocks.activatedQuartz),     new RelativeStructureBlockArray(0, -1, 1, RCModBlocks.activatedQuartz),     new RelativeStructureBlockArray(-1, -1, 1, RCModBlocks.activatedQuartz),
+            new RelativeStructureBlockArray(1, -1, 0, RCModBlocks.activatedQuartz),     new RelativeStructureBlockArray(0, -1, 0, Blocks.air),                    new RelativeStructureBlockArray(-1, -1, 0, RCModBlocks.activatedQuartz),
+            new RelativeStructureBlockArray(1, -1, -1, RCModBlocks.activatedQuartz),    new RelativeStructureBlockArray(0, -1, -1, RCModBlocks.activatedQuartz),    new RelativeStructureBlockArray(-1, -1, -1, RCModBlocks.activatedQuartz)
     );
 
-    public static final RelativeStructure QUARTZ_RING_LVL3 = new RelativeStructure(IRelativeStructure.StructureType.QUARTZ_RING,
-            new RelativeStructureBlock(1, -2, 1, RCModBlocks.activatedQuartz),     new RelativeStructureBlock(0, -2, 1, RCModBlocks.activatedQuartz),     new RelativeStructureBlock(-1, -2, 1, RCModBlocks.activatedQuartz),
-            new RelativeStructureBlock(1, -2, 0, RCModBlocks.activatedQuartz),     new RelativeStructureBlock(0, -2, 0, Blocks.air),                    new RelativeStructureBlock(-1, -2, 0, RCModBlocks.activatedQuartz),
-            new RelativeStructureBlock(1, -2, -1, RCModBlocks.activatedQuartz),    new RelativeStructureBlock(0, -2, -1, RCModBlocks.activatedQuartz),    new RelativeStructureBlock(-1, -2, -1, RCModBlocks.activatedQuartz)
+    public static final RelativeStructure QUARTZ_RING_LVL3 = new RelativeStructure(IStructure.StructureType.QUARTZ_RING,
+            new RelativeStructureBlockArray(1, -2, 1, RCModBlocks.activatedQuartz),     new RelativeStructureBlockArray(0, -2, 1, RCModBlocks.activatedQuartz),     new RelativeStructureBlockArray(-1, -2, 1, RCModBlocks.activatedQuartz),
+            new RelativeStructureBlockArray(1, -2, 0, RCModBlocks.activatedQuartz),     new RelativeStructureBlockArray(0, -2, 0, Blocks.air),                    new RelativeStructureBlockArray(-1, -2, 0, RCModBlocks.activatedQuartz),
+            new RelativeStructureBlockArray(1, -2, -1, RCModBlocks.activatedQuartz),    new RelativeStructureBlockArray(0, -2, -1, RCModBlocks.activatedQuartz),    new RelativeStructureBlockArray(-1, -2, -1, RCModBlocks.activatedQuartz)
     );
 
-    public static final LeveledRelativeStructure QUARTZ_RING = new LeveledRelativeStructure(IRelativeStructure.StructureType.QUARTZ_RING,
+    public static final RelativeLeveledStructure QUARTZ_RING = new RelativeLeveledStructure(IStructure.StructureType.QUARTZ_RING,
             QUARTZ_RING_LVL1,
             QUARTZ_RING_LVL2,
             QUARTZ_RING_LVL3
@@ -90,12 +90,12 @@ public class Structures {
      *
      *  Can be used in mid-game as one of the first ways to get Enderic Energy from the Ender-Items
      */
-    public static final RelativeStructure ENERGY_DESTABILIZER = new RelativeStructure(IRelativeStructure.StructureType.ENERGY_DESTABILIZER,
+    public static final RelativeStructure ENERGY_DESTABILIZER = new RelativeStructure(IStructure.StructureType.ENERGY_DESTABILIZER,
             //+1
-            new RelativeStructureBlock(1, 1, 1), new RelativeStructureBlock(1, 1, -1),
-            new RelativeStructureBlock(-1, 1, 1), new RelativeStructureBlock(-1, 1, -1),
+            new RelativeStructureBlockArray(1, 1, 1), new RelativeStructureBlockArray(1, 1, -1),
+            new RelativeStructureBlockArray(-1, 1, 1), new RelativeStructureBlockArray(-1, 1, -1),
             //root
-            new RelativeStructureBlock(0, 0, 0)
+            new RelativeStructureBlockArray(0, 0, 0)
     );
 
     public static final RelativeSubStructure ENERGY_EXTRACTOR = new RelativeSubStructure(RelativeSubStructure.SubType.SPECIAL, ENERGY_DESTABILIZER,
@@ -119,20 +119,20 @@ public class Structures {
      *
      * With different type of stones on modification spots of the multi-block this default behaviour can be changed.
      */
-    public static final RelativeStructure RIFT_STONE_WELL = new RelativeStructure(IRelativeStructure.StructureType.RIFT_STONE_WELL,
+    public static final RelativeStructure RIFT_STONE_WELL = new RelativeStructure(IStructure.StructureType.RIFT_STONE_WELL,
             // Top Level +2
-            new RelativeStructureBlock(2, 2, 2),    new RelativeStructureBlock(2, 2, -2),
-            new RelativeStructureBlock(-2, 2, 2),   new RelativeStructureBlock(-2, 2, -2),
+            new RelativeStructureBlockArray(2, 2, 2),    new RelativeStructureBlockArray(2, 2, -2),
+            new RelativeStructureBlockArray(-2, 2, 2),   new RelativeStructureBlockArray(-2, 2, -2),
 
             // Root Level +1
-            new RelativeStructureBlock(2, 1, 2),    new RelativeStructureBlock(2, 1, -2),
-            new RelativeStructureBlock(-2, 1, 2),   new RelativeStructureBlock(-2, 1, -2),
+            new RelativeStructureBlockArray(2, 1, 2),    new RelativeStructureBlockArray(2, 1, -2),
+            new RelativeStructureBlockArray(-2, 1, 2),   new RelativeStructureBlockArray(-2, 1, -2),
 
             // Root Level
-            new RelativeStructureBlock(0, 0, 0),
+            new RelativeStructureBlockArray(0, 0, 0),
 
             // Below Root -1
-            new RelativeStructureBlock(0, -1, 0)
+            new RelativeStructureBlockArray(0, -1, 0)
     );
 
     public static final RelativeSubStructure RIFT_STONE_WELL_MODIFIERS = new RelativeSubStructure(RelativeSubStructure.SubType.MODIFIER, RIFT_STONE_WELL,
@@ -160,15 +160,15 @@ public class Structures {
      *
      * With different type of stones on modification spots of the multi-block this default behaviour can be changed.
      */
-    public static final RelativeStructure DISRUPTION_STONE_WELL = new RelativeStructure(IRelativeStructure.StructureType.DISRUPT_STONE_WELL,
+    public static final RelativeStructure DISRUPTION_STONE_WELL = new RelativeStructure(IStructure.StructureType.DISRUPT_STONE_WELL,
             // 0
-                                                    new RelativeStructureBlock(0, 0, 2),
-            new RelativeStructureBlock(0, 0, -2),   new RelativeStructureBlock(0, 0, 0),    new RelativeStructureBlock(0, 0, 2),
-                                                    new RelativeStructureBlock(0, 0, -2),
+                                                    new RelativeStructureBlockArray(0, 0, 2),
+            new RelativeStructureBlockArray(0, 0, -2),   new RelativeStructureBlockArray(0, 0, 0),    new RelativeStructureBlockArray(0, 0, 2),
+                                                    new RelativeStructureBlockArray(0, 0, -2),
             // -1
-                                                    new RelativeStructureBlock(0, -1, 2),
-            new RelativeStructureBlock(0, -1, -2),  new RelativeStructureBlock(0, -1, 0),   new RelativeStructureBlock(0, -1, 2),
-                                                    new RelativeStructureBlock(0, -1, -2)
+                                                    new RelativeStructureBlockArray(0, -1, 2),
+            new RelativeStructureBlockArray(0, -1, -2),  new RelativeStructureBlockArray(0, -1, 0),   new RelativeStructureBlockArray(0, -1, 2),
+                                                    new RelativeStructureBlockArray(0, -1, -2)
     );
 
     public static final RelativeSubStructure DISRUPTION_STONE_WELL_MODIFIERS = new RelativeSubStructure(RelativeSubStructure.SubType.MODIFIER, DISRUPTION_STONE_WELL,
@@ -203,7 +203,7 @@ public class Structures {
     public static final RelativeStructure RIFTING_WELL_LVL2 = null;
     public static final RelativeStructure RIFTING_WELL_LVL3 = null;
 
-    public static final LeveledRelativeStructure RIFTING_WELL = new LeveledRelativeStructure(IRelativeStructure.StructureType.DISRUPT_WELL,
+    public static final RelativeLeveledStructure RIFTING_WELL = new RelativeLeveledStructure(IStructure.StructureType.DISRUPT_WELL,
             RIFTING_WELL_BASIS,
             RIFTING_WELL_LVL1,
             RIFTING_WELL_LVL2,
@@ -240,7 +240,7 @@ public class Structures {
      * 5:   0.925:              0.25
      * 6:   0.95:               0.275
      */
-    public static final LeveledRelativeStructure ENERGY_MANIPULATOR = null;
+    public static final RelativeLeveledStructure ENERGY_MANIPULATOR = null;
 
     /** ***************************************************************************************************************
      * Void Extractor
@@ -254,7 +254,7 @@ public class Structures {
      * 5:   0.2:                0.65
      * 6:   0.25:               0.7
      */
-    public static final LeveledRelativeStructure VOID_EXTRACTOR = null;
+    public static final RelativeLeveledStructure VOID_EXTRACTOR = null;
 //</editor-fold>
 
 //<editor-fold desc="Other/ Util">

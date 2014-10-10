@@ -3,9 +3,9 @@ package nl.scribblon.riftcraft.tileentity;
 import nl.scribblon.riftcraft.reference.Energy;
 import nl.scribblon.riftcraft.tileentity.structuretileimpl.StructureTileSlaveImpl;
 import nl.scribblon.riftcraft.util.helper.RandomHelper;
+import nl.scribblon.riftcraft.util.istructure.IStructure;
 import nl.scribblon.riftcraft.util.istructure.IStructureTileMaster;
 import nl.scribblon.riftcraft.util.istructure.IStructureTileSlave;
-import nl.scribblon.riftcraft.util.istructure.IRelativeStructure;
 
 /**
  * Created by Scribblon for RiftCraft.
@@ -37,7 +37,7 @@ public class TileEntityActivatedQuartz extends StructureTileSlaveImpl {
     @Override
     public boolean receiveMultiTileUpdateFromMaster(IStructureTileMaster master) {
 
-        if(master.getActiveStructureType() == IRelativeStructure.StructureType.QUARTZ_RING) {
+        if(master.getActiveStructureType() == IStructure.StructureType.QUARTZ_RING) {
             RandomHelper rnd = RandomHelper.getInstance();
 
             if(rnd.rollD100(this.CHARGE_CHANCE_RING)) {

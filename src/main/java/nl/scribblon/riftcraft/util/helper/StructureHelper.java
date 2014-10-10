@@ -1,7 +1,7 @@
 package nl.scribblon.riftcraft.util.helper;
 
 import nl.scribblon.riftcraft.reference.Structures;
-import nl.scribblon.riftcraft.util.istructure.IRelativeStructure;
+import nl.scribblon.riftcraft.util.istructure.IStructure;
 
 /**
  * Created by Scribblon for RiftCraft.
@@ -11,7 +11,7 @@ import nl.scribblon.riftcraft.util.istructure.IRelativeStructure;
  */
 public class StructureHelper {
 
-    public static IRelativeStructure getStructure(IRelativeStructure.StructureType type) {
+    public static IStructure getStructure(IStructure.StructureType type) {
         switch (type) {
         case NONE:
             return null;

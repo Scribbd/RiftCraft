@@ -1,7 +1,7 @@
 package nl.scribblon.riftcraft.util;
 
 import nl.scribblon.riftcraft.util.iplace.IRelativeLocationRC;
-import nl.scribblon.riftcraft.util.istructure.IRelativeStructure;
+import nl.scribblon.riftcraft.util.istructure.IStructure;
 
 import java.util.TreeSet;
 
@@ -15,11 +15,11 @@ import java.util.TreeSet;
  */
 public class RelativeSubStructure {
 
-    private IRelativeStructure masterStructure;
+    private IStructure masterStructure;
     private SubType type;
     private TreeSet<IRelativeLocationRC> subLocations;
 
-    public RelativeSubStructure(SubType type, IRelativeStructure masterStructure, IRelativeLocationRC... relativeLocations) {
+    public RelativeSubStructure(SubType type, IStructure masterStructure, IRelativeLocationRC... relativeLocations) {
         this.type = type;
         this.masterStructure = masterStructure;
 
@@ -33,7 +33,7 @@ public class RelativeSubStructure {
         return type;
     }
 
-    public IRelativeStructure getMasterStructure() {
+    public IStructure getMasterStructure() {
         return masterStructure;
     }
 

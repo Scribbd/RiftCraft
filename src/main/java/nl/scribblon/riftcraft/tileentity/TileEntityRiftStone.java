@@ -12,10 +12,10 @@ import nl.scribblon.riftcraft.util.Location;
 import nl.scribblon.riftcraft.util.RelativeLocation;
 import nl.scribblon.riftcraft.util.helper.LocationHelper;
 import nl.scribblon.riftcraft.util.helper.nbt.NBTBasicsHelper;
+import nl.scribblon.riftcraft.util.istructure.IStructure;
 import nl.scribblon.riftcraft.util.istructure.IStructureTileMaster;
 import nl.scribblon.riftcraft.util.istructure.IStructureTileSlave;
 import nl.scribblon.riftcraft.util.iplace.ILocationRC;
-import nl.scribblon.riftcraft.util.istructure.IRelativeStructure;
 
 /**
  * Created by Scribblon for RiftCraft.
@@ -104,7 +104,7 @@ public class TileEntityRiftStone extends StructureTileMasterSlaveImpl implements
     }
 
     @Override
-    public IRelativeStructure.StructureType isStructureComplete() {
+    public IStructure.StructureType isStructureComplete() {
         return null;
     }
 

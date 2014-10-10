@@ -1,28 +1,26 @@
 package nl.scribblon.riftcraft.util.istructure;
 
-import nl.scribblon.riftcraft.util.RelativeStructureBlock;
-
-import java.util.Set;
+import nl.scribblon.riftcraft.util.iplace.ILocationRC;
 
 /**
  * Created by Scribblon for RiftCraft.
  * Date Creation: 29-08-14
  */
-public interface IRelativeStructure {
+public interface IStructure {
 
     /*_*********************************************************************************************************
      * Functions to determine if a location is fit for use
      */
-    boolean structureSupportsMaster(IStructureTileMaster master);
+    boolean structureSupportsMaster(ILocationRC root);
 
-    boolean isStructureCorrectFrom(IStructureTileMaster master);
+    boolean isStructureCorrectFrom(ILocationRC root);
 
     /*_*********************************************************************************************************
      * Normal (simple) getters
      */
-    Set<RelativeStructureBlock> getParts();
+    IStructurePart[] getParts();
 
-    RelativeStructureBlock getRoot();
+    IStructurePart getMasterPart();
 
     StructureType getStructureType();
 

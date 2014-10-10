@@ -1,99 +1,44 @@
 package nl.scribblon.riftcraft.util;
 
 import net.minecraft.block.Block;
-import nl.scribblon.riftcraft.util.istructure.IStructureTileMaster;
+import nl.scribblon.riftcraft.util.helper.BlockHelper;
+import nl.scribblon.riftcraft.util.iplace.ILocationRC;
 import nl.scribblon.riftcraft.util.iplace.IRelativeLocationRC;
-
-import java.util.Arrays;
+import nl.scribblon.riftcraft.util.istructure.IRelativeStructurePart;
 
 /**
  * Created by Scribblon for RiftCraft.
- * Date Creation: 29-8-2014
+ * Date Creation: 13-10-2014
+ *
+ * Relative Structure Block. Single Block.
  */
-public class RelativeStructureBlock extends RelativeLocation implements Comparable<IRelativeLocationRC> {
+public class RelativeStructureBlock implements IRelativeStructurePart {
 
-    public static final RelativeStructureBlock ROOT = new RelativeStructureBlock(0,0,0);
+    private Block block;
+    private RelativeLocation relativeLocation;
 
-    private Block[] allowedStructureParts;  //Should maybe make this dynamic... But as far as I can see this is not needed.
-                                            //Might be changed to OreDictionary compatible things... Maybe it is already...
-
-    //Only for testing and defining a ROOT position is this here
-    private RelativeStructureBlock(double x, double y, double z) {
-        super(false, x, y, z);
-        this.allowedStructureParts = null;
-    }
-
-    public RelativeStructureBlock(boolean isInterDimensional, double x, double y, double z, Block... allowedStructureParts) {
-        super(isInterDimensional, x, y, z);
-        this.allowedStructureParts = allowedStructureParts;
-    }
-
-    public RelativeStructureBlock(double x, double y, double z, Block... allowedStructureParts) {
-        super(x, y, z);
-        this.allowedStructureParts = allowedStructureParts;
-    }
-
-    public Block[] getAllowedStructureParts(){
-        return this.allowedStructureParts;
-    }
-
-    public boolean isBlockSupported(Block block) {
-        if (allowedStructureParts.length <= 0) return false;
-
-        for (Block allowedPart : allowedStructureParts) {
-            if (allowedPart.equals(block))
-                return true;
-        }
-
-        return false;
-    }
-
-    public boolean isBlockSupportedRelativeTo(IStructureTileMaster master) {
-        return this.isBlockSupported(this.getBlockRelativelyFrom(master.getLocation()));
-    }
-
-    /*_*********************************************************************************************************
-     * Auto-Generated things
-     */
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof RelativeStructureBlock)) return false;
-        if (!super.equals(o)) return false;
-
-        RelativeStructureBlock that = (RelativeStructureBlock) o;
-
-        if (!Arrays.equals(allowedStructureParts, that.allowedStructureParts)) return false;
-
-        return true;
+    public RelativeStructureBlock(RelativeLocation relativeLocation, Block block) {
+        this.block = block;
+        this.relativeLocation = relativeLocation;
     }
 
     @Override
-    public int hashCode() {
-        int result = super.hashCode();
-        result = 31 * result + Arrays.hashCode(allowedStructureParts);
-        return result;
+    public boolean isPartValid(Block block) {
+        return BlockHelper.isBlockSameByUnlocalizedName(this.block, block);
     }
 
-    /*_*********************************************************************************************************
-     * Semi-Auto-Generated
-     */
     @Override
-    public int compareTo(IRelativeLocationRC that) throws ClassCastException {
+    public boolean isPartValidAt(ILocationRC rootLocation) {
+        return this.isPartValid(this.relativeLocation.getBlockRelativelyFrom(rootLocation));
+    }
 
-        if(this.getYShift() < that.getYShift()) return -1;
+    @Override
+    public IRelativeLocationRC getRelativeLocation() {
+        return this.relativeLocation;
+    }
 
-        if(this.getYShift() > that.getYShift()) return +1;
-
-        if(this.getZShift() < that.getZShift()) return -1;
-
-        if(this.getZShift() > that.getZShift()) return +1;
-
-        if(this.getXShift() > that.getXShift()) return -1;
-
-        if(this.getXShift() < that.getXShift()) return +1;
-
-        return 0;
-
+    @Override
+    public ILocationRC getAbsoluteLocation(ILocationRC rootLocation) {
+        return this.relativeLocation.getILocationRelativelyFrom(rootLocation);
     }
 }
